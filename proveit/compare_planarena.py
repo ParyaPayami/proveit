@@ -53,6 +53,15 @@ def delong(a, b, y) -> dict:
             "difference": round(d, 3), "ci95": [round(d - 1.96 * se, 3), round(d + 1.96 * se, 3)]}
 
 
+def top_hits(scores, y, k) -> float:
+    """Expected outcomes among the k highest-scored lots, with ties at the cut-off broken at random."""
+    ranked = sorted(zip(scores, y), reverse=True)
+    cut = ranked[k - 1][0]
+    above = [o for s, o in ranked if s > cut]
+    tied = [o for s, o in ranked if s == cut]
+    return round(sum(above) + (k - len(above)) * sum(tied) / len(tied), 1)
+
+
 def compare(pairs: str, props: list[dict], cutoff: int | None = None, drop: set[str] = frozenset()) -> dict:
     """Forecast vs rule on lots that have a soft-site value (and, with cutoff, no building from that year or later)."""
     rows = list(csv.DictReader(open(SCORE / pairs / "pairs.csv")))
@@ -60,7 +69,10 @@ def compare(pairs: str, props: list[dict], cutoff: int | None = None, drop: set[
     keep = [(float(r["pred"]), p["soft_site"], int(r["outcome"])) for r, p in zip(rows, props)
             if not r["excluded"] and p["soft_site"] is not None and p["bbl"] not in drop
             and (cutoff is None or (p["year_built_2020"] or 0) < cutoff)]
-    return delong([k[0] for k in keep], [k[1] for k in keep], [k[2] for k in keep])
+    a, b, y = [k[0] for k in keep], [k[1] for k in keep], [k[2] for k in keep]
+    k = round(len(y) / 100)
+    return delong(a, b, y) | {"top1pct_lots": k, "top1pct_hits_forecast": top_hits(a, y, k),
+                              "top1pct_hits_rule": top_hits(b, y, k), "top1pct_hits_random": round(sum(y) / 100, 1)}
 
 
 def _xy(lon, lat, kx=111320 * math.cos(math.radians(40.78)), ky=110540):

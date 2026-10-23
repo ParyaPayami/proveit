@@ -9,7 +9,11 @@
   "ci95": [
    -0.015,
    0.046
-  ]
+  ],
+  "top1pct_lots": 419,
+  "top1pct_hits_forecast": 14.0,
+  "top1pct_hits_rule": 11.4,
+  "top1pct_hits_random": 1.5
  },
  "certificates_built_before_2015": {
   "lots": 41399,
@@ -20,7 +24,11 @@
   "ci95": [
    0.241,
    0.329
-  ]
+  ],
+  "top1pct_lots": 414,
+  "top1pct_hits_forecast": 14.0,
+  "top1pct_hits_rule": 7.3,
+  "top1pct_hits_random": 2.1
  },
  "timing_cutoffs": {
   "2000": {
@@ -32,7 +40,11 @@
    "ci95": [
     -0.007,
     0.102
-   ]
+   ],
+   "top1pct_lots": 397,
+   "top1pct_hits_forecast": 14.0,
+   "top1pct_hits_rule": 7.0,
+   "top1pct_hits_random": 0.8
   },
   "2010": {
    "lots": 40986,
@@ -43,7 +55,11 @@
    "ci95": [
     0.154,
     0.253
-   ]
+   ],
+   "top1pct_lots": 410,
+   "top1pct_hits_forecast": 14.0,
+   "top1pct_hits_rule": 7.3,
+   "top1pct_hits_random": 1.6
   },
   "2015": {
    "lots": 41399,
@@ -54,7 +70,11 @@
    "ci95": [
     0.241,
     0.329
-   ]
+   ],
+   "top1pct_lots": 414,
+   "top1pct_hits_forecast": 14.0,
+   "top1pct_hits_rule": 7.3,
+   "top1pct_hits_random": 2.1
   },
   "2018": {
    "lots": 41695,
@@ -65,7 +85,11 @@
    "ci95": [
     0.33,
     0.397
-   ]
+   ],
+   "top1pct_lots": 417,
+   "top1pct_hits_forecast": 18.0,
+   "top1pct_hits_rule": 7.3,
+   "top1pct_hits_random": 3.3
   }
  },
  "nearest_lot_check": {
@@ -94,7 +118,11 @@
    "ci95": [
     -0.009,
     0.101
-   ]
+   ],
+   "top1pct_lots": 397,
+   "top1pct_hits_forecast": 14.0,
+   "top1pct_hits_rule": 7.0,
+   "top1pct_hits_random": 0.8
   },
   "2015": {
    "lots": 41394,
@@ -105,7 +133,11 @@
    "ci95": [
     0.244,
     0.333
-   ]
+   ],
+   "top1pct_lots": 414,
+   "top1pct_hits_forecast": 14.0,
+   "top1pct_hits_rule": 7.3,
+   "top1pct_hits_random": 2.0
   }
  }
 }
