@@ -92,7 +92,7 @@ In ArcGIS Pro, add `pro/ProveIt.pyt` (it's already attached to `Documents\ArcGIS
 PlanArena is the parcel-level planning model whose forecast is checked in `pro/proof_planarena.py`. Its browser Studio and phone game let you paint land uses onto real Manhattan parcels, see the indicators change, and watch a simulated council vote. **Play it: [planarena-manhattan.onrender.com/play](https://planarena-manhattan.onrender.com/play)** (desktop Studio at [planarena-manhattan.onrender.com](https://planarena-manhattan.onrender.com)). It runs on a free server, so the first visit can take about a minute to wake, and the AI's recommended plan takes about 30 seconds. The demo code is at [github.com/ParyaPayami/planarena-demo](https://github.com/ParyaPayami/planarena-demo); PlanArena's full code is released with its paper.
 
 ## Esri UC 2027
-The talk abstract, *AI Predicts, ArcGIS Pro Proves: Checking Planning Forecasts Against Reality*, is in `docs/UC2027_Measure_Predict_Prove.pdf`.
+The talk abstract, *AI Predicts, ArcGIS Pro Checks: Testing Planning Forecasts Against Reality*, is in `docs/UC2027_Measure_Predict_Prove.pdf`.
 
 ## License
 No license has been granted yet: the code is published for review, and all rights are reserved by the author (Parya Payami). A license will be added later. Data come from public sources listed in `catalog/` and are not redistributed here; download them with the scripts.
