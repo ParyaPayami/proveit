@@ -1,0 +1,111 @@
+{
+ "method": "AUCs on lots scored by both methods; 95% CI for the difference by DeLong's method (paired AUCs).",
+ "permits": {
+  "lots": 41898,
+  "yes": 146,
+  "auc_forecast": 0.822,
+  "auc_rule": 0.807,
+  "difference": 0.015,
+  "ci95": [
+   -0.015,
+   0.046
+  ]
+ },
+ "certificates_built_before_2015": {
+  "lots": 41399,
+  "yes": 210,
+  "auc_forecast": 0.672,
+  "auc_rule": 0.387,
+  "difference": 0.285,
+  "ci95": [
+   0.241,
+   0.329
+  ]
+ },
+ "timing_cutoffs": {
+  "2000": {
+   "lots": 39745,
+   "yes": 83,
+   "auc_forecast": 0.746,
+   "auc_rule": 0.698,
+   "difference": 0.048,
+   "ci95": [
+    -0.007,
+    0.102
+   ]
+  },
+  "2010": {
+   "lots": 40986,
+   "yes": 156,
+   "auc_forecast": 0.667,
+   "auc_rule": 0.463,
+   "difference": 0.203,
+   "ci95": [
+    0.154,
+    0.253
+   ]
+  },
+  "2015": {
+   "lots": 41399,
+   "yes": 210,
+   "auc_forecast": 0.672,
+   "auc_rule": 0.387,
+   "difference": 0.285,
+   "ci95": [
+    0.241,
+    0.329
+   ]
+  },
+  "2018": {
+   "lots": 41695,
+   "yes": 331,
+   "auc_forecast": 0.684,
+   "auc_rule": 0.321,
+   "difference": 0.364,
+   "ci95": [
+    0.33,
+    0.397
+   ]
+  }
+ },
+ "nearest_lot_check": {
+  "records": 54,
+  "lots": 38,
+  "same_tax_block": 41,
+  "no_bbl": 3,
+  "other_block": 10,
+  "other_block_lots_only_matched_this_way": [
+   "1000210001",
+   "1001220001",
+   "1006960020",
+   "1014140001",
+   "1014377501",
+   "1015440001",
+   "1016130023"
+  ]
+ },
+ "certificates_without_doubtful_matches": {
+  "2000": {
+   "lots": 39742,
+   "yes": 80,
+   "auc_forecast": 0.747,
+   "auc_rule": 0.701,
+   "difference": 0.046,
+   "ci95": [
+    -0.009,
+    0.101
+   ]
+  },
+  "2015": {
+   "lots": 41394,
+   "yes": 205,
+   "auc_forecast": 0.671,
+   "auc_rule": 0.382,
+   "difference": 0.288,
+   "ci95": [
+    0.244,
+    0.333
+   ]
+  }
+ }
+}
