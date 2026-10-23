@@ -88,6 +88,9 @@ In ArcGIS Pro, add `pro/ProveIt.pyt` (it's already attached to `Documents\ArcGIS
 - Persistence forecasts are a baseline any real model should beat, not a model.
 - The agent task suite (`tasks/suite.json`, 32 tasks) is ready but hasn't been run with fresh agents yet.
 
+## Play PlanArena
+PlanArena is the parcel-level planning model whose forecast is checked in `pro/proof_planarena.py`. Its browser Studio and phone game let you paint land uses onto real Manhattan parcels, see the indicators change, and watch a simulated council vote. A hosted, playable version will be linked here. PlanArena's own code is released with its paper.
+
 ## Esri UC 2027
 The talk abstract, *Measure, Predict, Prove: Testable AI Decision Support for Urban Planning*, is in `docs/UC2027_Measure_Predict_Prove.pdf`.
 
