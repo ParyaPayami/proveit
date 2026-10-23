@@ -1,0 +1,79 @@
+{
+  "name": "planarena_started_planarena_model",
+  "headline": "AUC 0.81: 150 yes vs 42,020 no",
+  "test": "binary",
+  "scored": 42170,
+  "metrics": {
+    "auc": 0.81,
+    "yes": 150,
+    "no": 42020,
+    "base_rate": 0.004,
+    "top10_rate": 0.02,
+    "top10_lift": 5.6
+  },
+  "direction": "higher prediction = more outcome",
+  "source": {
+    "id": "nyc_dob_now_job_filings",
+    "name": "NYC DOB NOW: Build job filings (new buildings, demolitions, alterations)",
+    "describes": "construction of a job started (first permit issued) here",
+    "unit": null,
+    "docs": "https://data.cityofnewyork.us/d/w9ak-ipjd",
+    "license": "NYC Open Data terms of use"
+  },
+  "truth": {
+    "records": 4366,
+    "rows": 4366,
+    "downloaded": "2026-10-22T21:58:39",
+    "sha256": "0dc39c3770b006f138f48d73a20f608c0173f59342f05f07d152a0a6e195f859",
+    "request": {
+      "source": "nyc_dob_now_job_filings",
+      "bbox": [
+        -74.047749,
+        40.683876,
+        -73.906785,
+        40.879026
+      ],
+      "start": "2021-01-01",
+      "end": "2025-12-31",
+      "where": "job_type='New Building'",
+      "max_rows": 500000
+    }
+  },
+  "prediction": {
+    "layer": "C:\\proveit_work\\proof_planarena.gdb\\planarena_forecast_2020",
+    "field": "p_redev_5yr",
+    "shape": "polygons"
+  },
+  "traps": [
+    {
+      "id": "start_not_finish",
+      "status": "check",
+      "detail": "First permit marks the start of work; certificates of occupancy mark completion, years later."
+    },
+    {
+      "id": "dob_now_only",
+      "status": "check",
+      "detail": "Jobs filed in DOB NOW only; most new buildings since 2021, but projects filed earlier in the legacy system are missing."
+    },
+    {
+      "id": "frontage_geocoding",
+      "status": "check",
+      "detail": "Coordinates are geocoded to the street frontage; match lots by BBL or with polygon_match = nearest."
+    },
+    {
+      "id": "time_leakage",
+      "status": "handled",
+      "detail": "Only outcomes from 2021-01-01 on, after the prediction date 2021-01-01."
+    },
+    {
+      "id": "truth_unmatched",
+      "status": "check",
+      "detail": "3,346 records fell outside every prediction feature."
+    },
+    {
+      "id": "matching",
+      "status": "handled",
+      "detail": "789 records matched by ID and 231 by location; 3,346 matched nothing (outside the study area or without an ID or nearby feature)."
+    }
+  ]
+}

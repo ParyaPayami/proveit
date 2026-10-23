@@ -1,0 +1,13 @@
+{
+ "answer": "proveit.score.spearman matches a by-hand calculation exactly. Spearman r is Pearson r on average-tie ranks. Case A (5 rows, no ties; pred 10..50, outcome 3,1,4,5,2): sum d^2 = 16, so 1 - 6*16/(5*24) = 0.2; hand Pearson on ranks = 0.2; proveit = 0.2 (0.19999999999999996 before rounding). Case B (ties in both; x 1,2,2,4,5, y 5,3,3,3,1): average ranks x 1,2.5,2.5,4,5 and y 5,3,3,3,1, hand r = -0.9177, proveit -0.9177. Case C: score_pairs (continuous) reports spearman_r 0.2, and -0.2 with higher_means='less' (the prediction is sign-flipped). Caveat: these are synthetic test vectors, since real pair data lives in forbidden score outputs; this checks the formula, not any real score.",
+ "numbers": {"A_hand": 0.2, "A_proveit": 0.2, "A_sum_d2": 16, "B_hand": -0.9177, "B_proveit": -0.9177, "B_shortcut_formula_wrong_with_ties": -0.675, "C_more": 0.2, "C_less": -0.2},
+ "traps_or_caveats": [
+  "Vectors are synthetic (hand-chosen), not Score My Layer pairs; no real data was recomputed and no Pro/VM run was needed (proveit.score is pure Python).",
+  "With ties the 1-6*sum(d^2)/(n(n^2-1)) shortcut is wrong (-0.675 vs correct -0.9177); proveit correctly uses Pearson on average ranks.",
+  "score_pairs rounds to 3 decimals and negates the prediction when higher_means='less', flipping the sign of Spearman.",
+  "score_pairs with fewer than 30 scored features adds a small_sample warning; 5 rows is only indicative.",
+  "For count/event tests, score_pairs also computes Spearman, but on count outcomes with many ties; for continuous tests rows with n < min_records are dropped before ranking."
+ ],
+ "refused": false,
+ "files": ["/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T08/t08.py", "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T08/results.json", "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T08/answer.json"]
+}

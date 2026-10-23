@@ -1,0 +1,57 @@
+{
+  "id": "nyc_ems_dispatch_by_zip",
+  "name": "NYC EMS incident travel times, by ZIP",
+  "topics": [
+    "emergency response",
+    "ems",
+    "public safety",
+    "health"
+  ],
+  "publisher": "FDNY EMS (NYC Open Data)",
+  "docs": "https://data.cityofnewyork.us/d/76xm-jjuj",
+  "coverage": {
+    "place": "New York City",
+    "bbox": [
+      -74.26,
+      40.49,
+      -73.7,
+      40.92
+    ],
+    "start": "2008-01-01"
+  },
+  "adapter": {
+    "type": "socrata_aggregate",
+    "domain": "data.cityofnewyork.us",
+    "dataset": "76xm-jjuj",
+    "date_field": "incident_datetime",
+    "key_field": "zipcode",
+    "value_field": "incident_travel_tm_seconds_qy",
+    "base_where": "valid_incident_rspns_time_indc='Y' AND held_indicator='N'",
+    "category_field": "final_severity_level_code"
+  },
+  "outcome": {
+    "kind": "areal_measure",
+    "describes": "median ambulance travel time",
+    "unit": "seconds",
+    "key": "postal ZIP code"
+  },
+  "filters_example": "final_severity_level_code IN ('1','2')",
+  "traps": [
+    {
+      "id": "held_calls",
+      "check": "Calls held for lack of a free unit wait before travel starts; excluded.",
+      "handled": true
+    },
+    {
+      "id": "response_vs_travel",
+      "check": "Use travel time, not total response time, for a drive-time model.",
+      "handled": true
+    },
+    {
+      "id": "postal_zips",
+      "check": "Keys are postal ZIPs, not polygons."
+    }
+  ],
+  "license": "NYC Open Data terms of use",
+  "status": "verified"
+}

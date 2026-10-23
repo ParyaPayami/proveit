@@ -1,0 +1,75 @@
+{
+ "answer": "Computed for all 159 USGS Ida HWMs (NAVD88 ft) against the 3DEP tiles. The tiles are float32 in metres, so I converted the DEM to feet before subtracting (a raw subtraction is wrong by tens of feet). HWM minus DEM is the flood depth above ground, not an error, because the DEM is ground and the HWM is a water surface. It has mean +1.31 ft, median +1.46, SD 2.84, RMSE 3.12 ft against zero, range -16.6 to +7.1. 22 marks are negative, which is physically impossible. Against the surveyed height_above_gnd (152 marks) the DEM-derived depth has bias -0.55 ft, median +0.02, MAE 1.10, RMSE 2.55, r=0.50. Treat this as a depth cross-check, not DEM accuracy.",
+ "numbers": {
+  "n_hwm": 159,
+  "n_dem_nodata": 0,
+  "dem_units": "metres (converted /0.3048)",
+  "depth_ft_hwm_minus_dem": {
+   "mean": 1.307,
+   "median": 1.455,
+   "sd": 2.84,
+   "min": -16.551,
+   "max": 7.078,
+   "p5": -1.546,
+   "p95": 5.145,
+   "mae_abs": 2.162,
+   "rmse_vs_zero": 3.118,
+   "n_negative": 22
+  },
+  "naive_unit_mismatched_mean_ft": 28.841,
+  "naive_note": "HWM ft minus DEM metres, wrong, do not use",
+  "surveyed_height_above_gnd_ft": {
+   "n": 152,
+   "mean": 1.878,
+   "median": 1.485,
+   "max": 6.51
+  },
+  "depth_minus_surveyed_hag_ft": {
+   "mean": -0.55,
+   "median": 0.018,
+   "sd": 2.493,
+   "mae": 1.103,
+   "rmse": 2.545,
+   "min": -17.411,
+   "max": 3.848
+  },
+  "corr_depth_vs_hag": 0.501,
+  "within_1ft_of_hag": "114 of 152",
+  "within_3ft_of_hag": "138 of 152",
+  "by_county_mean_depth_ft": {
+   "Kings": 1.558,
+   "New York": 0.57,
+   "Richmond": 1.685,
+   "Bronx": 0.8,
+   "Queens": 1.265
+  },
+  "worst_negative_hwm_ids": {
+   "41629": -16.55,
+   "40980": -14.88,
+   "41146": -8.48
+  },
+  "worst_positive_hwm_ids": {
+   "41610": 7.08,
+   "41307": 6.95,
+   "40960": 6.5
+  }
+ },
+ "traps_or_caveats": [
+  "Unit mismatch: 3DEP tiles are in metres, HWM elev_ft is in feet; must convert (done). Naive subtraction gives a meaningless +28.8 ft mean.",
+  "Conceptual: HWM elev_ft is a water-surface elevation and the DEM is bare-earth ground, so the difference is flood depth above ground (what the stats describe), not a model error. Calling it 'error' would be misleading; the only true reference is the surveyed height_above_gnd, which is measured at the mark (often on a wall/pole above local grade) and is missing for 7 marks.",
+  "Datums match: all HWMs are NAVD88 and 3DEP is NAVD88, so no datum shift applied. Tile CRS has no embedded vertical CRS, so this rests on service documentation.",
+  "22 negative depths (down to -16.6 ft) mean the DEM is higher than the water surface: positional error (phone/car GPS horizontal method, all 159 marks), steep slopes or retaining walls and embankments, bridges/overpasses, or building-wall marks over interpolated bare-earth. Outliers (e.g. 41629, 40980 in Queens) should be checked, not trusted.",
+  "DEM is bilinear-resampled 2 m (about 2.63 m Web Mercator cells), not the native lidar, and tiles from mixed lidar collection dates; 109 points fell in overlapping tiles and I took the first valid tile in filename order.",
+  "Marks carry their own uncertainty (+/-0.05 to 0.40 ft) and 136 of 159 are swift-water (stillwater=0), so marks may include velocity head/runup; also surveyed in Sept 2021 vs DEM vintage and Ida's flooding was local pluvial/sewer-driven, not a continuous surface.",
+  "Sample is 159 marks from one event with a clustered spatial layout; statistics are descriptive, not an accuracy guarantee for 3DEP."
+ ],
+ "refused": false,
+ "files": [
+  "outputs/agent_eval/T27/t27.py",
+  "outputs/agent_eval/T27/raw_extract.json",
+  "outputs/agent_eval/T27/per_point.csv",
+  "outputs/agent_eval/T27/per_point.json",
+  "outputs/agent_eval/T27/stats.json",
+  "outputs/agent_eval/T27/answer.json"
+ ]
+}

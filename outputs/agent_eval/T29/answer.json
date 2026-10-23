@@ -1,0 +1,35 @@
+{
+ "answer": "Computed as asked: 16,244 Destroyed (>50%) of 45,433 footprints = 35.75%. But this is a biased, misleading 'loss rate'. The layer is every footprint within 1/4 mile of the Eaton and Palisades perimeters, so the 14,993 null-DAMAGE footprints (33%) mix undamaged structures inside the burn, buildings outside the perimeter (never inspected), and non-structures. Among the 30,440 footprints with a DINS record, 53.4% were destroyed (53.4% excluding 41 Inaccessible). I recommend reporting 53.4% as the loss rate among inspected structures and 35.8% only as 'share of footprints in the buffered study area', not as a true fire loss rate. Both fires are pooled; there is no fire field.",
+ "numbers": {
+  "total_footprints": 45433,
+  "destroyed": 16244,
+  "no_damage_record_null": 14993,
+  "loss_rate_null_as_undamaged": 0.3575,
+  "inspected_with_record": 30440,
+  "loss_rate_inspected_only": 0.5336,
+  "loss_rate_inspected_excl_inaccessible_41": 0.5344,
+  "no_damage": 12107,
+  "affected_1_9": 1583,
+  "minor_10_25": 319,
+  "major_26_50": 146,
+  "inaccessible": 41,
+  "residence_types_only_inspected": 22139,
+  "residence_loss_rate_inspected": 0.5098,
+  "approx_palisades_west_of_-118.4_loss_rate_inspected": 0.584,
+  "approx_eaton_east_of_-118.3_loss_rate_inspected": 0.501,
+  "null_footprints_with_no_inspected_neighbour_within_~170m": 2147
+ },
+ "traps_or_caveats": [
+  "Null DAMAGE is not equivalent to undamaged: the buildings layer extends 1/4 mile beyond the fire perimeters, and DINS inspects only structures inside/near the perimeters, so null mixes uninspected-outside-perimeter with inspected-undamaged (explicit 'No Damage' = 12,107 exist as a separate class). Treating null as undamaged dilutes the rate (35.8% vs 53.4%); at least ~2,147 nulls lie >~170 m from any inspected building.",
+  "Denominator choice is a judgment call; the two defensible rates differ by ~18 points. A proper rate needs the fire perimeters (not used here) to restrict footprints to inside the burn area.",
+  "Footprints are 2023 (mostly 2008-vintage LARIAC), so pre-fire and potentially stale; 'New' (600) and 'Modified' (2,000) records exist, and DINS structures not matching a footprint are missing from the join (structure-level, not parcel-level).",
+  "Non-habitable structures are counted as structures: 'Utility Misc Structure' (6,417), courtyards (289), solar structures (76), and 15,660 with no STRUCTURET (nearly all null-damage). Residence-only rate among inspected: 51.0%.",
+  "Destroyed is defined as >50% damage per DINS; the 'loss rate' is structure-count based, not value or housing-unit based (multi-family buildings count once).",
+  "Eaton and Palisades are pooled; no fire attribute, my longitude split (Palisades < -118.4, Eaton > -118.3) is approximate. Inaccessible (41) were neither inspected nor assessed.",
+  "DINS is a rapid field assessment (damage state as of inspection time, can be revised); duplicate BLD_ID (1) exists. GeoJSON has no CRS member (assumed WGS84)."
+ ],
+ "refused": false,
+ "files": [
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T29/answer.json"
+ ]
+}

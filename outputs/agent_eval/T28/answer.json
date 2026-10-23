@@ -1,0 +1,45 @@
+{
+  "answer": "Of the 159 USGS Ida high-water marks that fall on the DEM tiles, the model (sink depth > 0.15 m at the mark's 2 m cell) missed 78 (49%) and caught 81. Excluding 31 marks flagged as interior/basement, it missed 66 of 128 street marks (52%). The false alarm count cannot be measured: marks exist only where water was found, so no place is confirmed dry. As a proxy, 388 of 3,180 random control points within 500 m of a mark (12.2%) sit in >0.15 m sinks. That is an upper bound on false alarms (some controls may have flooded unrecorded), and it is a rate in a sample, not a citywide count. I cannot extrapolate to a citywide number of missed places or false alarms. The sewer-backup mechanism is also absent from a bare-earth DEM.",
+  "numbers": {
+    "marks_on_tiles": 159,
+    "marks_hit_cell": 81,
+    "marks_missed_cell": 78,
+    "miss_rate_cell": 0.491,
+    "interior_marks_flagged": 31,
+    "street_marks": 128,
+    "street_marks_missed": 66,
+    "street_miss_rate": 0.516,
+    "interior_marks_missed": 12,
+    "control_points": 3180,
+    "controls_flagged_sink_gt_0.15m": 388,
+    "control_flag_rate_upper_bound_false_alarm": 0.122,
+    "all_tile_cells_with_sink_gt_0.15m_fraction": 0.0805,
+    "miss_rate_if_sink_allowed_within_6m_(r3)": 0.371,
+    "control_flag_rate_within_6m": 0.253,
+    "miss_rate_within_16m_(r8)": 0.201,
+    "control_flag_rate_within_16m": 0.498,
+    "miss_rate_at_thr_0.05_0.10_0.30": [0.421, 0.465, 0.553],
+    "control_flag_rate_at_thr_0.05_0.10_0.30": [0.153, 0.136, 0.097],
+    "distinct_sites": 83,
+    "marks_without_depth": 7,
+    "marks_without_tile": 0
+  },
+  "traps_or_caveats": [
+    "Presence-only truth: marks exist only where it flooded, so false alarms are unmeasurable; 'controls' are random points assumed dry but never verified. The 12.2% is an upper-bound proxy, not a true false-alarm rate, and the count (388) depends on the arbitrary 20 controls per mark.",
+    "Misses are counted only among the 159 surveyed marks (a non-random, clustered sample: 83 distinct sites, post-event survey, mostly near flagged locations). It is not a count of all places that flooded in NYC; no citywide extrapolation is valid.",
+    "Interior marks (31, found by keyword in location text) are measured relative to indoor floors; the model has no buildings, so they are reported separately. Keyword flagging may miss some.",
+    "Bare-earth DEM ignores sewers, buildings and curbs, so sewer-backup and building-related flooding cannot be captured by design; many 'misses' are likely this mechanism, not model error.",
+    "Position/scale mismatch: marks are phone/car GPS points (several metres off) vs 2 m cells (about 1.5 m on the ground in Web Mercator); strict single-cell test is sensitive (miss rate 49% at cell, 37% within 6 m, 20% within 16 m, but then controls flagged rises to 25% and 50%), so there is a trade-off, not a free improvement.",
+    "Threshold sensitivity: miss rate runs 42-55% for 0.05-0.30 m thresholds.",
+    "Observed quantity is flood depth above ground at a mark (feet, converted to metres), while the model gives depression depth of the terrain (storage volume), so sink depth is not flood depth; only presence (sink > 0.15 m) was compared. 7 marks have no depth value.",
+    "CSV first line is a citation (header_line=1 handled by imported read_marks). Fill is done per tile, so sinks that span tile edges are not handled (no mark was within 50 m of a tile edge). Controls skip cells with elevation below 0.5 m.",
+    "Reused flood_ida.read_marks/Tile/merc via import (no case script run); scratch redirected to C:\\proveit_work\\T28. Seed 42 for controls."
+  ],
+  "refused": false,
+  "files": [
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T28/t28.py",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T28/t28_points.csv",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T28/t28_results.json",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T28/answer.json"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+ "answer": "Yes, moderately. Of 159 USGS Ida high-water marks, 51% sat in a 2 m bare-earth DEM sink deeper than 0.15 m versus 12% of 3,180 random control points within 500 m (20 per mark). TPI (102 m window) was below local mean at 79% of marks vs 51% of controls. Paired per mark against its own controls, marks sat more sink-like 74.5% of the time (AUC 0.745, bootstrap 95% CI 0.71-0.78); TPI AUC 0.72. Excluding 31 interior-flagged marks gives 0.73; good/excellent-quality marks 0.82. Deeper marks sit in deeper sinks (Spearman 0.39, n=152). Marks are also lower in absolute elevation than neighbours (median 8.5 vs 12.0 m), so part of the signal is simply low ground. This shows association, not that a terrain-only model predicts flooding: controls are not verified dry and sewer backup is unmodelled.",
+ "numbers": {
+  "marks_used": 159,
+  "controls": 3180,
+  "interior_flagged_marks": 31,
+  "marks_with_depth": 152,
+  "share_marks_sink_gt_0.15m": 0.509,
+  "share_controls_sink_gt_0.15m": 0.117,
+  "share_marks_tpi_negative": 0.792,
+  "share_controls_tpi_negative": 0.508,
+  "median_sink_depth_m_marks": 0.188,
+  "median_sink_depth_m_controls": 0.0,
+  "median_tpi_m_marks": -0.383,
+  "median_tpi_m_controls": -0.01,
+  "paired_auc_sink": 0.745,
+  "paired_auc_sink_ci95": [
+   0.705,
+   0.784
+  ],
+  "paired_auc_tpi": 0.72,
+  "paired_auc_tpi_ci95": [
+   0.68,
+   0.759
+  ],
+  "paired_auc_dem_elev_lower": 0.785,
+  "paired_auc_sink_noninterior_n128": 0.73,
+  "paired_auc_sink_good_excellent_n86": 0.815,
+  "median_elev_m_marks": 8.49,
+  "median_elev_m_controls": 12.04,
+  "spearman_sink_vs_obs_depth": 0.393,
+  "spearman_tpi_vs_obs_depth": -0.336
+ },
+ "traps_or_caveats": [
+  "CSV line 1 is a citation; header parsed from line 2 (read_marks uses header_line=1).",
+  "HWM heights are feet; converted to meters (x0.3048) to compare with metric 3DEP; sink and TPI are in meters. Only used for the depth correlation.",
+  "Presence-only: marks exist only where flooding was surveyed, so controls (random points within 500 m, seed 7, water/<0.5 m elevation skipped) are assumed not-flooded but are unverified; true hit/false-alarm rates cannot be computed.",
+  "31 marks have interior/basement-type wording in their descriptions (keyword flag); results reported with and without them (AUC 0.745 vs 0.73), and interior depths are measured from interior floors.",
+  "Bare-earth DEM omits sewers, buildings, curbs and drainage, so sewer-backup or building-edge flooding is not captured; a sink on the DEM is not proof water ponds there.",
+  "Marks were surveyed where USGS crews looked (survey-selection bias, spatially clustered, often on structures), so the 159 are not a random sample of flooded places; the bootstrap CI treats marks as independent and is likely too narrow.",
+  "Part of the signal is absolute elevation (marks sit in lower ground than neighbours); the 500 m control radius mixes this with micro-topography. The result is an association with 2 m terrain, not causal proof.",
+  "Mark positions are phone/vehicle GPS; 2 m cell values at a mark can differ from the true surveyed spot; TPI near tile edges may be edge-affected (marks preferentially picked tiles with 60 m margin).",
+  "Score My Layer was not run: this is a descriptive terrain-vs-observed comparison, not a scored prediction layer."
+ ],
+ "refused": false,
+ "files": [
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T13/t13.py",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T13/an.py",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T13/points.csv",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T13/stats.json",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T13/answer.json"
+ ]
+}

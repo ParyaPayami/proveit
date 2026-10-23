@@ -1,0 +1,69 @@
+{
+  "name": "nyc_solar_2025_oracle",
+  "headline": "Top 20% of predicted features held 61% of 8,438 events (2.995x random); Spearman 1.0",
+  "test": "count",
+  "scored": 178,
+  "metrics": {
+    "spearman_r": 1.0,
+    "pearson_r_log": 0.778,
+    "top20_capture": 0.606,
+    "top20_lift": 2.995,
+    "total_events": 8438.0,
+    "features_with_none": 22
+  },
+  "direction": "higher prediction = more outcome",
+  "source": {
+    "id": "nyc_dob_now_permits",
+    "name": "NYC DOB NOW: Build approved permits",
+    "describes": "a permit was issued here",
+    "unit": null,
+    "docs": "https://data.cityofnewyork.us/d/rbx6-tga4",
+    "license": "NYC Open Data terms of use"
+  },
+  "truth": {
+    "records": 8438,
+    "rows": 8438,
+    "downloaded": "2026-10-22T18:27:39",
+    "sha256": "8dc9ec8dca7af17e72514e61aabb7c524b67585203a501e89df2d09b180c4686",
+    "request": {
+      "source": "nyc_dob_now_permits",
+      "bbox": [
+        -74.257154,
+        40.495984,
+        -73.699216,
+        40.915558
+      ],
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "where": "work_type='Solar'",
+      "max_rows": 500000
+    }
+  },
+  "prediction": {
+    "layer": "C:\\proveit_work\\proof_permits.gdb\\nyc_zip_areas",
+    "field": "oracle",
+    "shape": "polygons"
+  },
+  "traps": [
+    {
+      "id": "one_job_many_permits",
+      "status": "check",
+      "detail": "One job can have many permits (one per work type). Count jobs (job_filing_number) if you mean projects."
+    },
+    {
+      "id": "issued_not_built",
+      "status": "check",
+      "detail": "A permit is permission, not completion. Use certificates of occupancy for finished buildings."
+    },
+    {
+      "id": "dob_now_only",
+      "status": "check",
+      "detail": "Only filings in DOB NOW (since 2016, nearly all since 2021). Older work is in the legacy permit dataset."
+    },
+    {
+      "id": "time_leakage",
+      "status": "handled",
+      "detail": "Only outcomes from 2025-01-01 on, after the prediction date 2025-01-01."
+    }
+  ]
+}

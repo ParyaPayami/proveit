@@ -1,0 +1,130 @@
+{
+  "name": "planarena_started_planarena_model",
+  "config": {
+    "higher_means": "more",
+    "distance_m": 30,
+    "min_records": 1,
+    "same_units": false,
+    "tolerance": null,
+    "controls": 5,
+    "where": "job_type='New Building'",
+    "start": "2021-01-01",
+    "end": "2025-12-31",
+    "prediction_date": "2021-01-01",
+    "key_field": null,
+    "outcome_as": "any",
+    "polygon_match": "nearest",
+    "match_key": [
+      "bbl",
+      "bbl"
+    ],
+    "prediction_where": null,
+    "prediction": "C:\\proveit_work\\proof_planarena.gdb\\planarena_forecast_2020",
+    "field": "p_redev_5yr",
+    "name": "planarena_started_planarena_model",
+    "source": "nyc_dob_now_job_filings"
+  },
+  "shape": "polygons",
+  "test": "binary",
+  "source": {
+    "id": "nyc_dob_now_job_filings",
+    "name": "NYC DOB NOW: Build job filings (new buildings, demolitions, alterations)",
+    "topics": [
+      "permits",
+      "development",
+      "demolition",
+      "construction"
+    ],
+    "publisher": "NYC Department of Buildings (NYC Open Data)",
+    "docs": "https://data.cityofnewyork.us/d/w9ak-ipjd",
+    "coverage": {
+      "place": "New York City",
+      "bbox": [
+        -74.26,
+        40.49,
+        -73.7,
+        40.92
+      ],
+      "start": "2016-06-01"
+    },
+    "adapter": {
+      "type": "socrata",
+      "domain": "data.cityofnewyork.us",
+      "dataset": "w9ak-ipjd",
+      "date_field": "first_permit_date",
+      "lat": "latitude",
+      "lon": "longitude",
+      "coords_are_text": true,
+      "category_field": "job_type",
+      "keep": [
+        "job_filing_number",
+        "job_type",
+        "filing_status",
+        "bbl",
+        "filing_date"
+      ]
+    },
+    "outcome": {
+      "kind": "event",
+      "describes": "construction of a job started (first permit issued) here"
+    },
+    "filters_example": "job_type = 'New Building'  (also 'Full Demolition')",
+    "traps": [
+      {
+        "id": "start_not_finish",
+        "check": "First permit marks the start of work; certificates of occupancy mark completion, years later."
+      },
+      {
+        "id": "dob_now_only",
+        "check": "Jobs filed in DOB NOW only; most new buildings since 2021, but projects filed earlier in the legacy system are missing."
+      },
+      {
+        "id": "frontage_geocoding",
+        "check": "Coordinates are geocoded to the street frontage; match lots by BBL or with polygon_match = nearest."
+      }
+    ],
+    "license": "NYC Open Data terms of use",
+    "status": "verified"
+  },
+  "truth": {
+    "request": {
+      "source": "nyc_dob_now_job_filings",
+      "bbox": [
+        -74.047749,
+        40.683876,
+        -73.906785,
+        40.879026
+      ],
+      "start": "2021-01-01",
+      "end": "2025-12-31",
+      "where": "job_type='New Building'",
+      "max_rows": 500000
+    },
+    "source_name": "NYC DOB NOW: Build job filings (new buildings, demolitions, alterations)",
+    "outcome": {
+      "kind": "event",
+      "describes": "construction of a job started (first permit issued) here"
+    },
+    "format": "geojson",
+    "records": 4366,
+    "downloaded": "2026-10-22T21:58:39",
+    "sha256": "0dc39c3770b006f138f48d73a20f608c0173f59342f05f07d152a0a6e195f859",
+    "rows": 4366,
+    "truncated": false,
+    "dropped": {
+      "no_location": 0,
+      "outside_dates": 0,
+      "bad_date": 0
+    }
+  },
+  "pairing": {
+    "truth_unmatched": 3346,
+    "truth_total": 4366,
+    "labels_excluded": 0,
+    "polygon_match": "nearest",
+    "matched_by_key": 789,
+    "matched_by_location": 231
+  },
+  "features": 42170,
+  "prediction_layer": "C:\\proveit_work\\proof_planarena.gdb\\planarena_forecast_2020"
+}

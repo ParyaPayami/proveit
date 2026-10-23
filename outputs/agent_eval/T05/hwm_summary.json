@@ -1,0 +1,44 @@
+{
+ "rows": 159,
+ "unique_hwm_id": 159,
+ "sites_site_no": 83,
+ "sites_site_id": 83,
+ "counties": {
+  "Richmond County": 23,
+  "Queens County": 64,
+  "Bronx County": 24,
+  "Kings County": 42,
+  "New York County": 6
+ },
+ "events": {
+  "312": 159
+ },
+ "missing_xy": [],
+ "missing_height": 7,
+ "neg_or_zero_height": 11,
+ "height_ft_min": 0.0,
+ "height_ft_max": 6.51,
+ "height_ft_median": 1.49,
+ "marks_per_site_max": 3,
+ "sites_with_1": 12,
+ "sites_multi": 71,
+ "interior_keyword_marks": 32,
+ "dup_coord_groups": 3,
+ "quality": {
+  "Fair: +/- 0.20 ft": 58,
+  "Good: +/- 0.10 ft": 54,
+  "Excellent: +/- 0.05 ft": 32,
+  "Poor: +/- 0.40 ft": 15
+ },
+ "env": {
+  "Riverine": 159
+ },
+ "lat_range": [
+  40.589076,
+  40.894235
+ ],
+ "lon_range": [
+  -74.156962,
+  -73.765121
+ ]
+}

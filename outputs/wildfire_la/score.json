@@ -1,0 +1,86 @@
+{
+  "case": "wildfire_la",
+  "feature_directions": {
+    "nn_distance_m": "lower is riskier",
+    "neighbors_50m": "higher is riskier",
+    "slope_deg": "higher is riskier",
+    "open_land_distance_m": "lower is riskier"
+  },
+  "all_fires": {
+    "n": 29091,
+    "destroyed_share": 0.539,
+    "nn_distance_m": 0.54,
+    "neighbors_50m": 0.556,
+    "slope_deg": 0.581,
+    "open_land_distance_m": 0.379,
+    "combined_equal_weights": 0.529
+  },
+  "by_fire": {
+    "eaton": {
+      "n": 18259,
+      "destroyed_share": 0.505,
+      "nn_distance_m": 0.476,
+      "neighbors_50m": 0.468,
+      "slope_deg": 0.617,
+      "open_land_distance_m": 0.324,
+      "combined_equal_weights": 0.44
+    },
+    "palisades": {
+      "n": 10832,
+      "destroyed_share": 0.597,
+      "nn_distance_m": 0.671,
+      "neighbors_50m": 0.733,
+      "slope_deg": 0.547,
+      "open_land_distance_m": 0.408,
+      "combined_equal_weights": 0.683
+    }
+  },
+  "if_uninspected_counted_as_survivors": {
+    "n": 43662,
+    "destroyed_share": 0.359,
+    "nn_distance_m": 0.485,
+    "neighbors_50m": 0.511,
+    "slope_deg": 0.575,
+    "open_land_distance_m": 0.375,
+    "combined_equal_weights": 0.467
+  },
+  "missing_feature_values": 1771,
+  "counts": {
+    "destroyed": 16244,
+    "not_destroyed": 14155,
+    "excluded_no_record": 14993,
+    "excluded_inaccessible": 41
+  },
+  "traps": [
+    {
+      "id": "uninspected_not_undamaged",
+      "caught": true,
+      "check": "One footprint in three has no damage record. 'No record' means not inspected, not 'no damage'; those must be excluded, not counted as survivors."
+    },
+    {
+      "id": "outcome_leakage",
+      "caught": true,
+      "check": "The final fire perimeter is an outcome. Distance to the perimeter must not be used as a predictor."
+    },
+    {
+      "id": "selection_by_outcome",
+      "caught": true,
+      "check": "The layer itself was selected using the perimeters, so results only describe structures the fire reached."
+    },
+    {
+      "id": "missing_drivers",
+      "caught": true,
+      "check": "Wind and ember exposure, vegetation and building hardening drive losses but aren't in the data; the analysis must say so instead of estimating them."
+    },
+    {
+      "id": "open_land_position",
+      "caught": true,
+      "check": "Open-land distance partly encodes position inside the burned area (the layer is perimeter-selected); do not read its reversed sign as 'open land is protective'."
+    },
+    {
+      "id": "no_cross_fire_transfer",
+      "caught": true,
+      "check": "Results differ between fires and fitted weights do not transfer; report per fire and test any fitted model on a held-out fire."
+    }
+  ]
+}

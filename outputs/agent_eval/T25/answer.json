@@ -1,0 +1,35 @@
+{
+ "answer": "Partly done, and not as asked. Dispatch ZIPs are postal ZIPs, not ZCTA polygons, so a direct ZIP=ZCTA join is misleading. Only 177 of 188 ZIPs equal a MODZCTA code; the rest are merged into other areas, or have no polygon. I joined through the MODZCTA member-ZCTA list instead (the case's intended geography; no separate census ZCTA file was used). Result: 185 of 188 ZIPs map to 177 of 178 MODZCTA polygons, in zip_to_modzcta.csv. Unmatched: 10151 (1), 10178 (1), 11249 (94 fires), plus one record with no ZIP (110 fires). Medians of merged ZIPs cannot be combined, so 6 areas have only an n-weighted mean. 10 areas have fewer than 20 fires. No polygon layer was built.",
+ "numbers": {
+  "dispatch_zips": 188,
+  "records_without_zip": 1,
+  "zips_equal_modzcta_code_direct": 177,
+  "zips_matched_via_member_list": 185,
+  "zips_unmatched": 3,
+  "modzcta_polygons_total": 178,
+  "modzcta_with_data": 177,
+  "modzcta_merged_from_multiple_zips": 6,
+  "modzcta_without_exact_median": 6,
+  "modzcta_below_20_incidents": 10,
+  "incidents_mapped": 24034,
+  "incidents_unmapped": 206,
+  "incidents_total": 24240,
+  "unmatched_incidents_11249": 94,
+  "no_zip_incidents": 110
+ },
+ "traps_or_caveats": [
+  "ZIP is a postal delivery geography, not a polygon; ZCTAs/MODZCTAs only approximate it, so a direct join gives wrong or missing areas.",
+  "11 dispatch ZIPs (e.g. 10112, 11001, 11005, 11040, 11430) are not MODZCTA codes but only match as members of another area; a naive join drops them.",
+  "Unmatched ZIPs reported, not dropped or guessed: 10151, 10178, 11249 (94 fires, plausibly Williamsburg but not in the member list, so not assigned) and 110 fires with no zipcode.",
+  "Medians cannot be merged across ZIPs; merged areas get only an n-weighted mean of travel time (exact), median left blank.",
+  "10 areas have fewer than 20 fires (10004, 10005, 10006, 10044, 10069, 10280, 10282, 10464, 11109, 11697); medians are noisy and excluded from scoring per the case.",
+  "11001/11004/11005/11040 are border ZIPs partly outside NYC; 99999 is a MODZCTA with no data.",
+  "Travel time (med_travel_s) is used, not response time, and only valid-flag structural fires, per the case.",
+  "Showing by area implies travel time is uniform in a ZCTA; the source data is by postal ZIP, aggregated from point incidents."
+ ],
+ "refused": false,
+ "files": [
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T25/zip_to_modzcta.csv",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T25/answer.json"
+ ]
+}

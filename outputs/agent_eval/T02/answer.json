@@ -1,0 +1,26 @@
+{
+  "answer": "112,711 drivable street segments out of 122,329 CSCL features. Filter: rw_type IN ('1','2','3','4','9','10','13') (the DRIVABLE set used by pro/fire_ems.py: ordinary street, highway, bridge, tunnel, ramp, etc.; excludes paths, steps, driveways, boardwalks and others) AND trafdir IN ('TW','FT','TF') (two-way, with-digitization, against-digitization). Counted with ArcPy (JSONToFeatures on the cached GeoJSON in C:\\proveit_work\\T02_streets.gdb) and independently in plain Python on the raw GeoJSON; both give 112,711 with no null geometries and unique objectids.",
+  "numbers": {
+    "total_features": 122329,
+    "drivable_segments": 112711,
+    "rw_type_only_count": 114738,
+    "excluded_trafdir_NV_or_null_in_drivable_rw_types": 2027,
+    "excluded_by_rw_type": 7591,
+    "by_trafdir": {"TW": 58341, "FT": 26748, "TF": 27622}
+  },
+  "traps_or_caveats": [
+    "rw_type and trafdir are TEXT fields in the export, so codes must be quoted strings ('1', not 1).",
+    "trafdir 'NV' (not vehicular; 2,023 segments in drivable rw_types, mostly bridges type 3 and some streets) and 4 null trafdir are excluded; dropping the trafdir filter would give 114,738, overstating the drivable network.",
+    "The 'drivable' definition is an analyst choice, taken from DRIVABLE in pro/fire_ems.py; I did not independently verify the CSCL rw_type code meanings against the data dictionary, so a different rw_type set would change the count.",
+    "FT/TF are one-way and relative to digitization direction; counting segments is not counting two-way lane-miles.",
+    "This is a segment count (a CSCL segment is a block face between intersections), not street length or named streets; 36 of the 112,711 have status other than 2 (31 status 5, 5 status 4) and are included since the pipeline does not filter on status; 12,319 lack posted_speed (pipeline applies a default speed).",
+    "Count is for the cached download of 2026-10-22 (sha256 in data/raw/fire_ems/manifest.json); the live portal may differ."
+  ],
+  "refused": false,
+  "files": [
+    "outputs/agent_eval/T02/count.py",
+    "outputs/agent_eval/T02/arcpy_counts.json",
+    "outputs/agent_eval/T02/answer.json",
+    "C:\\proveit_work\\T02_streets.gdb"
+  ]
+}

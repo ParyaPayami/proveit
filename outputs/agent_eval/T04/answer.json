@@ -1,0 +1,53 @@
+{
+ "answer": "Surveyed ground = (elev_ft - height_above_gnd) ft x 0.3048 (NAVD88 m), compared to the 3DEP bare-earth DEM (m, NAVD88) sampled at each mark. 152 of 159 marks were usable (7 have no height_above_gnd). For the 121 exterior marks, DEM minus survey has bias -0.01 m, median -0.02 m, RMSE 0.32 m, MAE 0.19 m, 90th percentile 0.50 m; 57% of all 152 marks are within 0.15 m, 84% within 0.5 m. Including 31 marks flagged interior/garage-type (survey ground there is often a floor, not terrain), bias is +0.17 m and RMSE 0.77 m, with outliers up to 5.3 m. The DEM is unbiased on average at street-level marks, with roughly 0.3 m random error, which is the same size as typical shallow flood depths.",
+ "numbers": {
+  "marks_total": 159,
+  "marks_compared": 152,
+  "marks_missing_height": 7,
+  "exterior_n": 121,
+  "exterior_bias_m": -0.006,
+  "exterior_median_m": -0.021,
+  "exterior_rmse_m": 0.316,
+  "exterior_mae_m": 0.189,
+  "exterior_p90_abs_m": 0.496,
+  "exterior_max_abs_m": 1.173,
+  "all_n": 152,
+  "all_bias_m": 0.166,
+  "all_median_m": -0.017,
+  "all_rmse_m": 0.774,
+  "all_mae_m": 0.335,
+  "all_max_abs_m": 5.339,
+  "interior_flagged_n": 31,
+  "interior_bias_m": 0.837,
+  "interior_rmse_m": 1.597,
+  "interior_median_m": 0.325,
+  "share_within_0.15m_all": 0.572,
+  "share_within_0.3m_all": 0.737,
+  "share_within_0.5m_all": 0.842,
+  "share_within_1m_all": 0.914,
+  "exterior_rmse_by_quality_m": {
+   "Excellent": 0.201,
+   "Good": 0.437,
+   "Fair": 0.262,
+   "Poor": 0.202
+  },
+  "zero_height_marks": 11
+ },
+ "traps_or_caveats": [
+  "CSV line 1 is a citation; header is line 2 (parsed accordingly).",
+  "Units: elev_ft and height_above_gnd are feet, DEM is meters; converted ft->m (x0.3048). Both NAVD88, so no datum shift applied.",
+  "7 marks (e.g. 41625, 41100) have empty height_above_gnd so surveyed ground is undefined; excluded, not filled.",
+  "Interior flag is a keyword regex (basement, garage, inside, apartment...) on description/notes; it is loose (flags 'garage door' exterior walls and a 'playground wheel'). Interior-type marks measure height from a floor, which inflates DEM-minus-survey (up to +5.3 m at two Queens marks 40980/41629 with 0.9 m local DEM relief, likely slope/building-edge); report exterior stats as the headline.",
+  "Survey ground is the ground at the mark's base (hand-measured height), while the DEM is a ~2 m cell: horizontal error from phone/car GPS positions (all 159 marks) and local slope (median 3x3 DEM range 0.25 m, up to 3 m) add scatter; nearest-cell sampling used, 3x3 min/mean/max give similar or worse fits.",
+  "DEM is bare-earth 3DEP lidar-derived, not dated to Sept 2021; construction or regrading since collection is not captured. Marks on walls/lamp posts near steep park edges (e.g. 41610, 41307 Prospect Park) show about -1 m error.",
+  "Height-above-gnd values of exactly 0.0 (11 marks) may be placeholders; kept as given.",
+  "Duplicate coordinates exist (multiple marks at the same site, e.g. 41146/41587), so errors are not fully independent.",
+  "Tiles are Web Mercator (EPSG:3857, ~2.63 m cell in map units, ~2 m on the ground at this latitude)."
+ ],
+ "refused": false,
+ "files": [
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T04/t04_dem_vs_survey.py",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T04/t04_rows.json",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T04/answer.json"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "usgs_stn_hwm",
+  "name": "USGS high-water marks, any surveyed flood (STN)",
+  "topics": [
+    "flood",
+    "climate"
+  ],
+  "publisher": "U.S. Geological Survey",
+  "docs": "https://stn.wim.usgs.gov/fev/",
+  "coverage": {
+    "place": "United States"
+  },
+  "adapter": {
+    "type": "manual",
+    "url": "https://stn.wim.usgs.gov/fev/",
+    "instructions": "Export marks for an event from the Flood Event Viewer (API endpoint moved; to verify)."
+  },
+  "outcome": {
+    "kind": "presence",
+    "describes": "flood water reached this point"
+  },
+  "traps": [
+    {
+      "id": "presence_only",
+      "check": "Marks exist only where it flooded."
+    }
+  ],
+  "license": "Public domain (USGS)",
+  "status": "api to verify"
+}

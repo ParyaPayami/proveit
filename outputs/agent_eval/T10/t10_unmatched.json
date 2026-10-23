@@ -1,0 +1,22 @@
+{
+  "unmatched": [
+    {
+      "zipcode": "10151",
+      "incidents": 1
+    },
+    {
+      "zipcode": "10178",
+      "incidents": 1
+    },
+    {
+      "zipcode": "11249",
+      "incidents": 94
+    },
+    {
+      "zipcode": null,
+      "incidents": 110
+    }
+  ],
+  "loaded": 103215,
+  "reached": 102675
+}

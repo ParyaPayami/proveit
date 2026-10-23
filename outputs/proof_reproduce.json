@@ -1,0 +1,17 @@
+{
+  "wildfire_slope_deg": {
+    "general_tool_auc": 0.581,
+    "case_script_auc": 0.581,
+    "scored": 29091
+  },
+  "wildfire_open_land_distance_m": {
+    "general_tool_auc": 0.379,
+    "case_script_auc": 0.379,
+    "scored": 29118
+  },
+  "flood_sink_depth": {
+    "general_tool_auc": 0.754,
+    "case_script_auc_points": 0.729,
+    "note": "the case script draws controls within 500 m of each mark; the general tool draws them across the whole raster"
+  }
+}

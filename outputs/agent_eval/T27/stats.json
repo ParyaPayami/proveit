@@ -1,0 +1,58 @@
+{
+ "err_ft_m2ft": {
+  "name": "hwm-dem(ft)",
+  "n": 159,
+  "mean": 1.307,
+  "median": 1.455,
+  "sd": 2.84,
+  "min": -16.551,
+  "max": 7.078,
+  "p5": -1.546,
+  "p95": 5.145,
+  "mae": 2.162,
+  "rmse": 3.118,
+  "neg": 22
+ },
+ "err_naive": {
+  "name": "naive",
+  "n": 159,
+  "mean": 28.841,
+  "median": 21.699,
+  "sd": 25.641,
+  "min": 2.449,
+  "max": 167.581,
+  "p5": 7.288,
+  "p95": 91.121,
+  "mae": 28.841,
+  "rmse": 38.537,
+  "neg": 0
+ },
+ "hag": {
+  "name": "height_above_gnd",
+  "n": 152,
+  "mean": 1.878,
+  "median": 1.485,
+  "sd": 1.496,
+  "min": 0.0,
+  "max": 6.51,
+  "p5": 0.0,
+  "p95": 4.92,
+  "mae": 1.878,
+  "rmse": 2.398,
+  "neg": 0
+ },
+ "depth_minus_hag": {
+  "name": "dem-derived depth - surveyed hag",
+  "n": 152,
+  "mean": -0.55,
+  "median": 0.018,
+  "sd": 2.493,
+  "min": -17.411,
+  "max": 3.848,
+  "p5": -4.533,
+  "p95": 0.84,
+  "mae": 1.103,
+  "rmse": 2.545,
+  "neg": 72
+ }
+}

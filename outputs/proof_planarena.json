@@ -1,0 +1,193 @@
+{
+  "model_inside_match": {
+    "headline": "AUC 0.712: 16 yes vs 42,154 no",
+    "trap": "Only 30 of 1,772 records fall inside a prediction polygon, but 601 lie within 30 m of one. They are probably geocoded to a street frontage; rerun with polygon_match = nearest."
+  },
+  "started_planarena_model": {
+    "headline": "AUC 0.81: 150 yes vs 42,020 no",
+    "metrics": {
+      "auc": 0.81,
+      "yes": 150,
+      "no": 42020,
+      "base_rate": 0.004,
+      "top10_rate": 0.02,
+      "top10_lift": 5.6
+    },
+    "traps": [
+      [
+        "check",
+        "start_not_finish"
+      ],
+      [
+        "check",
+        "dob_now_only"
+      ],
+      [
+        "check",
+        "frontage_geocoding"
+      ],
+      [
+        "handled",
+        "time_leakage"
+      ],
+      [
+        "check",
+        "truth_unmatched"
+      ],
+      [
+        "handled",
+        "matching"
+      ]
+    ],
+    "layer": "C:\\proveit_work\\score_planarena_started_planarena_model.gdb\\planarena_started_planarena_model_scored"
+  },
+  "started_soft_site_rule": {
+    "headline": "AUC 0.807: 146 yes vs 41,752 no",
+    "metrics": {
+      "auc": 0.807,
+      "yes": 146,
+      "no": 41752,
+      "base_rate": 0.003,
+      "top10_rate": 0.018,
+      "top10_lift": 5.068
+    },
+    "traps": [
+      [
+        "check",
+        "start_not_finish"
+      ],
+      [
+        "check",
+        "dob_now_only"
+      ],
+      [
+        "check",
+        "frontage_geocoding"
+      ],
+      [
+        "handled",
+        "time_leakage"
+      ],
+      [
+        "check",
+        "truth_unmatched"
+      ],
+      [
+        "handled",
+        "matching"
+      ],
+      [
+        "handled",
+        "not_scored"
+      ]
+    ],
+    "layer": "C:\\proveit_work\\score_planarena_started_soft_site_rule.gdb\\planarena_started_soft_site_rule_scored"
+  },
+  "completed_planarena_model": {
+    "headline": "AUC 0.668: 215 yes vs 41,455 no",
+    "metrics": {
+      "auc": 0.668,
+      "yes": 215,
+      "no": 41455,
+      "base_rate": 0.005,
+      "top10_rate": 0.013,
+      "top10_lift": 2.512
+    },
+    "traps": [
+      [
+        "check",
+        "temporary_vs_final"
+      ],
+      [
+        "check",
+        "units_are_totals"
+      ],
+      [
+        "check",
+        "frontage_geocoding"
+      ],
+      [
+        "check",
+        "condo_billing_bbl"
+      ],
+      [
+        "check",
+        "completion_lag"
+      ],
+      [
+        "handled",
+        "time_leakage"
+      ],
+      [
+        "check",
+        "truth_unmatched"
+      ],
+      [
+        "handled",
+        "subset"
+      ],
+      [
+        "handled",
+        "matching"
+      ]
+    ],
+    "layer": "C:\\proveit_work\\score_planarena_completed_planarena_model.gdb\\planarena_completed_planarena_model_scored"
+  },
+  "completed_soft_site_rule": {
+    "headline": "AUC 0.387: 210 yes vs 41,189 no",
+    "metrics": {
+      "auc": 0.387,
+      "yes": 210,
+      "no": 41189,
+      "base_rate": 0.005,
+      "top10_rate": 0.009,
+      "top10_lift": 1.857
+    },
+    "traps": [
+      [
+        "check",
+        "temporary_vs_final"
+      ],
+      [
+        "check",
+        "units_are_totals"
+      ],
+      [
+        "check",
+        "frontage_geocoding"
+      ],
+      [
+        "check",
+        "condo_billing_bbl"
+      ],
+      [
+        "check",
+        "completion_lag"
+      ],
+      [
+        "handled",
+        "time_leakage"
+      ],
+      [
+        "check",
+        "truth_unmatched"
+      ],
+      [
+        "handled",
+        "subset"
+      ],
+      [
+        "handled",
+        "matching"
+      ],
+      [
+        "handled",
+        "not_scored"
+      ]
+    ],
+    "layer": "C:\\proveit_work\\score_planarena_completed_soft_site_rule.gdb\\planarena_completed_soft_site_rule_scored"
+  },
+  "completed_all_lots_planarena_model": {
+    "headline": "AUC 0.688: 430 yes vs 41,740 no"
+  }
+}

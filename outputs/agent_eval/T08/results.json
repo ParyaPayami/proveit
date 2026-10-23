@@ -1,0 +1,74 @@
+{
+ "A_no_ties": {
+  "x": [
+   10,
+   20,
+   30,
+   40,
+   50
+  ],
+  "y": [
+   3,
+   1,
+   4,
+   5,
+   2
+  ],
+  "sum_d2": 16,
+  "shortcut": 0.19999999999999996,
+  "hand_pearson_on_ranks": 0.2,
+  "proveit": 0.19999999999999996
+ },
+ "B_ties": {
+  "x": [
+   1,
+   2,
+   2,
+   4,
+   5
+  ],
+  "y": [
+   5,
+   3,
+   3,
+   3,
+   1
+  ],
+  "ranks_x": [
+   1.0,
+   2.5,
+   2.5,
+   4.0,
+   5.0
+  ],
+  "ranks_y": [
+   5.0,
+   3.0,
+   3.0,
+   3.0,
+   1.0
+  ],
+  "hand": -0.917662935482247,
+  "shortcut_formula_on_tied_ranks(wrong with ties)": -0.675,
+  "proveit": -0.917662935482247
+ },
+ "C_score_pairs_more": {
+  "spearman_r": 0.2,
+  "pearson_r": 0.2
+ },
+ "C_score_pairs_less": {
+  "spearman_r": -0.2,
+  "pearson_r": -0.2
+ },
+ "C_scored_n_and_traps": [
+  [
+   "time_leakage",
+   "handled"
+  ],
+  [
+   "small_sample",
+   "warning"
+  ]
+ ],
+ "C_hand_negated": -0.2
+}

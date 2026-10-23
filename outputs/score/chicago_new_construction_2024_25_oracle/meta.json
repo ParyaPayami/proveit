@@ -1,0 +1,119 @@
+{
+  "name": "chicago_new_construction_2024_25_oracle",
+  "config": {
+    "higher_means": "more",
+    "distance_m": 30,
+    "min_records": 1,
+    "same_units": false,
+    "tolerance": null,
+    "controls": 5,
+    "where": "permit_type='PERMIT - NEW CONSTRUCTION'",
+    "start": "2024-01-01",
+    "end": "2025-12-31",
+    "prediction_date": "2024-01-01",
+    "key_field": null,
+    "prediction": "C:\\proveit_work\\proof_permits.gdb\\chicago_areas",
+    "source": "chicago_building_permits",
+    "field": "oracle",
+    "name": "chicago_new_construction_2024_25_oracle"
+  },
+  "shape": "polygons",
+  "test": "count",
+  "source": {
+    "id": "chicago_building_permits",
+    "name": "Chicago building permits",
+    "topics": [
+      "permits",
+      "development",
+      "demolition",
+      "construction"
+    ],
+    "publisher": "City of Chicago Department of Buildings",
+    "docs": "https://data.cityofchicago.org/d/ydr8-5enu",
+    "coverage": {
+      "place": "Chicago",
+      "bbox": [
+        -87.95,
+        41.64,
+        -87.52,
+        42.03
+      ],
+      "start": "2006-01-01"
+    },
+    "adapter": {
+      "type": "socrata",
+      "domain": "data.cityofchicago.org",
+      "dataset": "ydr8-5enu",
+      "date_field": "issue_date",
+      "lat": "latitude",
+      "lon": "longitude",
+      "category_field": "permit_type",
+      "value_field": "reported_cost",
+      "keep": [
+        "permit_",
+        "permit_type",
+        "work_description",
+        "reported_cost",
+        "community_area"
+      ]
+    },
+    "outcome": {
+      "kind": "event",
+      "describes": "a permit was issued here",
+      "value": "reported cost",
+      "unit": "USD"
+    },
+    "filters_example": "permit_type = 'PERMIT - NEW CONSTRUCTION'  (also 'PERMIT - WRECKING/DEMOLITION')",
+    "traps": [
+      {
+        "id": "minor_permits_dominate",
+        "check": "Express and easy permits (most records) are minor work; filter permit_type for development questions."
+      },
+      {
+        "id": "cost_self_reported",
+        "check": "reported_cost is declared by the applicant, not an appraisal."
+      }
+    ],
+    "license": "City of Chicago data portal terms",
+    "status": "verified"
+  },
+  "truth": {
+    "request": {
+      "source": "chicago_building_permits",
+      "bbox": [
+        -87.94055,
+        41.641932,
+        -87.523606,
+        42.023819
+      ],
+      "start": "2024-01-01",
+      "end": "2025-12-31",
+      "where": "permit_type='PERMIT - NEW CONSTRUCTION'",
+      "max_rows": 500000
+    },
+    "source_name": "Chicago building permits",
+    "outcome": {
+      "kind": "event",
+      "describes": "a permit was issued here",
+      "value": "reported cost",
+      "unit": "USD"
+    },
+    "format": "geojson",
+    "records": 2697,
+    "downloaded": "2026-10-22T18:28:14",
+    "sha256": "4478b8714c716ea37a6e3ff763ee597ac08b4ae1e181935881993b578cb1468f",
+    "rows": 2697,
+    "truncated": false,
+    "dropped": {
+      "no_location": 0,
+      "outside_dates": 0,
+      "bad_date": 0
+    }
+  },
+  "pairing": {
+    "truth_unmatched": 0,
+    "labels_excluded": 0
+  },
+  "features": 77,
+  "prediction_layer": "C:\\proveit_work\\proof_permits.gdb\\chicago_areas"
+}

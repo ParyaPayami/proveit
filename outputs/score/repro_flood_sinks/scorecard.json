@@ -1,0 +1,79 @@
+{
+  "name": "repro_flood_sinks",
+  "headline": "AUC 0.754 for 159 records vs 98 random control points",
+  "test": "presence",
+  "scored": 257,
+  "metrics": {
+    "auc": 0.754,
+    "base_rate": 0.619,
+    "top10_rate": 0.923,
+    "top10_lift": 1.492,
+    "controls": 98,
+    "records": 159
+  },
+  "direction": "higher prediction = more outcome",
+  "source": {
+    "id": "usgs_hwm_ida_nyc",
+    "name": "USGS high-water marks, Hurricane Ida, NYC (2021)",
+    "describes": "flood water reached this point",
+    "unit": "m (converted from ft)",
+    "docs": "https://doi.org/10.5066/P9OMBJPQ",
+    "license": "Public domain (USGS)"
+  },
+  "truth": {
+    "records": 159,
+    "rows": 159,
+    "downloaded": "2026-10-22T18:32:47",
+    "sha256": "1215393c6f74f3e99d89d42627bbca89d5d0ea6ac1d0203700a92c8c21f24cb1",
+    "request": {
+      "source": "usgs_hwm_ida_nyc",
+      "bbox": [
+        -74.170012,
+        40.579998,
+        -73.759976,
+        40.899997
+      ],
+      "start": "2021-09-01",
+      "end": null,
+      "where": null,
+      "max_rows": 500000
+    }
+  },
+  "prediction": {
+    "layer": "C:\\proveit_work\\proof_sinks\\sink_depth_m.tif",
+    "field": null,
+    "shape": "raster"
+  },
+  "traps": [
+    {
+      "id": "citation_header",
+      "status": "handled",
+      "detail": "The CSV's first line is a citation; the header is on line 2."
+    },
+    {
+      "id": "feet_vs_meters",
+      "status": "handled",
+      "detail": "Depths are surveyed in feet; ProveIt converts to meters."
+    },
+    {
+      "id": "presence_only",
+      "status": "handled",
+      "detail": "Marks exist only where it flooded; ProveIt compares them with random control points."
+    },
+    {
+      "id": "interior_marks",
+      "status": "check",
+      "detail": "Some marks were surveyed inside buildings; check hwm_locationdescription before using depths."
+    },
+    {
+      "id": "presence_only_controls",
+      "status": "handled",
+      "detail": "Records exist only where the outcome happened, so they are compared with random control points. False alarms can't be counted directly."
+    },
+    {
+      "id": "time_leakage",
+      "status": "handled",
+      "detail": "Only outcomes from 2021-09-01 on, after the prediction date 2021-09-01."
+    }
+  ]
+}

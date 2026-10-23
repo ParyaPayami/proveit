@@ -1,0 +1,38 @@
+{
+  "answer": "Built C:\\proveit_work\\T22\\T22.aprx (own geodatabase C:\\proveit_work\\T22\\T22.gdb) by saveACopy of the Desktop PlatterOfPython.aprx (read only), stripped to three maps plus the ProveIt.pyt toolbox as default toolbox. Map 1 shows ZIP areas shaded by observed FDNY travel minus modeled drive time (scored areas only) with firehouses; map 2 shows Ida high-water marks and control points by role; map 3 shows 45,433 structures by inspection outcome. Reopened: 3 maps, no broken layers, toolbox attached, maps recorded as open tabs. Not visually checked in the Pro window, and the original project was not touched.",
+  "numbers": {
+    "maps": 3,
+    "fire_zip_areas_layer": 178,
+    "fire_zip_areas_scored": 167,
+    "fire_zip_areas_not_scored": 11,
+    "firehouses_layer": 219,
+    "ida_points_layer": 3339,
+    "ida_street_marks": 128,
+    "ida_interior_marks": 31,
+    "ida_control_points": 3180,
+    "wildfire_structures_layer": 45433,
+    "wildfire_destroyed": 16244,
+    "wildfire_not_destroyed": 14155,
+    "wildfire_no_inspection_record": 14993,
+    "wildfire_inaccessible": 41
+  },
+  "traps_or_caveats": [
+    "Wildfire: 14,993 structures have no damage record; shown in gray as 'no inspection record', not as undamaged. 41 Inaccessible shown separately.",
+    "Fire: 11 of 178 ZIP areas are not scored (10 with <20 incidents, 1 with no observation). gap_min is null there, and they are labelled as not scored. Observed is travel time, not total response time.",
+    "Fire model is drive time at the posted speed limit from the nearest firehouse and has a median bias of about 2.2 min against observed travel times. The map shows the gap, not a validated coverage estimate.",
+    "Ida: 31 interior marks are flagged separately, because their depth is not comparable with street marks. Control points are random stand-ins, not known dry locations. 7 marks have no depth. The DEM ignores sewers.",
+    "Wildfire layer covers only structures inside the fire perimeters, so it describes loss among reached structures, not fire spread. Wind, embers, vegetation and hardening are not in the data.",
+    "Basemap (Light Gray Canvas) needs a portal connection. The toolbox path points to the Mac share (\\\\Mac\\Home\\...\\pro\\ProveIt.pyt), so it only resolves while the share is mounted.",
+    "I did not open the project in the Pro GUI. Verification was via ArcPy: map and layer names, feature counts, isBroken, renderer types."
+  ],
+  "refused": false,
+  "files": [
+    "C:\\proveit_work\\T22\\T22.aprx",
+    "C:\\proveit_work\\T22\\T22.gdb",
+    "outputs/agent_eval/T22/t22_build.py",
+    "outputs/agent_eval/T22/t22_check.py",
+    "outputs/agent_eval/T22/t22_inspect.py",
+    "outputs/agent_eval/T22/build_summary.json",
+    "outputs/agent_eval/T22/answer.json"
+  ]
+}

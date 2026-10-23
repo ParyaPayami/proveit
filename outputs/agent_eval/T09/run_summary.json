@@ -1,0 +1,27 @@
+{
+  "observed_field_used": "med_travel_s",
+  "soql_where": "valid_incident_rspns_time_indc='Y' AND incident_classification_group='Structural Fires' AND incident_datetime between '2025-01-01T00:00:00' and '2025-12-31T23:59:59'",
+  "min_incidents_applied": 20,
+  "unmatched_zips_reported": true,
+  "unmatched_zips": [
+    {
+      "zipcode": "10151",
+      "incidents": 1
+    },
+    {
+      "zipcode": "10178",
+      "incidents": 1
+    },
+    {
+      "zipcode": "11249",
+      "incidents": 94
+    },
+    {
+      "zipcode": null,
+      "incidents": 110
+    }
+  ],
+  "points_loaded": 103215,
+  "points_reached": 102675,
+  "work_gdb": "C:\\proveit_work\\T09_work.gdb"
+}

@@ -1,0 +1,84 @@
+{
+  "case": "fire_ems",
+  "against_observed_travel": {
+    "n": 167,
+    "pearson_r": 0.481,
+    "spearman_r": 0.45,
+    "median_bias_min": 2.23,
+    "mae_min": 2.23,
+    "share_within_tolerance": 0.03,
+    "share_within_tolerance_after_bias_in_sample": 0.916,
+    "share_within_tolerance_after_loo_bias": 0.916
+  },
+  "if_compared_to_total_response": {
+    "n": 167,
+    "pearson_r": 0.496,
+    "spearman_r": 0.47,
+    "median_bias_min": 2.97,
+    "mae_min": 2.95,
+    "share_within_tolerance": 0.0,
+    "share_within_tolerance_after_bias_in_sample": 0.922,
+    "share_within_tolerance_after_loo_bias": 0.922
+  },
+  "tolerance_min": 1.0,
+  "excluded_areas": 11,
+  "excluded_reasons": {
+    "no observations": 1,
+    "fewer than 20 incidents": 10
+  },
+  "largest_gaps": [
+    {
+      "modzcta": "11101",
+      "model_min": 1.492,
+      "observed_min": 5.133,
+      "incidents": 162
+    },
+    {
+      "modzcta": "10018",
+      "model_min": 1.155,
+      "observed_min": 4.767,
+      "incidents": 61
+    },
+    {
+      "modzcta": "11360",
+      "model_min": 2.299,
+      "observed_min": 5.85,
+      "incidents": 45
+    },
+    {
+      "modzcta": "10007",
+      "model_min": 0.85,
+      "observed_min": 4.375,
+      "incidents": 28
+    },
+    {
+      "modzcta": "10038",
+      "model_min": 0.974,
+      "observed_min": 4.483,
+      "incidents": 88
+    }
+  ],
+  "traps": [
+    {
+      "id": "response_vs_travel",
+      "caught": true,
+      "check": "The model estimates driving only. Observed incident_response_seconds_qy also includes turnout, so the comparison must use incident_travel_tm_seconds_qy."
+    },
+    {
+      "id": "valid_flag",
+      "caught": true,
+      "check": "FDNY marks records whose response time is not valid; only valid_incident_rspns_time_indc = 'Y' should be used."
+    },
+    {
+      "id": "zip_geography",
+      "caught": true,
+      "check": "Dispatch ZIPs are postal ZIPs, not polygons. They must be mapped to MODZCTA areas, and ZIPs that don't match (PO boxes, single buildings) reported, not dropped silently."
+    },
+    {
+      "id": "small_samples",
+      "caught": true,
+      "check": "Medians from a handful of fires are noise; areas with fewer than min_incidents are excluded from scoring and listed."
+    }
+  ],
+  "unmatched_zip_incidents": 112
+}

@@ -1,0 +1,61 @@
+{
+  "features_used": [
+    "nn_distance_m",
+    "neighbors_50m",
+    "slope_deg",
+    "open_land_distance_m"
+  ],
+  "null_damage_excluded": true,
+  "counts": {
+    "destroyed": 16244,
+    "not_destroyed": 14155,
+    "excluded_no_record": 14993,
+    "excluded_inaccessible": 41
+  },
+  "assumptions": [
+    "Only structures inside this layer are used; it was selected by the fires' final perimeters, so the question is which reached structures were lost, not where fire will reach.",
+    "Feature directions are fixed in advance (see answer_key) and not fitted to the outcome.",
+    "Open land means ground more than 100 m from any footprint in this layer; outside the layer, buildings are unknown, so distances near its edge are unreliable.",
+    "Wind, embers, vegetation type, roof material and defensible space are not available here and are not estimated.",
+    "Open-land distance is measured inside a layer selected by the fire perimeters, so it partly encodes position inside the burned area; its sign is not evidence that open land protects structures.",
+    "Each fire is reported separately: weights fitted on one fire do not transfer to the other (agent evaluation, cross-fire AUC about 0.5), so pooled results are not a general rule."
+  ],
+  "params": {
+    "open_land_m": 100,
+    "edge_m": 400,
+    "cell_m": 5
+  },
+  "provenance": {
+    "case": "wildfire_la",
+    "created": "2026-10-22T22:48:08",
+    "arcgis_pro": "ArcGISPro 3.7",
+    "python": "3.13.13",
+    "script": "\\\\Mac\\Home\\Desktop\\Esri\\proveit\\pro\\wildfire_la.py",
+    "script_sha256": "90370d46aeb751ef9810dceb4b12ef8540d755201a1c4ae180eac9bb46521a14",
+    "inputs": {
+      "data\\raw\\wildfire_la\\buildings_2023_with_dins.geojson": "a9dc3292497d86b599c2591de913eb89590df2b2b4e096720b2f601c97d06be8",
+      "data\\raw\\wildfire_la\\elevation\\eaton_00.tif": "ae9ba644de5258116ce4c6b4b47a3a7e40e994e2f195d867fef129894c2415dd",
+      "data\\raw\\wildfire_la\\elevation\\eaton_01.tif": "f6bec0d39f236aee70a3aa590a59dee74231cb39a4644f169edbb839217bfdc7",
+      "data\\raw\\wildfire_la\\elevation\\eaton_02.tif": "282760b0be903ae0dbc9d7d225eada5f0453a500886005e07487bcdc39c0b2a2",
+      "data\\raw\\wildfire_la\\elevation\\eaton_10.tif": "7f994df4a2d59ab059a4e3fb60c7e56ec5bae279aa406aac6dbfc3d3787862e0",
+      "data\\raw\\wildfire_la\\elevation\\eaton_11.tif": "2e03f85d9cf0baf73e74dde379f61a2c2030c906e446797ff7e2f733a4d1c535",
+      "data\\raw\\wildfire_la\\elevation\\eaton_12.tif": "5345be03b0905b9a18cd8ef55aa1e34a53c26056f334c818825cc741a660f1c3",
+      "data\\raw\\wildfire_la\\elevation\\eaton_20.tif": "71bdf4bdb737fe4ffe2fdf46195b29879e8b80a89a42c0f501534d291492ffdb",
+      "data\\raw\\wildfire_la\\elevation\\eaton_21.tif": "de0788d30490ac8169d611c331f7f9f86b43fc006eed0e44f21e9e6444cc7540",
+      "data\\raw\\wildfire_la\\elevation\\eaton_22.tif": "bc93c9aff47d5d1ecf6ad8924a42adeee809672242e01fb733fef3d62d8255d2",
+      "data\\raw\\wildfire_la\\elevation\\palisades_00.tif": "fa72c5876c521e6fe2de85c0654120e71ca3ff9db8b1e4c01a6a32ecbc645dc3",
+      "data\\raw\\wildfire_la\\elevation\\palisades_01.tif": "e71e2c7ad0b05b9fb742c7191608b67e00cf4c17fbd02905fd5ed131fbab1118",
+      "data\\raw\\wildfire_la\\elevation\\palisades_02.tif": "4bc901e1ef9717788a3ca68172ba3ffb1a1496b69114559d5324df64b25702f3",
+      "data\\raw\\wildfire_la\\elevation\\palisades_10.tif": "bb39987bbf5aabf3270f0ea2c5f031f0b7aad9d4a871a5e5b74067eac53a2190",
+      "data\\raw\\wildfire_la\\elevation\\palisades_11.tif": "8f84dfb2cac4bc074fe3d96b4d171cb4ec8fd0e7171d37e81935490fe2fe8c67",
+      "data\\raw\\wildfire_la\\elevation\\palisades_12.tif": "a1ffd6e25d908ac54d9f7a7e21fca4bbc696612610696f446ae0d4ab2fbd7d27",
+      "data\\raw\\wildfire_la\\elevation\\palisades_20.tif": "80e579321e80aa2d03db36320f76aa315189cbb5b3c6b841b255dcf90d8015f6",
+      "data\\raw\\wildfire_la\\elevation\\palisades_21.tif": "82211bafa76ceb6ecb3b0cacebb78b58c7cfd9fa760f37b77aa97b23c3a753c1",
+      "data\\raw\\wildfire_la\\elevation\\palisades_22.tif": "b03ccc2a481f77586757fe873e0f113b17211fc7a549e0bba8b7feb9abc03ff0"
+    },
+    "params": {
+      "open_land_m": 100,
+      "edge_m": 400
+    }
+  }
+}

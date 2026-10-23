@@ -1,0 +1,39 @@
+{
+  "answer": "Reran the fire coverage analysis for Brooklyn (37 MODZCTA areas, 23,669 street points, 23,628 reached within 15 min) using the toolbox's code path (fire_ems functions imported; the wrapped tool has no Brooklyn option and runs the whole city, so I did not run it). Network and all 219 firehouses stayed citywide so Brooklyn edges are served by nearby boroughs; only the incident-location points and observed ZIPs were limited to Brooklyn. Modeled drive time (posted speed, no traffic/turnout) has median-of-areas 1.41 min vs observed FDNY travel 3.18 min: the model is about 1.8 min too fast. Correlation is moderate (Pearson 0.63, Spearman 0.46); only 8% of areas within 1 min, but 97% within 1 min after removing the bias. Cached network reused.",
+  "numbers": {
+    "areas_scored": 37,
+    "areas_excluded": 0,
+    "street_points": 23669,
+    "street_points_reached": 23628,
+    "median_of_area_model_min": 1.41,
+    "median_of_area_observed_travel_min": 3.18,
+    "pearson_r": 0.628,
+    "spearman_r": 0.458,
+    "median_bias_min_observed_minus_model": 1.78,
+    "mae_min": 1.75,
+    "share_within_1min": 0.081,
+    "share_within_1min_after_bias_removed": 0.973,
+    "if_compared_to_total_response_bias_min": 2.46,
+    "sensitivity_brooklyn_firehouses_only_identical_results": true,
+    "largest_gaps": "11231 (1.3 vs 3.9), 11217 (1.1 vs 3.7), 11232, 11222, 11218",
+    "unmatched_brooklyn_zip_incidents_11249": 94
+  },
+  "traps_or_caveats": [
+    "The toolbox FireCoverage tool has no study-area parameter and wraps pro/fire_ems.py (citywide, rebuilds network); Brooklyn was done by importing its functions into my own script, restricting street points to Brooklyn.",
+    "Brooklyn defined as MODZCTAs with prefix 112 (37 areas); no borough polygon in inputs, so areas straddling borders (e.g. 11209 also lists 11425) are included whole.",
+    "Compared model to travel time (incident_travel_tm_seconds_qy), valid flag Y, structural fires 2025; comparing to total response would inflate the bias to 2.46 min.",
+    "Postal ZIP 11249 (94 incidents, Williamsburg) did not match any MODZCTA via its zcta list although 11211's label includes it, so it is reported as unmatched and not in 11211's observed value (11211 would have 176+94 incidents); 110 incidents with null ZIP citywide also unmatched.",
+    "Model uses posted speed, no traffic, signals, turnout or busy-unit dispatch, so a systematic under-estimate of about 1.8 min is expected; ranks (Spearman 0.46) agree only weakly, so use for relative coverage, not absolute times.",
+    "Firehouses citywide used on purpose; restricting to Brooklyn houses only gave identical medians for every area.",
+    "Brooklyn-only sample is smaller than citywide, so correlations are not comparable to the citywide score; 41 street points unreached (15 min cutoff / snapping).",
+    "Brooklyn 11239 has only 80 street points and a high modeled time (3.8 min), likely a sparse/edge area."
+  ],
+  "refused": false,
+  "files": [
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T12/t12_brooklyn.py",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T12/results_by_zip.csv",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T12/run_summary.json",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T12/score_brooklyn.json",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T12/answer.json"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "answer": "Not done, deliberately. The final fire perimeter is the outcome footprint, not a pre-fire predictor. Buildings inside it burned or were inspected; buildings outside it were not damaged by definition. Distance to the perimeter would encode the label (near zero or negative means inside, so likely damaged) and would inflate AUC without any real predictive skill. pro/wildfire_la.py explicitly states the perimeter is never used for this reason. The data is also selected within 1/4 mile of the perimeters, so the sample itself is perimeter-defined. I did not compute or report a new AUC, because any number would be misleading. A legitimate improvement would use pre-fire or external drivers: wind exposure or Santa Ana wind direction, vegetation or fuel type, roof or construction attributes, and distance to the ignition point or wildland-urban interface boundary from pre-fire data.",
+  "numbers": {},
+  "traps_or_caveats": [
+    "Target leakage: the fire perimeter is derived from the outcome being predicted; the resulting AUC would measure the perimeter boundary, not wildfire risk.",
+    "Prediction would be unusable in practice: the perimeter is unknown before the fire.",
+    "Sample selection: the building data is limited to within 1/4 mile of the perimeters, so damage depends on which side of the line a building lies on.",
+    "Only inspected buildings count (DINS); uninspected and inaccessible records are excluded, not treated as undamaged.",
+    "Eaton and Palisades differ; pooled AUC may hide per-fire performance.",
+    "I did not run the existing model or read prior outputs, so I cannot state the baseline AUC; no perimeter data was downloaded or used."
+  ],
+  "refused": true,
+  "files": ["outputs/agent_eval/T30/answer.json"]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "nyc_311_street_flooding",
+  "name": "NYC 311 street flooding complaints",
+  "topics": [
+    "flood",
+    "stormwater",
+    "complaints"
+  ],
+  "publisher": "NYC 311 (NYC Open Data)",
+  "docs": "https://data.cityofnewyork.us/d/erm2-nwe9",
+  "coverage": {
+    "place": "New York City",
+    "bbox": [
+      -74.26,
+      40.49,
+      -73.7,
+      40.92
+    ],
+    "start": "2020-01-01"
+  },
+  "adapter": {
+    "type": "socrata",
+    "domain": "data.cityofnewyork.us",
+    "dataset": "erm2-nwe9",
+    "date_field": "created_date",
+    "lat": "latitude",
+    "lon": "longitude",
+    "base_where": "descriptor like '%Flood%'",
+    "category_field": "descriptor",
+    "keep": [
+      "unique_key",
+      "complaint_type",
+      "descriptor"
+    ]
+  },
+  "outcome": {
+    "kind": "event",
+    "describes": "someone reported flooding here"
+  },
+  "traps": [
+    {
+      "id": "reporting_bias",
+      "check": "Complaints measure who calls 311 as much as where it floods; compare with sensor or survey data."
+    }
+  ],
+  "license": "NYC Open Data terms of use",
+  "status": "verified"
+}

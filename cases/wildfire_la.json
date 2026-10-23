@@ -1,0 +1,92 @@
+{
+  "id": "wildfire_la",
+  "title": "Structure exposure vs CAL FIRE damage inspections (Eaton and Palisades fires, January 2025)",
+  "question": "Among structures the fires reached, can pre-fire features alone (spacing, density, slope, nearness to open land) rank which were destroyed?",
+  "sources": {
+    "buildings": {
+      "arcgis_layer": "https://services.arcgis.com/RmCCgQtiZLDCtblq/ArcGIS/rest/services/Buildings_2023_with_DINS/FeatureServer/4",
+      "file": "buildings_2023_with_dins.geojson",
+      "about": "LA County 2023 building footprints within 1/4 mile of the Eaton and Palisades perimeters, joined to CAL FIRE DINS damage"
+    }
+  },
+  "elevation": {
+    "service": "USGS 3DEP bare-earth DEM (meters, NAVD88)",
+    "cell_m": 5.0,
+    "boxes": {
+      "eaton": [
+        -118.2,
+        34.15,
+        -118.03,
+        34.23
+      ],
+      "palisades": [
+        -118.63,
+        34.02,
+        -118.48,
+        34.11
+      ]
+    }
+  },
+  "answer_key": {
+    "outcome": "destroyed",
+    "destroyed_values": [
+      "Destroyed (>50%)"
+    ],
+    "inspected_not_destroyed_values": [
+      "No Damage",
+      "Affected (1-9%)",
+      "Minor (10-25%)",
+      "Major (26-50%)"
+    ],
+    "excluded_values": [
+      "Inaccessible",
+      null
+    ],
+    "feature_directions": {
+      "nn_distance_m": "lower is riskier",
+      "neighbors_50m": "higher is riskier",
+      "slope_deg": "higher is riskier",
+      "open_land_distance_m": "lower is riskier"
+    }
+  },
+  "assumptions": [
+    "Only structures inside this layer are used; it was selected by the fires' final perimeters, so the question is which reached structures were lost, not where fire will reach.",
+    "Feature directions are fixed in advance (see answer_key) and not fitted to the outcome.",
+    "Open land means ground more than 100 m from any footprint in this layer; outside the layer, buildings are unknown, so distances near its edge are unreliable.",
+    "Wind, embers, vegetation type, roof material and defensible space are not available here and are not estimated.",
+    "Open-land distance is measured inside a layer selected by the fire perimeters, so it partly encodes position inside the burned area; its sign is not evidence that open land protects structures.",
+    "Each fire is reported separately: weights fitted on one fire do not transfer to the other (agent evaluation, cross-fire AUC about 0.5), so pooled results are not a general rule."
+  ],
+  "traps": [
+    {
+      "id": "uninspected_not_undamaged",
+      "check": "One footprint in three has no damage record. 'No record' means not inspected, not 'no damage'; those must be excluded, not counted as survivors.",
+      "detect": "null_damage_excluded"
+    },
+    {
+      "id": "outcome_leakage",
+      "check": "The final fire perimeter is an outcome. Distance to the perimeter must not be used as a predictor.",
+      "detect": "'perimeter' not in ' '.join(features_used)"
+    },
+    {
+      "id": "selection_by_outcome",
+      "check": "The layer itself was selected using the perimeters, so results only describe structures the fire reached.",
+      "detect": "'selected by the fires' in ' '.join(assumptions)"
+    },
+    {
+      "id": "missing_drivers",
+      "check": "Wind and ember exposure, vegetation and building hardening drive losses but aren't in the data; the analysis must say so instead of estimating them.",
+      "detect": "'not estimated' in ' '.join(assumptions)"
+    },
+    {
+      "id": "open_land_position",
+      "check": "Open-land distance partly encodes position inside the burned area (the layer is perimeter-selected); do not read its reversed sign as 'open land is protective'.",
+      "detect": "'position inside the burned area' in ' '.join(assumptions)"
+    },
+    {
+      "id": "no_cross_fire_transfer",
+      "check": "Results differ between fires and fitted weights do not transfer; report per fire and test any fitted model on a held-out fire.",
+      "detect": "'reported separately' in ' '.join(assumptions)"
+    }
+  ]
+}

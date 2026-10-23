@@ -1,0 +1,77 @@
+{
+ "n": 45433,
+ "exceeded": null,
+ "DAMAGE": [
+  [
+   "'Destroyed (>50%)'",
+   16244
+  ],
+  [
+   "None",
+   14993
+  ],
+  [
+   "'No Damage'",
+   12107
+  ],
+  [
+   "'Affected (1-9%)'",
+   1583
+  ],
+  [
+   "'Minor (10-25%)'",
+   319
+  ],
+  [
+   "'Major (26-50%)'",
+   146
+  ],
+  [
+   "'Inaccessible'",
+   41
+  ]
+ ],
+ "CODE": [
+  [
+   "Building",
+   45068
+  ],
+  [
+   "Courtyard",
+   289
+  ],
+  [
+   "Free Standing Solar Structure",
+   76
+  ]
+ ],
+ "STATUS": [
+  [
+   "Unchanged",
+   42812
+  ],
+  [
+   "Modified",
+   2000
+  ],
+  [
+   "New",
+   600
+  ],
+  [
+   "Replacement",
+   21
+  ]
+ ],
+ "dup_bldid": 1,
+ "null_bldid": 289,
+ "uniq_oid": 45433,
+ "blank_or_ws": 0,
+ "null_geom": 0,
+ "STRUCT_by_dmg_nonnull": [
+  [
+   false,
+   14993
+  ]
+ ]
+}

@@ -1,0 +1,79 @@
+{
+ "case": "fire_ems",
+ "against_observed_travel": {
+  "n": 37,
+  "pearson_r": 0.628,
+  "spearman_r": 0.458,
+  "median_bias_min": 1.78,
+  "mae_min": 1.75,
+  "share_within_tolerance": 0.081,
+  "share_within_tolerance_after_bias": 0.973
+ },
+ "if_compared_to_total_response": {
+  "n": 37,
+  "pearson_r": 0.63,
+  "spearman_r": 0.458,
+  "median_bias_min": 2.46,
+  "mae_min": 2.43,
+  "share_within_tolerance": 0.0,
+  "share_within_tolerance_after_bias": 0.973
+ },
+ "tolerance_min": 1.0,
+ "excluded_areas": 0,
+ "excluded_reasons": {},
+ "largest_gaps": [
+  {
+   "modzcta": "11231",
+   "model_min": 1.348,
+   "observed_min": 3.908,
+   "incidents": 116
+  },
+  {
+   "modzcta": "11217",
+   "model_min": 1.115,
+   "observed_min": 3.65,
+   "incidents": 167
+  },
+  {
+   "modzcta": "11232",
+   "model_min": 1.277,
+   "observed_min": 3.55,
+   "incidents": 60
+  },
+  {
+   "modzcta": "11222",
+   "model_min": 1.373,
+   "observed_min": 3.608,
+   "incidents": 84
+  },
+  {
+   "modzcta": "11218",
+   "model_min": 1.361,
+   "observed_min": 3.533,
+   "incidents": 133
+  }
+ ],
+ "traps": [
+  {
+   "id": "response_vs_travel",
+   "caught": true,
+   "check": "The model estimates driving only. Observed incident_response_seconds_qy also includes turnout, so the comparison must use incident_travel_tm_seconds_qy."
+  },
+  {
+   "id": "valid_flag",
+   "caught": true,
+   "check": "FDNY marks records whose response time is not valid; only valid_incident_rspns_time_indc = 'Y' should be used."
+  },
+  {
+   "id": "zip_geography",
+   "caught": true,
+   "check": "Dispatch ZIPs are postal ZIPs, not polygons. They must be mapped to MODZCTA areas, and ZIPs that don't match (PO boxes, single buildings) reported, not dropped silently."
+  },
+  {
+   "id": "small_samples",
+   "caught": true,
+   "check": "Medians from a handful of fires are noise; areas with fewer than min_incidents are excluded from scoring and listed."
+  }
+ ],
+ "unmatched_zip_incidents": 0
+}

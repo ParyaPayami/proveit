@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Run an ArcPy script in ArcGIS Pro inside the Windows VM.
+#   bin/pro pro/check_env.py
+set -euo pipefail
+cd "$(dirname "$0")/.."
+exec python3 -m proveit.bridge "$@"

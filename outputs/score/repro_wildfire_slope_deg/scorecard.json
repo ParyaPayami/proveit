@@ -1,0 +1,79 @@
+{
+  "name": "repro_wildfire_slope_deg",
+  "headline": "AUC 0.581: 15,693 yes vs 13,398 no",
+  "test": "binary",
+  "scored": 29091,
+  "metrics": {
+    "auc": 0.581,
+    "yes": 15693,
+    "no": 13398,
+    "base_rate": 0.539,
+    "top10_rate": 0.499,
+    "top10_lift": 0.925
+  },
+  "direction": "higher prediction = more outcome",
+  "source": {
+    "id": "calfire_dins_la_2025",
+    "name": "CAL FIRE damage inspections, Eaton and Palisades fires (2025)",
+    "describes": "structure destroyed (1) or inspected and not destroyed (0)",
+    "unit": null,
+    "docs": "https://catalog.data.gov/dataset/cal-fire-damage-inspection-dins-data-6ab6d",
+    "license": "Public (LA County open data)"
+  },
+  "truth": {
+    "records": 45433,
+    "rows": 45433,
+    "downloaded": "2026-10-22T18:29:31",
+    "sha256": "05fe50b4392ad720b5bc2d49c111d628f7993267ba4e49f969d593b5d9c9ed4e",
+    "request": {
+      "source": "calfire_dins_la_2025",
+      "bbox": [
+        -118.690985,
+        34.027074,
+        -118.015862,
+        34.23272
+      ],
+      "start": "2025-01-07",
+      "end": null,
+      "where": null,
+      "max_rows": 500000
+    }
+  },
+  "prediction": {
+    "layer": "C:\\Users\\user\\Documents\\ArcGIS\\Projects\\ProveIt\\ProveIt.gdb\\wildfire_buildings",
+    "field": "slope_deg",
+    "shape": "polygons"
+  },
+  "traps": [
+    {
+      "id": "uninspected_not_undamaged",
+      "status": "handled",
+      "detail": "About a third of footprints have no inspection; they are excluded, not counted as survivors."
+    },
+    {
+      "id": "selection_by_outcome",
+      "status": "check",
+      "detail": "Only structures near the final perimeters are in the layer; results describe structures the fire reached."
+    },
+    {
+      "id": "perimeter_is_outcome",
+      "status": "check",
+      "detail": "Never use distance to the final perimeter as a predictor."
+    },
+    {
+      "id": "excluded_as_negative",
+      "status": "handled",
+      "detail": "Records without a valid label were excluded. Counting them as 'no' would give AUC 0.575 and a base rate of 0.359 instead of 0.539."
+    },
+    {
+      "id": "time_leakage",
+      "status": "handled",
+      "detail": "Only outcomes from 2025-01-07 on, after the prediction date 2025-01-07."
+    },
+    {
+      "id": "not_scored",
+      "status": "handled",
+      "detail": "16,342 features had no prediction, no outcome, or fewer than 1 records."
+    }
+  ]
+}

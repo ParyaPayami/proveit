@@ -1,0 +1,58 @@
+{
+  "id": "chicago_building_permits",
+  "name": "Chicago building permits",
+  "topics": [
+    "permits",
+    "development",
+    "demolition",
+    "construction"
+  ],
+  "publisher": "City of Chicago Department of Buildings",
+  "docs": "https://data.cityofchicago.org/d/ydr8-5enu",
+  "coverage": {
+    "place": "Chicago",
+    "bbox": [
+      -87.95,
+      41.64,
+      -87.52,
+      42.03
+    ],
+    "start": "2006-01-01"
+  },
+  "adapter": {
+    "type": "socrata",
+    "domain": "data.cityofchicago.org",
+    "dataset": "ydr8-5enu",
+    "date_field": "issue_date",
+    "lat": "latitude",
+    "lon": "longitude",
+    "category_field": "permit_type",
+    "value_field": "reported_cost",
+    "keep": [
+      "permit_",
+      "permit_type",
+      "work_description",
+      "reported_cost",
+      "community_area"
+    ]
+  },
+  "outcome": {
+    "kind": "event",
+    "describes": "a permit was issued here",
+    "value": "reported cost",
+    "unit": "USD"
+  },
+  "filters_example": "permit_type = 'PERMIT - NEW CONSTRUCTION'  (also 'PERMIT - WRECKING/DEMOLITION')",
+  "traps": [
+    {
+      "id": "minor_permits_dominate",
+      "check": "Express and easy permits (most records) are minor work; filter permit_type for development questions."
+    },
+    {
+      "id": "cost_self_reported",
+      "check": "reported_cost is declared by the applicant, not an appraisal."
+    }
+  ],
+  "license": "City of Chicago data portal terms",
+  "status": "verified"
+}

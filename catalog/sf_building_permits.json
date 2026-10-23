@@ -1,0 +1,54 @@
+{
+  "id": "sf_building_permits",
+  "name": "San Francisco building permits",
+  "topics": [
+    "permits",
+    "development",
+    "demolition",
+    "construction"
+  ],
+  "publisher": "San Francisco Department of Building Inspection (DataSF)",
+  "docs": "https://data.sfgov.org/d/i98e-djp9",
+  "coverage": {
+    "place": "San Francisco",
+    "bbox": [
+      -122.52,
+      37.7,
+      -122.35,
+      37.84
+    ],
+    "start": "1980-01-01"
+  },
+  "adapter": {
+    "type": "socrata",
+    "domain": "data.sfgov.org",
+    "dataset": "i98e-djp9",
+    "date_field": "issued_date",
+    "point": "location",
+    "category_field": "permit_type_definition",
+    "keep": [
+      "permit_number",
+      "permit_type_definition",
+      "status",
+      "proposed_units",
+      "existing_units"
+    ]
+  },
+  "outcome": {
+    "kind": "event",
+    "describes": "a permit was issued here"
+  },
+  "filters_example": "permit_type_definition = 'new construction wood frame' AND status <> 'cancelled'",
+  "traps": [
+    {
+      "id": "cancelled_permits",
+      "check": "Cancelled and expired permits stay in the data; filter status."
+    },
+    {
+      "id": "issued_not_built",
+      "check": "A permit is permission, not completion."
+    }
+  ],
+  "license": "DataSF terms (PDDL)",
+  "status": "verified"
+}

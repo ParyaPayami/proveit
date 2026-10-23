@@ -1,0 +1,63 @@
+{
+  "id": "nyc_ll84_energy",
+  "name": "NYC building energy benchmarking (LL84), 2022 to present",
+  "topics": [
+    "energy",
+    "buildings",
+    "emissions",
+    "smart buildings"
+  ],
+  "publisher": "NYC Mayor's Office of Climate and Environmental Justice (NYC Open Data)",
+  "docs": "https://data.cityofnewyork.us/d/5zyy-y8am",
+  "coverage": {
+    "place": "New York City",
+    "bbox": [
+      -74.26,
+      40.49,
+      -73.7,
+      40.92
+    ],
+    "start": "2022-01-01"
+  },
+  "adapter": {
+    "type": "socrata",
+    "domain": "data.cityofnewyork.us",
+    "dataset": "5zyy-y8am",
+    "date_field": "year_ending",
+    "lat": "latitude",
+    "lon": "longitude",
+    "coords_are_text": false,
+    "value_field": "site_eui_kbtu_ft",
+    "category_field": "report_year",
+    "keep": [
+      "property_id",
+      "report_year",
+      "largest_property_use_type",
+      "year_built",
+      "property_gfa_calculated"
+    ]
+  },
+  "outcome": {
+    "kind": "measure",
+    "describes": "metered site energy use intensity",
+    "unit": "kBtu per sq ft"
+  },
+  "traps": [
+    {
+      "id": "large_buildings_only",
+      "check": "Covers buildings over 25,000 sq ft only."
+    },
+    {
+      "id": "self_reported",
+      "check": "Owners report through Portfolio Manager; outliers and errors are common, so check before trusting a single building."
+    },
+    {
+      "id": "eui_is_text",
+      "check": "site_eui_kbtu_ft is stored as text and can hold 'Not Available'; ProveIt keeps only numeric values.",
+      "handled": true
+    }
+  ],
+  "license": "NYC Open Data terms of use",
+  "status": "verified",
+  "filters_example": "report_year = 2024"
+}

@@ -1,0 +1,62 @@
+{
+  "id": "nyc_dob_now_permits",
+  "name": "NYC DOB NOW: Build approved permits",
+  "topics": [
+    "permits",
+    "development",
+    "solar",
+    "construction"
+  ],
+  "publisher": "NYC Department of Buildings (NYC Open Data)",
+  "docs": "https://data.cityofnewyork.us/d/rbx6-tga4",
+  "coverage": {
+    "place": "New York City",
+    "bbox": [
+      -74.26,
+      40.49,
+      -73.7,
+      40.92
+    ],
+    "start": "2016-06-01"
+  },
+  "adapter": {
+    "type": "socrata",
+    "domain": "data.cityofnewyork.us",
+    "dataset": "rbx6-tga4",
+    "date_field": "issued_date",
+    "lat": "latitude",
+    "lon": "longitude",
+    "category_field": "work_type",
+    "keep": [
+      "job_filing_number",
+      "work_type",
+      "bbl",
+      "permit_status"
+    ]
+  },
+  "outcome": {
+    "kind": "event",
+    "describes": "a permit was issued here"
+  },
+  "filters_example": "work_type = 'Solar'  (also: 'General Construction', 'Foundation', 'Structural')",
+  "traps": [
+    {
+      "id": "one_job_many_permits",
+      "check": "One job can have many permits (one per work type). Count jobs (job_filing_number) if you mean projects."
+    },
+    {
+      "id": "issued_not_built",
+      "check": "A permit is permission, not completion. Use certificates of occupancy for finished buildings."
+    },
+    {
+      "id": "dob_now_only",
+      "check": "Only filings in DOB NOW (since 2016, nearly all since 2021). Older work is in the legacy permit dataset."
+    },
+    {
+      "id": "frontage_geocoding",
+      "check": "Coordinates are geocoded to the street frontage, so many points sit just outside their lot. Match lots with polygon_match = nearest (about 30 m), or by BBL."
+    }
+  ],
+  "license": "NYC Open Data terms of use",
+  "status": "verified"
+}

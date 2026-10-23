@@ -1,0 +1,89 @@
+{
+  "name": "planarena_soft_site_rule_any",
+  "headline": "AUC 0.296: 425 yes vs 41,473 no",
+  "test": "binary",
+  "scored": 41898,
+  "metrics": {
+    "auc": 0.296,
+    "yes": 425,
+    "no": 41473,
+    "base_rate": 0.01,
+    "top10_rate": 0.01,
+    "top10_lift": 0.965
+  },
+  "direction": "higher prediction = more outcome",
+  "source": {
+    "id": "nyc_certificates_of_occupancy",
+    "name": "NYC DOB certificates of occupancy",
+    "describes": "a building was certified complete here",
+    "unit": "units",
+    "docs": "https://data.cityofnewyork.us/d/bs8b-p36w",
+    "license": "NYC Open Data terms of use"
+  },
+  "truth": {
+    "records": 1772,
+    "rows": 1772,
+    "downloaded": "2026-10-22T21:52:33",
+    "sha256": "d1ac1f87e0140317b09ea0fb526b817058ea69b8e12c364a814e6f41f24ff02f",
+    "request": {
+      "source": "nyc_certificates_of_occupancy",
+      "bbox": [
+        -74.047749,
+        40.683876,
+        -73.906785,
+        40.879026
+      ],
+      "start": "2021-01-01",
+      "end": "2025-12-31",
+      "where": "job_type='NB'",
+      "max_rows": 500000
+    }
+  },
+  "prediction": {
+    "layer": "C:\\proveit_work\\proof_planarena.gdb\\planarena_forecast_2020",
+    "field": "soft_site",
+    "shape": "polygons"
+  },
+  "traps": [
+    {
+      "id": "temporary_vs_final",
+      "status": "check",
+      "detail": "Temporary and final certificates are both listed; one building can have several. Filter issue_type or count each job once."
+    },
+    {
+      "id": "units_are_totals",
+      "status": "check",
+      "detail": "pr_dwelling_unit is the building's total, not the units added; subtract ex_dwelling_unit for net new homes."
+    },
+    {
+      "id": "frontage_geocoding",
+      "status": "check",
+      "detail": "Coordinates are geocoded to the street frontage, so many points sit just outside their lot. Match lots with polygon_match = nearest (about 30 m), or by BBL."
+    },
+    {
+      "id": "condo_billing_bbl",
+      "status": "check",
+      "detail": "Condominium buildings carry billing BBLs (lot 75xx) that are not tax lots in MapPLUTO; match those by location."
+    },
+    {
+      "id": "time_leakage",
+      "status": "handled",
+      "detail": "Only outcomes from 2021-01-01 on, after the prediction date 2021-01-01."
+    },
+    {
+      "id": "truth_unmatched",
+      "status": "check",
+      "detail": "1,171 records fell outside every prediction feature."
+    },
+    {
+      "id": "matching",
+      "status": "handled",
+      "detail": "547 records matched by ID and 54 by location; 1,171 matched nothing (outside the study area or without an ID or nearby feature)."
+    },
+    {
+      "id": "not_scored",
+      "status": "handled",
+      "detail": "272 features had no prediction, no outcome, or fewer than 1 records."
+    }
+  ]
+}

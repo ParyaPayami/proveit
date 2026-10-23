@@ -1,0 +1,66 @@
+{
+ "answer": "Weakly to moderately, and only as a rank signal. Across 136 non-interior marks with a depth (of 159; 7 lack depth, 16 flagged interior), Spearman rho between DEM sink depth (Fill minus DEM, 2 m 3DEP) and surveyed height above ground is 0.35 at the mark cell (95% bootstrap CI 0.18-0.51) and 0.37 using the max sink within 5 m (r2 about 0.15). Sink depth separates marks from random control points within 500 m (AUC 0.75; 54% of marks vs 12% of controls have sink >0.15 m), but 35% of marks sit on cells with zero sink. It is not a calibrated depth predictor: slope is about 0.18 m of flood per m of sink, and sink magnitudes (mean 0.9 m within 10 m) exceed observed depths (mean 0.57 m). Fit is best in Richmond and the Bronx (rho 0.5-0.6) and poor in Queens and Kings (about 0.25-0.3).",
+ "numbers": {
+  "marks_in_csv": 159,
+  "marks_with_depth": 152,
+  "marks_missing_depth": 7,
+  "marks_flagged_interior_strict": 16,
+  "marks_used_main": 136,
+  "spearman_sink_at_point_all152": 0.393,
+  "spearman_sink_at_point_noninterior136": 0.353,
+  "spearman_ci95_noninterior_point": [
+   0.18,
+   0.51
+  ],
+  "spearman_max_sink_5m": 0.371,
+  "spearman_max_sink_10m": 0.352,
+  "spearman_max_sink_20m": 0.291,
+  "pearson_noninterior_point": 0.386,
+  "r2_sink10": 0.155,
+  "slope_m_per_m_sink10": 0.18,
+  "spearman_excluding_garage_etc_121": 0.333,
+  "spearman_excluding_zero_depth_125": 0.287,
+  "spearman_good_excellent_quality_only_69": 0.469,
+  "spearman_swift_water_stillwater0_123": 0.328,
+  "auc_marks_vs_controls_point": 0.746,
+  "auc_5m": 0.774,
+  "control_points": 3180,
+  "frac_marks_sink_gt_0.15m_point": 0.544,
+  "frac_controls_sink_gt_0.15m_point": 0.121,
+  "marks_with_zero_sink_at_point_of_136": 48,
+  "mean_obs_depth_m_sink10_ge_0.15": 0.658,
+  "mean_obs_depth_m_sink10_lt_0.15": 0.328,
+  "surveyed_ground_minus_dem_m_median": 0.02,
+  "surveyed_ground_minus_dem_m_p10_p90": [
+   -0.64,
+   0.2
+  ],
+  "rho_by_county": {
+   "Richmond(21)": 0.59,
+   "Bronx(20)": 0.53,
+   "Queens(54)": 0.29,
+   "Kings(35)": 0.25,
+   "NewYork(6)": -0.44
+  }
+ },
+ "traps_or_caveats": [
+  "CSV line 1 is a citation; header parsed from line 2.",
+  "Units: depths in ft converted to m (x0.3048); sanity check of surveyed ground (elev_ft minus height_above_gnd) vs DEM gives median difference 0.02 m, so datum and units are consistent.",
+  "Concept mismatch: sink depth is ponding depth in a closed DEM depression; the mark is height of a water line on a wall/object. Ida flooding was mostly rapid sewer-overwhelmed/overland flow, so sinks are not a physical predictor of depth; correlation is a proxy only.",
+  "Marks exist only where flooding occurred; no true non-flood sites. Controls are random points within 500 m (some may have flooded), so AUC is indicative only.",
+  "Interior marks: 16 flagged by strict keywords (basement/inside/hallway etc.); the case file's looser regex also catches garages and 'outside of basement door' (31 hits), so flagging is imprecise. Results are similar excluding either set.",
+  "11 marks have height 0 and 7 have none; zero-depth marks excluded in a sensitivity run (rho 0.29).",
+  "Bare-earth DEM omits sewers, buildings, curbs; buildings are interpolated ground so sinks at walls are unreliable. Phone/Car GPS horizontal accuracy is coarse (several m), hence the 5 m-radius sensitivity; DEM is a bilinear 2 m export, not native lidar.",
+  "Fill is run per tile, so tile edges are treated as outlets; no mark within 100 m of an edge was affected. Marks are clustered at sites (spatially autocorrelated) so the CI is optimistic; n small per county (NY County n=6).",
+  "Max-in-radius sink is biased upward relative to point sink; no Score My Layer run was done because this is a continuous depth-vs-depth correlation, not a catalog prediction."
+ ],
+ "refused": false,
+ "files": [
+  "outputs/agent_eval/T14/t14_extract.py",
+  "outputs/agent_eval/T14/analyze.py",
+  "outputs/agent_eval/T14/points.csv",
+  "outputs/agent_eval/T14/stats.json",
+  "outputs/agent_eval/T14/run_summary.json",
+  "outputs/agent_eval/T14/answer.json"
+ ]
+}

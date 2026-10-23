@@ -1,0 +1,64 @@
+{
+ "answer": "Only weakly, and not consistently. On 29,091 inspected structures (16,244 destroyed vs 14,155 not destroyed overall; uninspected and Inaccessible excluded), an equal-weight composite using the pre-set directions (tight spacing, high density, steep slope, near open land) gives pooled AUC 0.526 (bootstrap 95% 0.519-0.533), barely above chance. It splits by fire: Palisades AUC 0.68 (top-decile 82% destroyed vs bottom 31%), Eaton 0.44, below chance. Density (0.72) and spacing (0.66) carry Palisades; slope helps a little in Eaton (0.62). Open-land distance runs opposite to the stated direction in both fires (AUC 0.38 pooled): destroyed structures were farther from open land, i.e. in the dense interior. Features are not refit. Describes structures the fires reached, not where fire will spread; wind, embers, vegetation and hardening are missing.",
+ "numbers": {
+  "footprints": 45433,
+  "destroyed": 16244,
+  "inspected_not_destroyed": 14155,
+  "excluded_no_record": 14993,
+  "excluded_inaccessible": 41,
+  "destroyed_share_of_inspected": 0.5344,
+  "auc_pooled_nn_distance": 0.545,
+  "auc_pooled_neighbors_50m": 0.563,
+  "auc_pooled_slope": 0.581,
+  "auc_pooled_open_land_distance_lower_riskier": 0.379,
+  "auc_pooled_composite": 0.526,
+  "auc_pooled_composite_boot95": [
+   0.519,
+   0.533
+  ],
+  "auc_eaton_composite": 0.438,
+  "auc_palisades_composite": 0.681,
+  "auc_eaton_by_feature": {
+   "nn": 0.48,
+   "neighbors": 0.475,
+   "slope": 0.617,
+   "open_land": 0.324
+  },
+  "auc_palisades_by_feature": {
+   "nn": 0.662,
+   "neighbors": 0.72,
+   "slope": 0.547,
+   "open_land": 0.409
+  },
+  "palisades_top_decile_destroyed_share": 0.821,
+  "palisades_bottom_decile_destroyed_share": 0.312,
+  "eaton_top_decile_destroyed_share": 0.289,
+  "eaton_bottom_decile_destroyed_share": 0.493,
+  "labelled_missing_slope": 1308,
+  "labelled_missing_open_land": 1281,
+  "median_open_land_distance_m_destroyed_vs_survived": [
+   504.5,
+   353.9
+  ]
+ },
+ "traps_or_caveats": [
+  "14,993 footprints (33%) have no DINS record: excluded, not counted as survivors; they differ from inspected ones (e.g. median open-land distance 306 vs 420 m), so inspection is not random. 41 Inaccessible also excluded.",
+  "Selection by outcome: layer was chosen by final perimeters (reached structures only); results say nothing about where fire goes. Perimeter distance not used (outcome leakage).",
+  "Feature directions fixed from the case file, not fitted. Open-land distance contradicts its stated direction (reversing it would be post-hoc fitting); at best the reversed sign suggests it proxies urban-core location.",
+  "Pooled AUC hides opposite behaviour in the two fires (Eaton below chance); report per fire. Fires assigned by footprint centroid UTM X<380000.",
+  "AUC is on all inspected structures, not independent samples: strong spatial autocorrelation and clustering, so the bootstrap interval is too narrow; no spatial cross-validation done. Composite is equal-weight percentile rank, no model fitted.",
+  "Open land is >100 m from any footprint in the layer; distances near the layer edge are unreliable (400 m edge buffer masks them), giving ~4% missing slope/open-land values (10% in Palisades), dropped from composite.",
+  "Footprints include sheds/outbuildings (1,444 labelled <30 m2) and 2023 footprints may differ from pre-fire reality; DINS 'Destroyed' is >50% damage, not total loss. Slope from 5 m 3DEP DEM.",
+  "Wind, embers, vegetation, roof material and defensible space are not available and not estimated; Santa Ana wind-driven ember fire makes pre-fire geometry a weak ranker.",
+  "Score My Layer was not run: it pairs a prediction with a truth catalog source, and here the features come from the same joined layer as the outcome; AUCs were computed directly."
+ ],
+ "refused": false,
+ "files": [
+  "outputs/agent_eval/T17/t17_features.py",
+  "outputs/agent_eval/T17/t17_eval.py",
+  "outputs/agent_eval/T17/buildings.csv",
+  "outputs/agent_eval/T17/metrics.json",
+  "outputs/agent_eval/T17/run_summary.json",
+  "outputs/agent_eval/T17/answer.json"
+ ]
+}

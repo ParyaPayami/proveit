@@ -1,0 +1,26 @@
+{
+  "n": 45433,
+  "valid_nn": 45433,
+  "no_neighbor_found": 0,
+  "self_matches": 0,
+  "mean": 3.907921228514891,
+  "median": 2.204681240112686,
+  "p05": 0.0,
+  "p25": 0.9461645143638482,
+  "p75": 4.111162746008385,
+  "p95": 12.301535481741691,
+  "min": 0.0,
+  "max": 1303.5886934795224,
+  "zero_distance": 6811,
+  "zero_identical_geometry": 0,
+  "zero_touching_or_overlapping_not_identical": 6811,
+  "duplicate_BLD_ID_values": 0,
+  "nn_has_same_BLD_ID": 0,
+  "codes": {
+    "Building": 45068,
+    "Courtyard": 289,
+    "Free Standing Solar Structure": 76
+  },
+  "gt_100m": 50,
+  "gt_50m": 188
+}

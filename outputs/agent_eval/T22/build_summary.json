@@ -1,0 +1,99 @@
+{
+  "fire": {
+    "zip_areas": 178,
+    "scored": 167,
+    "not_scored": 11,
+    "firehouses": 219
+  },
+  "flood": {
+    "points_total": 3339,
+    "by_role": {
+      "High-water mark, street/outdoor": 128,
+      "Control point (not a surveyed flood location)": 3180,
+      "High-water mark, interior/basement (depth not comparable)": 31
+    }
+  },
+  "wildfire": {
+    "structures_total": 45433,
+    "by_outcome": {
+      "No inspection record (excluded, not 'undamaged')": 14993,
+      "Not destroyed (inspected)": 14155,
+      "Destroyed": 16244,
+      "Inspected, outcome not used (e.g. inaccessible)": 41
+    },
+    "by_DAMAGE": {
+      "None": 14993,
+      "No Damage": 12107,
+      "Destroyed (>50%)": 16244,
+      "Affected (1-9%)": 1583,
+      "Minor (10-25%)": 319,
+      "Major (26-50%)": 146,
+      "Inaccessible": 41
+    },
+    "by_destroyed_field": {
+      "None": 15034,
+      "0": 14155,
+      "1": 16244
+    }
+  },
+  "maps": [
+    "1 Fire coverage vs FDNY travel times",
+    "2 Ida flood marks vs terrain low spots",
+    "3 Wildfire structures vs damage inspections"
+  ],
+  "layers": {
+    "1 Fire coverage vs FDNY travel times": [
+      "Light Gray Reference",
+      "Firehouses",
+      "ZIP areas: observed minus modeled travel (min), scored areas only",
+      "Light Gray Base"
+    ],
+    "2 Ida flood marks vs terrain low spots": [
+      "Light Gray Reference",
+      "Ida high-water marks and control points",
+      "Light Gray Base"
+    ],
+    "3 Wildfire structures vs damage inspections": [
+      "Light Gray Reference",
+      "Structures by inspection outcome (Eaton + Palisades)",
+      "Light Gray Base"
+    ]
+  },
+  "toolboxes": [
+    "{'toolboxPath': '\\\\\\\\mac\\\\Home\\\\Desktop\\\\Esri\\\\proveit\\\\pro\\\\ProveIt.pyt', 'isDefaultToolbox': True}"
+  ],
+  "uris": [
+    "CIMPATH=1_Fire_coverage_vs_FDNY_travel_times/1_Fire_coverage_vs_FDNY_travel_times.json",
+    "CIMPATH=2_Ida_flood_marks_vs_terrain_low_spots/2_Ida_flood_marks_vs_terrain_low_spots.json",
+    "CIMPATH=3_Wildfire_structures_vs_damage_inspections/3_Wildfire_structures_vs_damage_inspections.json"
+  ],
+  "verify": {
+    "maps": [
+      "1 Fire coverage vs FDNY travel times",
+      "2 Ida flood marks vs terrain low spots",
+      "3 Wildfire structures vs damage inspections"
+    ],
+    "layouts": 0,
+    "default_gdb": "C:\\proveit_work\\T22\\T22.gdb",
+    "toolboxes": [
+      "{'toolboxPath': '\\\\\\\\mac\\\\Home\\\\Desktop\\\\Esri\\\\proveit\\\\pro\\\\ProveIt.pyt', 'isDefaultToolbox': True}"
+    ],
+    "broken": {
+      "1 Fire coverage vs FDNY travel times": [],
+      "2 Ida flood marks vs terrain low spots": [],
+      "3 Wildfire structures vs damage inspections": []
+    },
+    "counts": {
+      "1 Fire coverage vs FDNY travel times": {
+        "Firehouses": 219,
+        "ZIP areas: observed minus modeled travel (min), scored areas only": 178
+      },
+      "2 Ida flood marks vs terrain low spots": {
+        "Ida high-water marks and control points": 3339
+      },
+      "3 Wildfire structures vs damage inspections": {
+        "Structures by inspection outcome (Eaton + Palisades)": 45433
+      }
+    }
+  }
+}

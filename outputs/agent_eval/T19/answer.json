@@ -1,0 +1,85 @@
+{
+ "answer": "No, not as measured here. Among 30,399 inspected structures (16,244 destroyed, 53.4%), those nearer 'open land' (ground >100 m from any footprint) were destroyed LESS often, not more. With the direction fixed in advance (lower distance = riskier) AUC is 0.379 overall (Eaton 0.324, Palisades 0.409); i.e. farther-from-open-land AUC is about 0.62. Destroyed share rises from 44.7% in the nearest quartile to 71.7% in the farthest (Eaton 34% to 71%; Palisades 52% to 71%). The reversal persists within density strata. This does not show open land is safe: the feature cannot see wildland adjacency (all values >=100 m by construction, layer edge excluded) and the data are perimeter-selected, so edge buildings may simply not have been reached. Wind, embers, vegetation and hardening are not in the data. The rule was not supported, nor cleanly tested.",
+ "numbers": {
+  "inspected_structures": 30399,
+  "destroyed": 16244,
+  "not_destroyed": 14155,
+  "destroyed_rate": 0.534,
+  "excluded_no_damage_record": 14993,
+  "excluded_inaccessible": 41,
+  "footprints_total": 45433,
+  "auc_open_land_distance_lower_riskier_all": 0.379,
+  "auc_open_land_distance_lower_riskier_eaton": 0.324,
+  "auc_open_land_distance_lower_riskier_palisades": 0.409,
+  "n_with_open_land_value": 29118,
+  "n_open_land_missing_edge_zone": 1281,
+  "destroyed_rate_by_open_distance_quartile_all": [
+   0.447,
+   0.45,
+   0.542,
+   0.717
+  ],
+  "quartile_cuts_m_all": [
+   239,
+   420,
+   675
+  ],
+  "destroyed_rate_eaton_quartiles": [
+   0.338,
+   0.375,
+   0.603,
+   0.705
+  ],
+  "destroyed_rate_palisades_quartiles": [
+   0.515,
+   0.568,
+   0.589,
+   0.714
+  ],
+  "destroyed_rate_100_150m": 0.43,
+  "destroyed_rate_150_250m": 0.458,
+  "destroyed_rate_over_250m": 0.572,
+  "auc_open_within_density_strata_all(0-5,5-15,15-30,30+ neighbors)": [
+   0.517,
+   0.434,
+   0.392,
+   0.36
+  ],
+  "corr_open_distance_vs_neighbors_50m": 0.266,
+  "other_feature_aucs_all": {
+   "nn_distance_m": 0.545,
+   "neighbors_50m": 0.563,
+   "slope_deg": 0.581
+  },
+  "other_feature_aucs_eaton": {
+   "nn_distance_m": 0.48,
+   "neighbors_50m": 0.475,
+   "slope_deg": 0.617
+  },
+  "other_feature_aucs_palisades": {
+   "nn_distance_m": 0.662,
+   "neighbors_50m": 0.72,
+   "slope_deg": 0.547
+  }
+ },
+ "traps_or_caveats": [
+  "Uninspected is not undamaged: 14,993 footprints with no DINS record (33%) and 41 Inaccessible were excluded, not counted as survivors.",
+  "Selection by outcome: the layer is footprints within 1/4 mile of the final perimeters and inspections cover structures the fire reached; results describe reached structures only, not fire-spread risk. Buildings just inside the perimeter edge (next to wildland) may have survived because the fire barely touched them, which would produce the reversal.",
+  "Perimeter distance was not used as a predictor (outcome leakage avoided).",
+  "'Open land' is a proxy: ground >100 m from any footprint in this layer, kept only >400 m inside the layer's convex hull. So every structure is >=100 m from it (bins 0-100 m are empty), and it cannot represent immediate wildland adjacency; it also includes parks, golf courses, reservoirs and bare ground, not just vegetation.",
+  "Edge exclusion removes the real WUI frontier: 1,281 structures (mostly Palisades, 1,165) lack a value; their destroyed rate was 0.43 (Eaton 0 of 116). Buildings outside the layer are unknown, so distances near its edge are unreliable.",
+  "Far-from-open-land structures are in dense urban cores (open distance correlates +0.27 with neighbor count; Eaton/Altadena was ember-driven urban conflagration), so the reversal is partly density/location confounding; still, it holds within density strata (AUC 0.36-0.52).",
+  "Wind, embers, vegetation type, roof material and defensible space are not in the data and not estimated; no causal claim. Destroyed rate is 53% so base rate is high and AUCs are modest.",
+  "Palisades vs Eaton assigned by centroid X < 380000 (UTM 11N); fire-specific results differ in magnitude (Eaton stronger reversal), and Palisades density/spacing features do rank in the expected direction (AUC 0.66-0.72) while Eaton's do not (0.48).",
+  "Slope from 3DEP 5 m DEM; 1,308 structures lack slope/open values near DEM tile edges.",
+  "Score_layer not run: this is an association check of a fixed feature against labels, not a spatial prediction layer; AUC computed directly in analyze.py."
+ ],
+ "refused": false,
+ "files": [
+  "outputs/agent_eval/T19/t19_features.py",
+  "outputs/agent_eval/T19/features.csv",
+  "outputs/agent_eval/T19/analyze.py",
+  "outputs/agent_eval/T19/analysis.json",
+  "outputs/agent_eval/T19/answer.json"
+ ]
+}

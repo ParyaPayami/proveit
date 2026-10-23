@@ -1,0 +1,56 @@
+{
+  "nyc_solar": {
+    "forecast": {
+      "spearman_r": 0.965,
+      "pearson_r_log": 0.731,
+      "top20_capture": 0.591,
+      "top20_lift": 2.922,
+      "total_events": 8438.0,
+      "features_with_none": 22
+    },
+    "oracle": {
+      "spearman_r": 1.0,
+      "pearson_r_log": 0.778,
+      "top20_capture": 0.606,
+      "top20_lift": 2.995,
+      "total_events": 8438.0,
+      "features_with_none": 22
+    },
+    "random": {
+      "spearman_r": 0.082,
+      "pearson_r_log": 0.125,
+      "top20_capture": 0.218,
+      "top20_lift": 1.079,
+      "total_events": 8438.0,
+      "features_with_none": 22
+    },
+    "headline": "Top 20% of predicted features held 59% of 8,438 events (2.922x random); Spearman 0.965"
+  },
+  "chicago_new_construction": {
+    "forecast": {
+      "spearman_r": 0.942,
+      "pearson_r_log": 0.802,
+      "top20_capture": 0.643,
+      "top20_lift": 3.302,
+      "total_events": 2697.0,
+      "features_with_none": 2
+    },
+    "oracle": {
+      "spearman_r": 1.0,
+      "pearson_r_log": 0.847,
+      "top20_capture": 0.646,
+      "top20_lift": 3.314,
+      "total_events": 2697.0,
+      "features_with_none": 2
+    },
+    "random": {
+      "spearman_r": -0.215,
+      "pearson_r_log": -0.187,
+      "top20_capture": 0.161,
+      "top20_lift": 0.826,
+      "total_events": 2697.0,
+      "features_with_none": 2
+    },
+    "headline": "Top 20% of predicted features held 64% of 2,697 events (3.302x random); Spearman 0.942"
+  }
+}

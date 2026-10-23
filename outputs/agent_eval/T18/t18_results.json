@@ -1,0 +1,177 @@
+{
+ "counts": {
+  "eaton": {
+   "destroyed": 9228,
+   "not_destroyed": 9158,
+   "no_record": 11770,
+   "inaccessible": 41,
+   "total": 30197
+  },
+  "palisades": {
+   "no_record": 3223,
+   "not_destroyed": 4997,
+   "destroyed": 7016,
+   "total": 15236
+  }
+ },
+ "univariate": {
+  "nn_distance_m": {
+   "auc_eaton": 0.48,
+   "ci_eaton": [
+    0.473,
+    0.487
+   ],
+   "auc_palisades": 0.662,
+   "ci_pal": [
+    0.653,
+    0.669
+   ],
+   "diff": -0.182,
+   "diff_ci": [
+    -0.193,
+    -0.17
+   ],
+   "n_e": 18386,
+   "n_p": 12013
+  },
+  "neighbors_50m": {
+   "auc_eaton": 0.475,
+   "ci_eaton": [
+    0.466,
+    0.481
+   ],
+   "auc_palisades": 0.72,
+   "ci_pal": [
+    0.711,
+    0.729
+   ],
+   "diff": -0.245,
+   "diff_ci": [
+    -0.258,
+    -0.235
+   ],
+   "n_e": 18386,
+   "n_p": 12013
+  },
+  "slope_deg": {
+   "auc_eaton": 0.617,
+   "ci_eaton": [
+    0.609,
+    0.624
+   ],
+   "auc_palisades": 0.547,
+   "ci_pal": [
+    0.537,
+    0.559
+   ],
+   "diff": 0.07,
+   "diff_ci": [
+    0.056,
+    0.083
+   ],
+   "n_e": 18259,
+   "n_p": 10832
+  },
+  "open_land_distance_m": {
+   "auc_eaton": 0.324,
+   "ci_eaton": [
+    0.316,
+    0.332
+   ],
+   "auc_palisades": 0.409,
+   "ci_pal": [
+    0.398,
+    0.419
+   ],
+   "diff": -0.085,
+   "diff_ci": [
+    -0.096,
+    -0.072
+   ],
+   "n_e": 18270,
+   "n_p": 10848
+  }
+ },
+ "medians": {
+  "eaton": {
+   "nn_distance_m": {
+    "destroyed": 2.19,
+    "not_destroyed": 2.19
+   },
+   "neighbors_50m": {
+    "destroyed": 19.0,
+    "not_destroyed": 20.0
+   },
+   "slope_deg": {
+    "destroyed": 3.39,
+    "not_destroyed": 2.42
+   },
+   "open_land_distance_m": {
+    "destroyed": 640.18,
+    "not_destroyed": 405.03
+   }
+  },
+  "palisades": {
+   "nn_distance_m": {
+    "destroyed": 2.17,
+    "not_destroyed": 3.32
+   },
+   "neighbors_50m": {
+    "destroyed": 17.0,
+    "not_destroyed": 10.0
+   },
+   "slope_deg": {
+    "destroyed": 2.76,
+    "not_destroyed": 2.15
+   },
+   "open_land_distance_m": {
+    "destroyed": 330.04,
+    "not_destroyed": 266.69
+   }
+  }
+ },
+ "logit": {
+  "nn_distance_m": {
+   "coef_eaton": 0.185,
+   "se_e": 0.023,
+   "coef_pal": 0.03,
+   "se_p": 0.028,
+   "z_diff": 4.24,
+   "OR_eaton": 1.203,
+   "OR_pal": 1.03
+  },
+  "neighbors_50m": {
+   "coef_eaton": -0.438,
+   "se_e": 0.019,
+   "coef_pal": 0.991,
+   "se_p": 0.03,
+   "z_diff": -39.84,
+   "OR_eaton": 0.645,
+   "OR_pal": 2.694
+  },
+  "slope_deg": {
+   "coef_eaton": 0.139,
+   "se_e": 0.016,
+   "coef_pal": 0.116,
+   "se_p": 0.021,
+   "z_diff": 0.87,
+   "OR_eaton": 1.15,
+   "OR_pal": 1.123
+  },
+  "open_land_distance_m": {
+   "coef_eaton": -0.734,
+   "se_e": 0.017,
+   "coef_pal": -0.045,
+   "se_p": 0.024,
+   "z_diff": -22.97,
+   "OR_eaton": 0.48,
+   "OR_pal": 0.956
+  }
+ },
+ "transfer_auc": {
+  "eaton->palisades": 0.502,
+  "palisades->eaton": 0.478,
+  "eaton->eaton": 0.711,
+  "palisades->palisades": 0.736
+ }
+}

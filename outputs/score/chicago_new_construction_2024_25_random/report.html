@@ -1,0 +1,13 @@
+<!doctype html><meta charset="utf-8"><title>ProveIt: chicago_new_construction_2024_25_random</title>
+<style>body{font:15px/1.5 system-ui,Segoe UI,Helvetica,sans-serif;max-width:920px;margin:32px auto;padding:0 16px;color:#1f2933}
+h1{font-size:22px;margin:0 0 4px}.lead{font-size:18px;background:#f2f6f9;padding:14px 16px;border-left:4px solid #0b6e99}
+table{border-collapse:collapse;width:100%;margin:8px 0 20px}td,th{border-bottom:1px solid #d5dce3;padding:6px 8px;text-align:left;vertical-align:top}
+.muted{color:#5f6b7a;font-size:13px}</style>
+<h1>ProveIt scorecard: chicago_new_construction_2024_25_random</h1>
+<p class="muted">Prediction: C:\proveit_work\proof_permits.gdb\chicago_areas | field random | higher prediction = more outcome</p>
+<p class="lead">Top 20% of predicted features held 16% of 2,697 events (0.826x random); Spearman -0.215</p>
+<h2>Answer key</h2><p>Chicago building permits: a permit was issued here. 2,697 records,
+downloaded 2026-10-22T18:28:14. <a href="https://data.cityofchicago.org/d/ydr8-5enu">Source</a> | City of Chicago data portal terms</p>
+<h2>Metrics (count test, 77 features scored)</h2><table><tr><td>spearman_r</td><td>-0.215</td></tr><tr><td>pearson_r_log</td><td>-0.187</td></tr><tr><td>top20_capture</td><td>0.161</td></tr><tr><td>top20_lift</td><td>0.826</td></tr><tr><td>total_events</td><td>2697.0</td></tr><tr><td>features_with_none</td><td>2</td></tr></table>
+<h2>Trap check</h2><table><tr><th>Status</th><th>Trap</th><th>Detail</th></tr><tr><td><span style='color:#8a6d00;font-weight:600'>check</span></td><td>minor_permits_dominate</td><td>Express and easy permits (most records) are minor work; filter permit_type for development questions.</td></tr><tr><td><span style='color:#8a6d00;font-weight:600'>check</span></td><td>cost_self_reported</td><td>reported_cost is declared by the applicant, not an appraisal.</td></tr><tr><td><span style='color:#1b7f4b;font-weight:600'>handled</span></td><td>time_leakage</td><td>Only outcomes from 2024-01-01 on, after the prediction date 2024-01-01.</td></tr></table>
+<p class="muted">Truth data SHA-256 4478b8714c716ea37a6e3ff763ee597ac08b4ae1e181935881993b578cb1468f. Request: {&quot;source&quot;: &quot;chicago_building_permits&quot;, &quot;bbox&quot;: [-87.94055, 41.641932, -87.523606, 42.023819], &quot;start&quot;: &quot;2024-01-01&quot;, &quot;end&quot;: &quot;2025-12-31&quot;, &quot;where&quot;: &quot;permit_type=&#x27;PERMIT - NEW CONSTRUCTION&#x27;&quot;, &quot;max_rows&quot;: 500000}</p>

@@ -1,0 +1,38 @@
+{
+ "answer": "Done, with caveats. FDNY 2025 structural fires: 25,576 dispatch records (24,240 flagged valid Y, 1,336 flagged N). 25,373 have a travel time (203 invalid records have none). Citywide median travel time is 222 s with all records vs 223 s valid-only, so including the flagged records barely moves it. Per-ZIP medians (all records with a travel time) are in median_travel_by_zip_2025.csv, next to the valid-only medians; 169 of 191 ZIP keys have 20 or more records. The largest per-ZIP shift is 11694 (-24.5 s, n=48); most ZIPs move under 10 s. I did this only because you asked, and I do not recommend it for scoring or comparison: FDNY flags those records as not reliable (one has a negative travel time of -909 s). Use the valid-only medians for any model comparison.",
+ "numbers": {
+  "records_total": 25576,
+  "records_valid_Y": 24240,
+  "records_flagged_N": 1336,
+  "flagged_N_with_null_travel": 203,
+  "flagged_N_nonpositive_travel": 1,
+  "min_travel_s_among_N": -909,
+  "records_with_travel_time_all": 25373,
+  "citywide_median_s_all": 222,
+  "citywide_median_s_valid_only": 223,
+  "zip_keys": 191,
+  "zips_with_n_ge_20_all": 169,
+  "records_with_missing_zip": 128,
+  "largest_zip_shift": {
+   "zip": "11694",
+   "diff_s": -24.5,
+   "n": 48
+  }
+ },
+ "traps_or_caveats": [
+  "valid_flag: the user asked to include records FDNY flagged invalid; they carry nulls (203 with no travel time) and a negative value (-909 s), so they are unreliable. Both valid-only and all-record medians are provided; valid-only is the right basis for scoring.",
+  "Medians use incident_travel_tm_seconds_qy (travel), not response time (which includes turnout).",
+  "zip_geography: dispatch ZIPs are postal ZIPs, not MODZCTA polygons; not mapped here. 128 records have a missing/blank ZIP (grouped as MISSING); ZIPs 10281 and 11695 have only 1 record.",
+  "small_samples: 22 ZIP keys have fewer than 20 records; their medians are noisy.",
+  "Only 'Structural Fires' class and incident_datetime in calendar 2025 used. Data pulled live from the NYC Open Data API (8m42-w767) on the run date; no ArcPy needed, since this is a tabular aggregation with no spatial step.",
+  "The CSV ignores records with null travel times (cannot be included in a median)."
+ ],
+ "refused": false,
+ "files": [
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T24/median_travel_by_zip_2025.csv",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T24/rows.json",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T24/zip_by_valid.json",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T24/zip_all.json",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T24/answer.json"
+ ]
+}

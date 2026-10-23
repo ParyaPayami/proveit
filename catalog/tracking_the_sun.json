@@ -1,0 +1,32 @@
+{
+  "id": "tracking_the_sun",
+  "name": "Tracking the Sun: installed solar systems (Berkeley Lab)",
+  "topics": [
+    "solar",
+    "energy",
+    "adoption"
+  ],
+  "publisher": "Lawrence Berkeley National Laboratory",
+  "docs": "https://emp.lbl.gov/tracking-the-sun",
+  "coverage": {
+    "place": "United States",
+    "start": "2000-01-01"
+  },
+  "adapter": {
+    "type": "manual",
+    "url": "https://emp.lbl.gov/tracking-the-sun",
+    "instructions": "Download the public data file; location is ZIP-level (to verify)."
+  },
+  "outcome": {
+    "kind": "event",
+    "describes": "a solar system was installed"
+  },
+  "traps": [
+    {
+      "id": "incomplete_fields",
+      "check": "Most fields are blank for most systems."
+    }
+  ],
+  "license": "Public data file",
+  "status": "verified"
+}

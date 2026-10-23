@@ -1,0 +1,13 @@
+<!doctype html><meta charset="utf-8"><title>ProveIt: nyc_solar_2025_oracle</title>
+<style>body{font:15px/1.5 system-ui,Segoe UI,Helvetica,sans-serif;max-width:920px;margin:32px auto;padding:0 16px;color:#1f2933}
+h1{font-size:22px;margin:0 0 4px}.lead{font-size:18px;background:#f2f6f9;padding:14px 16px;border-left:4px solid #0b6e99}
+table{border-collapse:collapse;width:100%;margin:8px 0 20px}td,th{border-bottom:1px solid #d5dce3;padding:6px 8px;text-align:left;vertical-align:top}
+.muted{color:#5f6b7a;font-size:13px}</style>
+<h1>ProveIt scorecard: nyc_solar_2025_oracle</h1>
+<p class="muted">Prediction: C:\proveit_work\proof_permits.gdb\nyc_zip_areas | field oracle | higher prediction = more outcome</p>
+<p class="lead">Top 20% of predicted features held 61% of 8,438 events (2.995x random); Spearman 1.0</p>
+<h2>Answer key</h2><p>NYC DOB NOW: Build approved permits: a permit was issued here. 8,438 records,
+downloaded 2026-10-22T18:27:39. <a href="https://data.cityofnewyork.us/d/rbx6-tga4">Source</a> | NYC Open Data terms of use</p>
+<h2>Metrics (count test, 178 features scored)</h2><table><tr><td>spearman_r</td><td>1.0</td></tr><tr><td>pearson_r_log</td><td>0.778</td></tr><tr><td>top20_capture</td><td>0.606</td></tr><tr><td>top20_lift</td><td>2.995</td></tr><tr><td>total_events</td><td>8438.0</td></tr><tr><td>features_with_none</td><td>22</td></tr></table>
+<h2>Trap check</h2><table><tr><th>Status</th><th>Trap</th><th>Detail</th></tr><tr><td><span style='color:#8a6d00;font-weight:600'>check</span></td><td>one_job_many_permits</td><td>One job can have many permits (one per work type). Count jobs (job_filing_number) if you mean projects.</td></tr><tr><td><span style='color:#8a6d00;font-weight:600'>check</span></td><td>issued_not_built</td><td>A permit is permission, not completion. Use certificates of occupancy for finished buildings.</td></tr><tr><td><span style='color:#8a6d00;font-weight:600'>check</span></td><td>dob_now_only</td><td>Only filings in DOB NOW (since 2016, nearly all since 2021). Older work is in the legacy permit dataset.</td></tr><tr><td><span style='color:#1b7f4b;font-weight:600'>handled</span></td><td>time_leakage</td><td>Only outcomes from 2025-01-01 on, after the prediction date 2025-01-01.</td></tr></table>
+<p class="muted">Truth data SHA-256 8dc9ec8dca7af17e72514e61aabb7c524b67585203a501e89df2d09b180c4686. Request: {&quot;source&quot;: &quot;nyc_dob_now_permits&quot;, &quot;bbox&quot;: [-74.257154, 40.495984, -73.699216, 40.915558], &quot;start&quot;: &quot;2025-01-01&quot;, &quot;end&quot;: &quot;2025-12-31&quot;, &quot;where&quot;: &quot;work_type=&#x27;Solar&#x27;&quot;, &quot;max_rows&quot;: 500000}</p>

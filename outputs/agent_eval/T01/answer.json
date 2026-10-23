@@ -1,0 +1,19 @@
+{
+  "answer": "On the toy one-way network the drive time from A to C is 2.0 minutes (A-B 1 + B-C 1, via the one-way street). From C to A it is 5.0 minutes. The one-way B-C street cannot be driven C to B, so the route takes the 5-minute A-C detour (2.5 + 2.5). That is the asymmetry expected for a one-way edge, and both values match the known answer. I built the toy network with the same pro/network.py build_network code that builds the NYC network, using a Minutes cost with negative values meaning no travel, and solved with an Origin-Destination cost matrix. I did not rebuild the NYC network. I confirmed the cached C:\\proveit_work\\fire_ems.gdb network exists (112,711 drivable segments, Length and Minutes costs).",
+  "numbers": {"A_to_C_min": 2.0, "C_to_A_min": 5.0, "expected_A_to_C_min": 2.0, "expected_C_to_A_min": 5.0, "pass": true, "nyc_cached_street_segments": 112711},
+  "traps_or_caveats": [
+    "The toy check validates one-way handling only; it is a unit test, not NYC drive times.",
+    "One-way is encoded as a negative FT_Min/TF_Min cost, so the field direction must match the digitized direction of each line.",
+    "The NYC network was reused from cache (fire_ems.gdb), not rebuilt; I only checked that it exists and has Length and Minutes costs.",
+    "NYC costs assume posted speed (default speeds where missing), with no traffic or siren speed-up, so they are not real-world drive times.",
+    "The stock pro/check_network.py writes outputs/check_network.json, outside my folder, so I wrote my own script with the same logic and a T01_toy.gdb scratch gdb.",
+    "The OD matrix also returns A->A and C->C at 0.0, which are trivial."
+  ],
+  "refused": false,
+  "files": [
+    "outputs/agent_eval/T01/t01_check.py",
+    "outputs/agent_eval/T01/result.json",
+    "outputs/agent_eval/T01/answer.json",
+    "C:\\proveit_work\\T01_toy.gdb"
+  ]
+}

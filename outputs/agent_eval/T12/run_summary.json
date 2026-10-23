@@ -1,0 +1,109 @@
+{
+  "observed_field_used": "med_travel_s",
+  "soql_where": "valid_incident_rspns_time_indc='Y' AND incident_classification_group='Structural Fires' AND incident_datetime between '2025-01-01T00:00:00' and '2025-12-31T23:59:59'",
+  "min_incidents_applied": 20,
+  "unmatched_zips_reported": true,
+  "unmatched_zips_brooklyn_prefix": [
+    {
+      "zipcode": "11249",
+      "incidents": 94
+    }
+  ],
+  "unmatched_zips_citywide": [
+    {
+      "zipcode": "10151",
+      "incidents": 1
+    },
+    {
+      "zipcode": "10178",
+      "incidents": 1
+    },
+    {
+      "zipcode": "11249",
+      "incidents": 94
+    },
+    {
+      "zipcode": null,
+      "incidents": 110
+    }
+  ],
+  "scope": "Brooklyn MODZCTAs (prefix 112); network and firehouses citywide",
+  "brooklyn_modzctas": [
+    "11201",
+    "11203",
+    "11204",
+    "11205",
+    "11206",
+    "11207",
+    "11208",
+    "11209",
+    "11210",
+    "11211",
+    "11212",
+    "11213",
+    "11214",
+    "11215",
+    "11216",
+    "11217",
+    "11218",
+    "11219",
+    "11220",
+    "11221",
+    "11222",
+    "11223",
+    "11224",
+    "11225",
+    "11226",
+    "11228",
+    "11229",
+    "11230",
+    "11231",
+    "11232",
+    "11233",
+    "11234",
+    "11235",
+    "11236",
+    "11237",
+    "11238",
+    "11239"
+  ],
+  "firehouses_by_borough": {
+    "Manhattan": 48,
+    "Bronx": 34,
+    "Brooklyn": 66,
+    "Queens": 51,
+    "Staten Island": 20
+  },
+  "counts": {
+    "street_points_loaded": 23669,
+    "street_points_reached": 23628,
+    "areas_with_model": 37,
+    "areas_with_observed": 37
+  },
+  "assumptions": [
+    "Units drive at the posted speed limit on the street centerline; no traffic, no siren speed-up.",
+    "The first unit comes from the nearest firehouse by drive time (FDNY may send another if that one is busy).",
+    "Where an incident happens inside a ZIP is unknown, so every street segment midpoint in the ZIP counts equally."
+  ],
+  "cutoff_minutes": 15.0,
+  "work_gdb": "C:\\proveit_work\\T12_fire.gdb",
+  "network_reused": "C:\\proveit_work\\fire_ems.gdb\\net\\streets_nd",
+  "provenance": {
+    "case": "fire_ems_brooklyn_T12",
+    "created": "2026-10-22T22:19:30",
+    "arcgis_pro": "ArcGISPro 3.7",
+    "python": "3.13.13",
+    "script": "\\\\Mac\\Home\\Desktop\\Esri\\proveit\\outputs\\agent_eval\\T12\\t12_brooklyn.py",
+    "script_sha256": "0afcbe2f9b8f8c3929a0e082efc015cf730bd8a2cc06cabc2c59e326cebace65",
+    "inputs": {
+      "data\\raw\\fire_ems\\streets_cscl.geojson": "9c22162f8db4952be2f081355fbec7a1b7ad427bd62ea91ecf575115caaf20c6",
+      "data\\raw\\fire_ems\\firehouses.json": "75c388b3b32dcd278a9d547a4f5d1c007babebfbc03d8cf589014815b0178769",
+      "data\\raw\\fire_ems\\modzcta.geojson": "281a1d375e86da650b5d4e2bd332b231267d73c996c60673ad968e162d758411",
+      "data\\raw\\fire_ems\\observed_by_zip_2025.json": "1f75d5ac1ae01022ddce4778fc82090875887a22c36c76469428c52eb519def5"
+    },
+    "params": {
+      "scope": "Brooklyn",
+      "cutoff_min": 15.0
+    }
+  }
+}

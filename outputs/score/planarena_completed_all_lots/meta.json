@@ -1,0 +1,144 @@
+{
+  "name": "planarena_completed_all_lots",
+  "config": {
+    "higher_means": "more",
+    "distance_m": 30,
+    "min_records": 1,
+    "same_units": false,
+    "tolerance": null,
+    "controls": 5,
+    "where": "job_type='NB'",
+    "start": "2021-01-01",
+    "end": "2025-12-31",
+    "prediction_date": "2021-01-01",
+    "key_field": null,
+    "outcome_as": "any",
+    "polygon_match": "nearest",
+    "match_key": [
+      "bbl",
+      "bbl"
+    ],
+    "prediction_where": null,
+    "prediction": "C:\\proveit_work\\proof_planarena.gdb\\planarena_forecast_2020",
+    "field": "p_redev_5yr",
+    "name": "planarena_completed_all_lots",
+    "source": "nyc_certificates_of_occupancy"
+  },
+  "shape": "polygons",
+  "test": "binary",
+  "source": {
+    "id": "nyc_certificates_of_occupancy",
+    "name": "NYC DOB certificates of occupancy",
+    "topics": [
+      "permits",
+      "development",
+      "housing",
+      "completion"
+    ],
+    "publisher": "NYC Department of Buildings (NYC Open Data)",
+    "docs": "https://data.cityofnewyork.us/d/bs8b-p36w",
+    "coverage": {
+      "place": "New York City",
+      "bbox": [
+        -74.26,
+        40.49,
+        -73.7,
+        40.92
+      ],
+      "start": "2012-01-01"
+    },
+    "adapter": {
+      "type": "socrata",
+      "domain": "data.cityofnewyork.us",
+      "dataset": "bs8b-p36w",
+      "date_field": "c_o_issue_date",
+      "lat": "latitude",
+      "lon": "longitude",
+      "coords_are_text": true,
+      "category_field": "job_type",
+      "value_field": "pr_dwelling_unit",
+      "keep": [
+        "job_number",
+        "job_type",
+        "issue_type",
+        "pr_dwelling_unit",
+        "ex_dwelling_unit",
+        "bbl"
+      ]
+    },
+    "outcome": {
+      "kind": "event",
+      "describes": "a building was certified complete here",
+      "value": "proposed dwelling units",
+      "unit": "units"
+    },
+    "filters_example": "job_type = 'NB' AND issue_type = 'Final'",
+    "traps": [
+      {
+        "id": "temporary_vs_final",
+        "check": "Temporary and final certificates are both listed; one building can have several. Filter issue_type or count each job once."
+      },
+      {
+        "id": "units_are_totals",
+        "check": "pr_dwelling_unit is the building's total, not the units added; subtract ex_dwelling_unit for net new homes."
+      },
+      {
+        "id": "frontage_geocoding",
+        "check": "Coordinates are geocoded to the street frontage, so many points sit just outside their lot. Match lots with polygon_match = nearest (about 30 m), or by BBL."
+      },
+      {
+        "id": "condo_billing_bbl",
+        "check": "Condominium buildings carry billing BBLs (lot 75xx) that are not tax lots in MapPLUTO; match those by location."
+      },
+      {
+        "id": "completion_lag",
+        "check": "Certificates come years after construction starts: buildings already standing or under way at the prediction date get certificates afterwards. Exclude them (e.g. by year built) or use permits for new starts."
+      }
+    ],
+    "license": "NYC Open Data terms of use",
+    "status": "verified"
+  },
+  "truth": {
+    "request": {
+      "source": "nyc_certificates_of_occupancy",
+      "bbox": [
+        -74.047749,
+        40.683876,
+        -73.906785,
+        40.879026
+      ],
+      "start": "2021-01-01",
+      "end": "2025-12-31",
+      "where": "job_type='NB'",
+      "max_rows": 500000
+    },
+    "source_name": "NYC DOB certificates of occupancy",
+    "outcome": {
+      "kind": "event",
+      "describes": "a building was certified complete here",
+      "value": "proposed dwelling units",
+      "unit": "units"
+    },
+    "format": "geojson",
+    "records": 1772,
+    "downloaded": "2026-10-22T21:52:33",
+    "sha256": "d1ac1f87e0140317b09ea0fb526b817058ea69b8e12c364a814e6f41f24ff02f",
+    "rows": 1772,
+    "truncated": false,
+    "dropped": {
+      "no_location": 0,
+      "outside_dates": 0,
+      "bad_date": 0
+    }
+  },
+  "pairing": {
+    "truth_unmatched": 1171,
+    "truth_total": 1772,
+    "labels_excluded": 0,
+    "polygon_match": "nearest",
+    "matched_by_key": 547,
+    "matched_by_location": 54
+  },
+  "features": 42170,
+  "prediction_layer": "C:\\proveit_work\\proof_planarena.gdb\\planarena_forecast_2020"
+}

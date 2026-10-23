@@ -1,0 +1,66 @@
+{
+  "id": "fire_ems",
+  "title": "Fire coverage vs observed FDNY travel times (New York City)",
+  "question": "How long does it take a fire unit to reach each part of the city, and does a drive-time model agree with what FDNY units actually achieved?",
+  "sources": {
+    "streets": {
+      "url": "https://data.cityofnewyork.us/api/geospatial/inkn-q76z?method=export&format=GeoJSON",
+      "file": "streets_cscl.geojson",
+      "about": "NYC DoITT Citywide Street Centerline (CSCL), with posted_speed, trafdir, rw_type"
+    },
+    "firehouses": {
+      "url": "https://data.cityofnewyork.us/resource/hc8x-tcnd.json?$limit=5000",
+      "file": "firehouses.json",
+      "about": "FDNY Firehouse Listing"
+    },
+    "zips": {
+      "url": "https://data.cityofnewyork.us/api/geospatial/pri4-ifjk?method=export&format=GeoJSON",
+      "file": "modzcta.geojson",
+      "about": "Modified ZIP Code Tabulation Areas (MODZCTA), with a list of member ZIPs"
+    },
+    "observed": {
+      "url": "https://data.cityofnewyork.us/resource/8m42-w767.json",
+      "file": "observed_by_zip_2025.json",
+      "soql": {
+        "$select": "zipcode, count(*) as n, median(incident_travel_tm_seconds_qy) as med_travel_s, median(incident_response_seconds_qy) as med_response_s, avg(incident_travel_tm_seconds_qy) as avg_travel_s",
+        "$where": "valid_incident_rspns_time_indc='Y' AND incident_classification_group='Structural Fires' AND incident_datetime between '2025-01-01T00:00:00' and '2025-12-31T23:59:59'",
+        "$group": "zipcode",
+        "$limit": "5000"
+      },
+      "about": "FDNY Fire Incident Dispatch Data, structural fires in 2025, medians by ZIP computed by the portal"
+    }
+  },
+  "answer_key": {
+    "observed_field": "med_travel_s",
+    "unit": "seconds",
+    "min_incidents": 20,
+    "tolerance_minutes": 1.0
+  },
+  "assumptions": [
+    "Units drive at the posted speed limit on the street centerline; no traffic, no siren speed-up.",
+    "The first unit comes from the nearest firehouse by drive time (FDNY may send another if that one is busy).",
+    "Where an incident happens inside a ZIP is unknown, so every street segment midpoint in the ZIP counts equally."
+  ],
+  "traps": [
+    {
+      "id": "response_vs_travel",
+      "check": "The model estimates driving only. Observed incident_response_seconds_qy also includes turnout, so the comparison must use incident_travel_tm_seconds_qy.",
+      "detect": "observed_field_used == 'med_travel_s'"
+    },
+    {
+      "id": "valid_flag",
+      "check": "FDNY marks records whose response time is not valid; only valid_incident_rspns_time_indc = 'Y' should be used.",
+      "detect": "'valid_incident_rspns_time_indc' in soql_where"
+    },
+    {
+      "id": "zip_geography",
+      "check": "Dispatch ZIPs are postal ZIPs, not polygons. They must be mapped to MODZCTA areas, and ZIPs that don't match (PO boxes, single buildings) reported, not dropped silently.",
+      "detect": "unmatched_zips_reported"
+    },
+    {
+      "id": "small_samples",
+      "check": "Medians from a handful of fires are noise; areas with fewer than min_incidents are excluded from scoring and listed.",
+      "detect": "min_incidents_applied"
+    }
+  ]
+}

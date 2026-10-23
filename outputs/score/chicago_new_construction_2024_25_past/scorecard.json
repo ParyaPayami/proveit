@@ -1,0 +1,69 @@
+{
+  "name": "chicago_new_construction_2024_25_past",
+  "headline": "Top 20% of predicted features held 5% of 4,261 events (0.235x random); Spearman -0.539",
+  "test": "count",
+  "scored": 77,
+  "metrics": {
+    "spearman_r": -0.539,
+    "pearson_r_log": -0.483,
+    "top20_capture": 0.046,
+    "top20_lift": 0.235,
+    "total_events": 4261.0,
+    "features_with_none": 2
+  },
+  "direction": "higher prediction = more outcome",
+  "source": {
+    "id": "chicago_building_permits",
+    "name": "Chicago building permits",
+    "describes": "a permit was issued here",
+    "unit": "USD",
+    "docs": "https://data.cityofchicago.org/d/ydr8-5enu",
+    "license": "City of Chicago data portal terms"
+  },
+  "truth": {
+    "records": 4265,
+    "rows": 4265,
+    "downloaded": "2026-10-22T18:28:08",
+    "sha256": "cc5e0bb62c03b476c9c7d4ca1d4b835c835054a67452a743762789dac7c8bbc1",
+    "request": {
+      "source": "chicago_building_permits",
+      "bbox": [
+        -87.94055,
+        41.641932,
+        -87.523606,
+        42.023819
+      ],
+      "start": "2021-01-01",
+      "end": "2023-12-31",
+      "where": "permit_type='PERMIT - NEW CONSTRUCTION'",
+      "max_rows": 500000
+    }
+  },
+  "prediction": {
+    "layer": "C:\\proveit_work\\proof_permits.gdb\\chicago_areas",
+    "field": "OBJECTID",
+    "shape": "polygons"
+  },
+  "traps": [
+    {
+      "id": "minor_permits_dominate",
+      "status": "check",
+      "detail": "Express and easy permits (most records) are minor work; filter permit_type for development questions."
+    },
+    {
+      "id": "cost_self_reported",
+      "status": "check",
+      "detail": "reported_cost is declared by the applicant, not an appraisal."
+    },
+    {
+      "id": "time_leakage",
+      "status": "check",
+      "detail": "No prediction date given, so ProveIt can't confirm the outcomes came after the prediction."
+    },
+    {
+      "id": "truth_unmatched",
+      "status": "check",
+      "detail": "4 records fell outside every prediction feature."
+    }
+  ]
+}

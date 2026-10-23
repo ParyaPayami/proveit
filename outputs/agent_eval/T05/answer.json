@@ -1,0 +1,16 @@
+{
+  "answer": "The USGS Ida high-water-mark file (data/raw/flood_ida/FilteredHWMs_NewYork.csv) has 159 marks (unique hwm_id, all event 312, all with valid lat/lon) at 83 distinct sites (site_no; site_id also gives 83). Marks per site: 1 to 3 (12 sites have one mark, 71 have more than one). By county: Queens 64, Kings 42, Bronx 24, Richmond 23, New York 6. The ProveIt truth catalog copy (usgs_hwm_ida_nyc) also has 159 records. The count of marks (159) is not the count of sites (83), so don't treat marks as independent locations.",
+  "numbers": {"marks": 159, "sites": 83, "unique_hwm_id": 159, "sites_with_one_mark": 12, "sites_with_multiple_marks": 71, "max_marks_per_site": 3, "missing_height_above_gnd": 7, "height_zero_or_less_ft": 11, "height_above_gnd_ft_min": 0.0, "height_above_gnd_ft_max": 6.51, "height_above_gnd_ft_median": 1.49, "marks_with_interior_type_keywords_approx": 32, "csv_physical_lines": 161, "county_Queens": 64, "county_Kings": 42, "county_Bronx": 24, "county_Richmond": 23, "county_New_York": 6},
+  "traps_or_caveats": [
+    "CSV line 1 is a citation, header is line 2; parsing from line 1 would mislabel columns (I skipped line 1; 161 physical lines = 1 citation + 1 header + 159 rows).",
+    "Marks are not sites: 159 marks at 83 sites; multiple marks per site are clustered, not independent.",
+    "7 marks have no height_above_gnd and 11 have height <= 0 ft, so depth statistics need care.",
+    "Heights are in feet (USGS), not meters.",
+    "Marks exist only where it flooded (presence-only), so they cannot measure false alarms without control points.",
+    "Some marks are interior/building marks; the keyword count (32) is a rough heuristic, not a verified classification.",
+    "All 159 are tagged hwm_environment=Riverine although this was pluvial flash flooding; label comes from the source.",
+    "Scope is the full five-borough file; the cached truth-catalog extract in a bbox query also returned 159, so no marks were dropped by that bbox."
+  ],
+  "refused": false,
+  "files": ["/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T05/load_hwm.py", "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T05/hwm_summary.json", "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T05/answer.json"]
+}

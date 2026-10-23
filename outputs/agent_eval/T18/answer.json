@@ -1,0 +1,157 @@
+{
+ "answer": "No, they do not behave the same. Using only pre-fire features, among inspected structures (excl. uninspected/inaccessible), the feature-outcome relationships differ materially. Palisades: more neighbors (AUC 0.72) and tighter spacing (0.66) track destruction, slope weakly (0.55). Eaton: neighbors/spacing carry no signal (0.48/0.48), slope is modestly informative (0.62). Open-land distance has the opposite sign to the pre-set 'nearer open land is riskier' direction in both fires (destroyed structures were farther from open land; AUC 0.32 Eaton, 0.41 Palisades), much more strongly in Eaton. Only slope agrees in sign and rough size (adj. odds ratio per SD 1.15 vs 1.12). A model fit on one fire does not transfer (AUC 0.50 and 0.48 vs 0.71/0.74 in-fire). Association only, not causal; wind/embers/vegetation/hardening not in data.",
+ "numbers": {
+  "counts_eaton": {
+   "destroyed": 9228,
+   "not_destroyed": 9158,
+   "no_record": 11770,
+   "inaccessible": 41,
+   "total": 30197
+  },
+  "counts_palisades": {
+   "no_record": 3223,
+   "not_destroyed": 4997,
+   "destroyed": 7016,
+   "total": 15236
+  },
+  "destroyed_share_of_inspected": {
+   "eaton": 0.502,
+   "palisades": 0.584
+  },
+  "auc_risk_direction_univariate(0.5=no signal; direction fixed in case file)": {
+   "nn_distance_m": {
+    "eaton": 0.48,
+    "eaton_ci95": [
+     0.473,
+     0.487
+    ],
+    "palisades": 0.662,
+    "palisades_ci95": [
+     0.653,
+     0.669
+    ],
+    "diff_eaton_minus_palisades": -0.182,
+    "diff_ci95": [
+     -0.193,
+     -0.17
+    ]
+   },
+   "neighbors_50m": {
+    "eaton": 0.475,
+    "eaton_ci95": [
+     0.466,
+     0.481
+    ],
+    "palisades": 0.72,
+    "palisades_ci95": [
+     0.711,
+     0.729
+    ],
+    "diff_eaton_minus_palisades": -0.245,
+    "diff_ci95": [
+     -0.258,
+     -0.235
+    ]
+   },
+   "slope_deg": {
+    "eaton": 0.617,
+    "eaton_ci95": [
+     0.609,
+     0.624
+    ],
+    "palisades": 0.547,
+    "palisades_ci95": [
+     0.537,
+     0.559
+    ],
+    "diff_eaton_minus_palisades": 0.07,
+    "diff_ci95": [
+     0.056,
+     0.083
+    ]
+   },
+   "open_land_distance_m": {
+    "eaton": 0.324,
+    "eaton_ci95": [
+     0.316,
+     0.332
+    ],
+    "palisades": 0.409,
+    "palisades_ci95": [
+     0.398,
+     0.419
+    ],
+    "diff_eaton_minus_palisades": -0.085,
+    "diff_ci95": [
+     -0.096,
+     -0.072
+    ]
+   }
+  },
+  "multivariable_logit_standardized_odds_ratio_per_SD_in_risk_direction": {
+   "nn_distance_m": {
+    "eaton": 1.203,
+    "palisades": 1.03,
+    "z_difference": 4.24
+   },
+   "neighbors_50m": {
+    "eaton": 0.645,
+    "palisades": 2.694,
+    "z_difference": -39.84
+   },
+   "slope_deg": {
+    "eaton": 1.15,
+    "palisades": 1.123,
+    "z_difference": 0.87
+   },
+   "open_land_distance_m": {
+    "eaton": 0.48,
+    "palisades": 0.956,
+    "z_difference": -22.97
+   }
+  },
+  "cross_fire_transfer_auc": {
+   "eaton->palisades": 0.502,
+   "palisades->eaton": 0.478,
+   "eaton->eaton": 0.711,
+   "palisades->palisades": 0.736
+  },
+  "median_open_land_distance_m_destroyed_vs_not": {
+   "eaton": [
+    640.2,
+    405.0
+   ],
+   "palisades": [
+    330.0,
+    266.7
+   ]
+  },
+  "median_nn_distance_m_destroyed_vs_not": {
+   "eaton": [
+    2.19,
+    2.19
+   ],
+   "palisades": [
+    2.17,
+    3.32
+   ]
+  }
+ },
+ "traps_or_caveats": [
+  "Uninspected footprints (no DINS record: 11,770 Eaton, 3,223 Palisades) excluded, not treated as survivors; 41 Eaton 'Inaccessible' also excluded. Eaton has far lower inspection coverage (~61% vs ~79%), so selection into the inspected sample may differ between fires.",
+  "Layer was selected by the final fire perimeters (1/4 mile buffer), so this describes structures the fire reached, not where fire will spread; perimeter distance was not used as a predictor.",
+  "Open-land distance is built from the same perimeter-selected layer (open land only counted >400 m inside the hull), so it partly encodes position within the burned footprint/edge effect; its reversed sign should not be read as 'open land is protective'. Fixed a-priori direction is contradicted in both fires.",
+  "Features are strongly correlated (density, spacing, open-land distance), so the multivariable coefficients, including the sign flip of neighbors_50m in Eaton (OR 0.65 vs Palisades 2.69), are conditional effects and unstable to interpret; univariate AUCs are the cleaner comparison.",
+  "Fire assigned by footprint centroid easting (<380000 m UTM 11N = Palisades), as in the case code; 3DEP slope at 5 m is coarse relative to a house; 'destroyed' = DINS >50%, severity is inspector-judged.",
+  "Spatial autocorrelation: neighboring houses burn together, so bootstrap CIs (iid resampling, 200 reps) are far too narrow; the differences between fires are large enough that the conclusion holds, but p-values/CIs are optimistic.",
+  "Not available/not estimated: wind, embers, vegetation, roof material, defensible space, firefighting response; these likely differ between the two wind-driven fires and explain much of the difference. No causal claim."
+ ],
+ "refused": false,
+ "files": [
+  "outputs/agent_eval/T18/t18_features.py",
+  "outputs/agent_eval/T18/t18_analysis.py",
+  "outputs/agent_eval/T18/buildings_T18.csv",
+  "outputs/agent_eval/T18/t18_results.json",
+  "outputs/agent_eval/T18/answer.json"
+ ]
+}

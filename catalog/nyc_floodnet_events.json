@@ -1,0 +1,64 @@
+{
+  "id": "nyc_floodnet_events",
+  "name": "NYC FloodNet street flood events",
+  "topics": [
+    "flood",
+    "climate",
+    "stormwater",
+    "sensors"
+  ],
+  "publisher": "FloodNet NYC (NYC Open Data)",
+  "docs": "https://data.cityofnewyork.us/d/aq7i-eu5q",
+  "coverage": {
+    "place": "New York City",
+    "bbox": [
+      -74.26,
+      40.49,
+      -73.7,
+      40.92
+    ],
+    "start": "2020-01-01"
+  },
+  "adapter": {
+    "type": "socrata_join",
+    "domain": "data.cityofnewyork.us",
+    "dataset": "aq7i-eu5q",
+    "date_field": "flood_start_time",
+    "join_key": "sensor_id",
+    "value_field": "max_depth_inches",
+    "value_factor": 0.0254,
+    "sites": {
+      "dataset": "kb2e-tjy3",
+      "lat": "latitude",
+      "lon": "longitude",
+      "keep": [
+        "sensor_name",
+        "tidally_influenced",
+        "borough"
+      ]
+    }
+  },
+  "outcome": {
+    "kind": "event",
+    "describes": "a sensor recorded street flooding",
+    "value": "peak depth",
+    "unit": "m (converted from inches)"
+  },
+  "traps": [
+    {
+      "id": "tidal_sensors",
+      "check": "Tidally influenced sensors flood with high tides, not just rain; filter tidally_influenced = 'No' for rainfall questions."
+    },
+    {
+      "id": "sensor_coverage",
+      "check": "Sensors cover a few hundred chosen locations, mostly installed since 2022; no event means no sensor as often as no flood."
+    },
+    {
+      "id": "inches",
+      "check": "Depths are in inches; ProveIt converts to meters.",
+      "handled": true
+    }
+  ],
+  "license": "NYC Open Data terms of use",
+  "status": "verified"
+}

@@ -1,0 +1,56 @@
+{
+  "answer": "The posted-speed model is too fast almost everywhere: it underpredicts the observed 2025 structural-fire median travel time in all 167 scored ZIP areas (n>=20), mean bias -2.2 min, RMSE 2.3, only 5 within 1 min, r=0.48. Worst: 11101 Long Island City (model 1.5 vs observed 5.1 min, -3.6), 10018 (-3.6), 11360 Bayside (-3.5), 10007 (-3.5), 10038 (-3.5), 10001/10118 (-3.3), 10036 (-3.2), 10021 (-3.2). Midtown/Lower Manhattan, western Queens and the Bronx are worst. Likely causes (not tested here): no traffic, signals, turns or acceleration at posted speed; actual first unit often not the nearest house (busy or multiple units); street midpoints weighted equally, not fire locations; model starts at the firehouse door. Observed range is compressed (2.5-5.9 min vs model 0.8-3.8). Best fits: 11210, 10035, 11239 (~-0.7 to -0.9).",
+  "numbers": {
+    "areas_scored": 167,
+    "areas_excluded_lt20_incidents": 11,
+    "mean_bias_min": -2.23,
+    "mae_min": 2.23,
+    "rmse_min": 2.29,
+    "pearson_r": 0.48,
+    "areas_within_1min": 5,
+    "areas_underpredicted": 167,
+    "worst": {
+      "11101": -3.64,
+      "10018": -3.61,
+      "11360": -3.55,
+      "10007": -3.52,
+      "10038": -3.51,
+      "10001": -3.26,
+      "10036": -3.23,
+      "10021": -3.23
+    },
+    "model_vs_observed_11101_min": [
+      1.49,
+      5.13
+    ],
+    "best_fit_11210_err_min": -0.65,
+    "borough_mean_err_min": {
+      "Manhattan": -2.64,
+      "Bronx": -2.54,
+      "Queens": -2.18,
+      "StatenIsland": -2.07,
+      "Brooklyn": -1.75
+    },
+    "street_points": 103215,
+    "points_reached_15min": 102675,
+    "firehouses": 219,
+    "unmatched_incidents_11249": 94,
+    "unmatched_null_zip": 110
+  },
+  "traps_or_caveats": [
+    "Observed field is incident_travel_tm_seconds_qy (travel, not response incl. turnout); valid_incident_rspns_time_indc='Y'; structural fires 2025 only.",
+    "Postal ZIPs mapped to MODZCTA via member lists; unmatched reported not dropped: 11249 (94 incidents), 10151 and 10178 (1 each), blank zip (110). 11249 is therefore missing from the comparison.",
+    "11 areas with <20 incidents excluded and not scored (10004,10005,10006,10044,10069,10280,10282,10464,11109,11697,99999).",
+    "Because error is one-sided (all negative), the 'most wrong' ranking is mostly a ranking of how much the uniform bias is exceeded; after removing the -2.2 bias, outliers are 11210 and 10035 (over-fit by ~1.6) and 11101/10018 (under by ~1.4).",
+    "Causes are hypotheses; traffic, dispatch-from-other-house and incident location were not measured. Observed ZIP values merge postal-ZIP medians weighted by incidents (approximation); model is the median of street-segment midpoints (rw_type 1), not incident-weighted.",
+    "Model assumes posted speed with no delays; 540 street points beyond 15-min cutoff or unsnapped (e.g. 36 in 10018, 66 in 10035) are left out of the model median. Firehouse list has 219 located sites; engines may not all be staffed/nearest.",
+    "Did not run score_layer; metrics computed directly. Network copied from cached C:\\proveit_work\\fire_ems.gdb into C:\\proveit_work\\T10_work.gdb."
+  ],
+  "refused": false,
+  "files": [
+    "outputs/agent_eval/T10/t10.py",
+    "outputs/agent_eval/T10/t10_by_zip.csv",
+    "outputs/agent_eval/T10/t10_unmatched.json",
+    "outputs/agent_eval/T10/answer.json"
+  ]
+}

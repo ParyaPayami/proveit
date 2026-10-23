@@ -1,0 +1,37 @@
+{
+  "answer": "Yes. Low relative elevation (TPI, 102 m window, 2 m DEM, lower = more likely) separates Ida's 159 high-water marks from 3,180 random controls within 500 m. Point AUC is 0.71 and site-level AUC 0.78 (83 sites; bootstrap 95% CI 0.71-0.85). Sink depth does slightly better: point AUC 0.73, site AUC 0.81 (CI 0.75-0.86). The CIs overlap, so neither clearly wins. Both are moderate discriminators, not predictors. 79% of marks sit below their local mean versus 51% of controls. The measures partly agree. Spearman between sink depth and TPI is -0.41 on all points and -0.58 at marks. Of marks in a sink (>=0.15 m), 54% are also TPI-low (<=-0.5 m). Results depend on window size: site AUC is 0.72 at 50 m, 0.78 at 102 m and 0.79 at 202 m. They are largely, not wholly, redundant. Controls are unverified non-flood points.",
+  "numbers": {
+    "marks": 159, "controls": 3180, "sites": 83, "interior_flagged_marks": 31, "street_marks": 128,
+    "sink_auc_points": 0.729, "sink_auc_sites": 0.81, "sink_auc_sites_ci95": [0.753, 0.86],
+    "tpi51_low_auc_points": 0.712, "tpi51_low_auc_sites": 0.783, "tpi51_auc_sites_ci95": [0.709, 0.849],
+    "tpi25_low_auc_sites": 0.723, "tpi101_low_auc_sites": 0.793,
+    "street_only_site_auc_sink": 0.798, "street_only_site_auc_tpi51": 0.797,
+    "interior_only_site_auc_sink": 0.895, "interior_only_site_auc_tpi51": 0.767,
+    "mean_within_mark_percentile_vs_own_controls_sink": 0.745, "mean_within_mark_percentile_vs_own_controls_tpi51": 0.713,
+    "share_below_local_mean_marks": 0.792, "share_below_local_mean_controls": 0.507,
+    "share_tpi51_le_minus0.5m_marks": 0.409, "share_tpi51_le_minus0.5m_controls": 0.159,
+    "share_in_sink_ge_0.15m_marks": 0.509, "share_in_sink_ge_0.15m_controls": 0.122,
+    "median_tpi51_m_marks": -0.383, "median_tpi51_m_controls": -0.005,
+    "spearman_sink_vs_tpi51_all_points": -0.408, "spearman_sink_vs_tpi51_marks": -0.584, "spearman_sink_vs_tpi51_controls": -0.379,
+    "marks_in_sink_that_are_also_tpi_low": 0.543, "marks_tpi_low_that_are_also_in_sink": 0.677, "classification_agreement_marks": 0.635, "classification_agreement_controls": 0.843,
+    "spearman_with_observed_depth_street_marks_sink": 0.333, "spearman_with_observed_depth_street_marks_tpi51": -0.354, "street_marks_with_depth": 121
+  },
+  "traps_or_caveats": [
+    "Controls are random points within 500 m of marks, not verified dry places (Ida flooded widely). Some controls may have flooded, which would understate AUC; marks are presence-only so false alarms cannot be measured.",
+    "Controls sit near marks, so the AUC measures local contrast within 500 m and cannot be extrapolated to citywide screening. Marks are also not independent, so site-level AUC (median per site vs its controls) is the more honest figure.",
+    "AUC is moderate (0.71-0.81); an AUC of 0.5 would be no skill. The sink vs TPI difference is within bootstrap CIs. TPI depends on window size, so the result is not a single number.",
+    "Header on line 2 (line 1 is a citation) and feet-to-meters conversion were handled by reusing read_marks. Interior marks (31, regex-flagged on description text, imperfect) are reported separately; street-only results are similar for both measures (site AUC ~0.80).",
+    "DEM is bare earth: storm sewers, buildings, curbs are ignored, and sewer backups and basement flooding are not terrain-driven. Interior marks scoring well on sinks (AUC 0.90, 19 sites, wide CI) should not be over-interpreted.",
+    "Tiles are processed one at a time with Fill and focal means, so values near tile edges are biased. Excluding points within 60 m of a tile edge changed nothing material (site AUC 0.81 sink, 0.78 TPI). Controls with DEM below 0.5 m (open water or missing) were skipped, as in the original script.",
+    "Observed depth (height above ground) is weakly related to both measures at street marks (Spearman 0.33 sink, -0.35 TPI, n=121), so these separate flooded places but do not estimate depth.",
+    "TPI uses a 51x51 cell rectangular mean. My own NaN-aware scipy mean reproduced ArcPy FocalStatistics identically for 51 cells (checked via AUC identity). I ran the score outside score_layer.run, using my own AUC/bootstrap code (proveit.score auc/spearman)."
+  ],
+  "refused": false,
+  "files": [
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T15/t15_points.py",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T15/analyze.py",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T15/points.csv",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T15/results.json",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T15/answer.json"
+  ]
+}

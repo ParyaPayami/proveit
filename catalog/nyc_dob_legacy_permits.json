@@ -1,0 +1,65 @@
+{
+  "id": "nyc_dob_legacy_permits",
+  "name": "NYC DOB permit issuance (legacy BIS)",
+  "topics": [
+    "permits",
+    "development",
+    "demolition",
+    "construction"
+  ],
+  "publisher": "NYC Department of Buildings (NYC Open Data)",
+  "docs": "https://data.cityofnewyork.us/d/ipu4-2q9a",
+  "coverage": {
+    "place": "New York City",
+    "bbox": [
+      -74.26,
+      40.49,
+      -73.7,
+      40.92
+    ],
+    "start": "1989-01-01"
+  },
+  "adapter": {
+    "type": "socrata",
+    "domain": "data.cityofnewyork.us",
+    "dataset": "ipu4-2q9a",
+    "date_field": "issuance_date",
+    "date_format": "%m/%d/%Y",
+    "lat": "gis_latitude",
+    "lon": "gis_longitude",
+    "coords_are_text": true,
+    "category_field": "job_type",
+    "keep": [
+      "job__",
+      "job_type",
+      "permit_type",
+      "bbl"
+    ]
+  },
+  "outcome": {
+    "kind": "event",
+    "describes": "a permit was issued here"
+  },
+  "filters_example": "job_type = 'NB'  (new building; also 'DM' demolition, 'A1' major alteration)",
+  "traps": [
+    {
+      "id": "date_is_text",
+      "check": "issuance_date is stored as text (MM/DD/YYYY), so date filters on the portal compare strings, not dates. ProveIt parses dates after download.",
+      "handled": true
+    },
+    {
+      "id": "one_job_many_permits",
+      "check": "One job has many permits. Count job__ if you mean projects."
+    },
+    {
+      "id": "issued_not_built",
+      "check": "A permit is permission, not completion."
+    },
+    {
+      "id": "frontage_geocoding",
+      "check": "Coordinates are geocoded to the street frontage, so many points sit just outside their lot. Match lots with polygon_match = nearest (about 30 m), or by BBL."
+    }
+  ],
+  "license": "NYC Open Data terms of use",
+  "status": "verified"
+}

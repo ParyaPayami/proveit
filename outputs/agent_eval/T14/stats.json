@@ -1,0 +1,250 @@
+{
+ "('all', 'sink0')": [
+  152,
+  0.393,
+  0.431,
+  [
+   0.24,
+   0.53
+  ],
+  80,
+  97
+ ],
+ "('all', 'sink5')": [
+  152,
+  0.416,
+  0.425,
+  [
+   0.26,
+   0.56
+  ],
+  94,
+  136
+ ],
+ "('all', 'sink10')": [
+  152,
+  0.382,
+  0.432,
+  [
+   0.23,
+   0.53
+  ],
+  112,
+  150
+ ],
+ "('all', 'sink20')": [
+  152,
+  0.31,
+  0.376,
+  [
+   0.15,
+   0.46
+  ],
+  129,
+  152
+ ],
+ "('excl_strict_interior', 'sink0')": [
+  136,
+  0.353,
+  0.386,
+  [
+   0.18,
+   0.51
+  ],
+  74,
+  88
+ ],
+ "('excl_strict_interior', 'sink5')": [
+  136,
+  0.371,
+  0.381,
+  [
+   0.2,
+   0.53
+  ],
+  87,
+  124
+ ],
+ "('excl_strict_interior', 'sink10')": [
+  136,
+  0.352,
+  0.394,
+  [
+   0.18,
+   0.5
+  ],
+  99,
+  134
+ ],
+ "('excl_strict_interior', 'sink20')": [
+  136,
+  0.291,
+  0.344,
+  [
+   0.12,
+   0.45
+  ],
+  113,
+  136
+ ],
+ "('excl_loose_interior(garage etc)', 'sink0')": [
+  121,
+  0.333,
+  0.46,
+  null,
+  61,
+  74
+ ],
+ "('excl_loose_interior(garage etc)', 'sink5')": [
+  121,
+  0.359,
+  0.43,
+  null,
+  74,
+  109
+ ],
+ "('excl_loose_interior(garage etc)', 'sink10')": [
+  121,
+  0.334,
+  0.44,
+  null,
+  84,
+  119
+ ],
+ "('excl_loose_interior(garage etc)', 'sink20')": [
+  121,
+  0.279,
+  0.377,
+  null,
+  98,
+  121
+ ],
+ "('excl_strict_and_edge<100m', 'sink0')": [
+  136,
+  0.353,
+  0.386,
+  null,
+  74,
+  88
+ ],
+ "('excl_strict_and_edge<100m', 'sink5')": [
+  136,
+  0.371,
+  0.381,
+  null,
+  87,
+  124
+ ],
+ "('excl_strict_and_edge<100m', 'sink10')": [
+  136,
+  0.352,
+  0.394,
+  null,
+  99,
+  134
+ ],
+ "('excl_strict_and_edge<100m', 'sink20')": [
+  136,
+  0.291,
+  0.344,
+  null,
+  113,
+  136
+ ],
+ "('excl_strict_stillwater0', 'sink0')": [
+  123,
+  0.328,
+  0.329,
+  null,
+  65,
+  75
+ ],
+ "('excl_strict_stillwater0', 'sink5')": [
+  123,
+  0.353,
+  0.325,
+  null,
+  75,
+  111
+ ],
+ "('excl_strict_stillwater0', 'sink10')": [
+  123,
+  0.328,
+  0.339,
+  null,
+  86,
+  121
+ ],
+ "('excl_strict_stillwater0', 'sink20')": [
+  123,
+  0.276,
+  0.283,
+  null,
+  100,
+  123
+ ],
+ "('excl_strict_depth>0', 'sink0')": [
+  125,
+  0.287,
+  0.35,
+  null,
+  72,
+  85
+ ],
+ "('excl_strict_depth>0', 'sink5')": [
+  125,
+  0.295,
+  0.35,
+  null,
+  84,
+  117
+ ],
+ "('excl_strict_depth>0', 'sink10')": [
+  125,
+  0.291,
+  0.36,
+  null,
+  96,
+  124
+ ],
+ "('excl_strict_depth>0', 'sink20')": [
+  125,
+  0.203,
+  0.295,
+  null,
+  108,
+  125
+ ],
+ "('excl_strict_Good/Excellent', 'sink0')": [
+  69,
+  0.469,
+  0.337,
+  null,
+  46,
+  53
+ ],
+ "('excl_strict_Good/Excellent', 'sink5')": [
+  69,
+  0.446,
+  0.343,
+  null,
+  50,
+  61
+ ],
+ "('excl_strict_Good/Excellent', 'sink10')": [
+  69,
+  0.438,
+  0.354,
+  null,
+  54,
+  68
+ ],
+ "('excl_strict_Good/Excellent', 'sink20')": [
+  69,
+  0.381,
+  0.322,
+  null,
+  59,
+  69
+ ]
+}

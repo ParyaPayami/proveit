@@ -1,0 +1,64 @@
+{
+  "case": "flood_ida",
+  "marks": 159,
+  "controls": 3180,
+  "sink_depth": {
+    "auc_points": 0.729,
+    "auc_sites": 0.81,
+    "sites": 83
+  },
+  "low_relative_elevation": {
+    "auc_points": 0.712,
+    "auc_sites": 0.783,
+    "sites": 83
+  },
+  "share_in_sink": {
+    "marks": 0.509,
+    "controls": 0.122,
+    "threshold_m": 0.15
+  },
+  "depth_vs_observed_street_marks": {
+    "n": 142,
+    "spearman_r": 0.352,
+    "median_observed_m": 0.46,
+    "median_modeled_m": 0.23
+  },
+  "depth_vs_observed_old_keyword_rule": {
+    "n": 121,
+    "spearman_r": 0.333
+  },
+  "dem_minus_surveyed_ground_m": {
+    "n": 152,
+    "median": -0.02,
+    "mad": 0.12
+  },
+  "interior_marks": 10,
+  "interior_marks_old_keyword_rule": 31,
+  "traps": [
+    {
+      "id": "citation_header",
+      "caught": true,
+      "check": "The CSV's first line is a citation, not the header. Parsing from line 1 silently mislabels every column."
+    },
+    {
+      "id": "feet_vs_meters",
+      "caught": true,
+      "check": "Mark elevations and depths are in feet; 3DEP elevation is in meters. Mixing them inflates or shrinks depths 3.28x."
+    },
+    {
+      "id": "presence_only",
+      "caught": true,
+      "check": "Marks exist only where it flooded, so they cannot measure false alarms. A fair test compares marks with control points."
+    },
+    {
+      "id": "interior_marks",
+      "caught": true,
+      "check": "Some marks were surveyed inside buildings or basements, where depth is measured from an interior floor. They must be flagged, not mixed with street marks."
+    },
+    {
+      "id": "bare_earth_only",
+      "caught": true,
+      "check": "The DEM is bare earth: sewers, buildings and curbs are missing, so the model can't capture flooding from sewer backups."
+    }
+  ]
+}

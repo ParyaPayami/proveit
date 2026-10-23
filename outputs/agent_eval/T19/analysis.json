@@ -1,0 +1,314 @@
+{
+ "counts": {
+  "excl_none": 14993,
+  "not_destroyed": 14155,
+  "destroyed": 16244,
+  "excl_Inaccessible": 41
+ },
+ "all": {
+  "n": 30399,
+  "destroyed": 16244,
+  "rate": 0.5343596828843054,
+  "auc_nn_distance_m": 0.545,
+  "n_nn_distance_m": 30399,
+  "auc_neighbors_50m": 0.563,
+  "n_neighbors_50m": 30399,
+  "auc_slope_deg": 0.581,
+  "n_slope_deg": 29091,
+  "auc_open_land_distance_m": 0.379,
+  "n_open_land_distance_m": 29118,
+  "open_land_bins": [
+   {
+    "bin_m": "0-25",
+    "n": 0,
+    "destroyed_rate": null
+   },
+   {
+    "bin_m": "25-50",
+    "n": 0,
+    "destroyed_rate": null
+   },
+   {
+    "bin_m": "50-100",
+    "n": 9,
+    "destroyed_rate": 0.444
+   },
+   {
+    "bin_m": "100-150",
+    "n": 3100,
+    "destroyed_rate": 0.43
+   },
+   {
+    "bin_m": "150-250",
+    "n": 4631,
+    "destroyed_rate": 0.458
+   },
+   {
+    "bin_m": "250-inf",
+    "n": 21378,
+    "destroyed_rate": 0.572
+   }
+  ],
+  "open_quartile_cuts": [
+   239.27,
+   420.3,
+   675.0
+  ],
+  "open_quartile_rates": [
+   {
+    "q": 1,
+    "n": 7291,
+    "rate": 0.447
+   },
+   {
+    "q": 2,
+    "n": 7269,
+    "rate": 0.45
+   },
+   {
+    "q": 3,
+    "n": 7280,
+    "rate": 0.542
+   },
+   {
+    "q": 4,
+    "n": 7278,
+    "rate": 0.717
+   }
+  ],
+  "n_open_missing": 1281,
+  "rate_open_missing": 0.427,
+  "auc_open_within_density_strata": [
+   {
+    "nbr": "0-5",
+    "n": 1045,
+    "destroyed": 345,
+    "auc_open": 0.517
+   },
+   {
+    "nbr": "5-15",
+    "n": 8922,
+    "destroyed": 3947,
+    "auc_open": 0.434
+   },
+   {
+    "nbr": "15-30",
+    "n": 16160,
+    "destroyed": 10240,
+    "auc_open": 0.392
+   },
+   {
+    "nbr": "30-1000000000.0",
+    "n": 2991,
+    "destroyed": 1165,
+    "auc_open": 0.36
+   }
+  ],
+  "corr_open_vs_neighbors": 0.266,
+  "median_open_m": 420.3
+ },
+ "eaton": {
+  "n": 18386,
+  "destroyed": 9228,
+  "rate": 0.5019036223213315,
+  "auc_nn_distance_m": 0.48,
+  "n_nn_distance_m": 18386,
+  "auc_neighbors_50m": 0.475,
+  "n_neighbors_50m": 18386,
+  "auc_slope_deg": 0.617,
+  "n_slope_deg": 18259,
+  "auc_open_land_distance_m": 0.324,
+  "n_open_land_distance_m": 18270,
+  "open_land_bins": [
+   {
+    "bin_m": "0-25",
+    "n": 0,
+    "destroyed_rate": null
+   },
+   {
+    "bin_m": "25-50",
+    "n": 0,
+    "destroyed_rate": null
+   },
+   {
+    "bin_m": "50-100",
+    "n": 1,
+    "destroyed_rate": 1.0
+   },
+   {
+    "bin_m": "100-150",
+    "n": 1265,
+    "destroyed_rate": 0.328
+   },
+   {
+    "bin_m": "150-250",
+    "n": 2125,
+    "destroyed_rate": 0.336
+   },
+   {
+    "bin_m": "250-inf",
+    "n": 14879,
+    "destroyed_rate": 0.544
+   }
+  ],
+  "open_quartile_cuts": [
+   303.03,
+   504.5,
+   757.17
+  ],
+  "open_quartile_rates": [
+   {
+    "q": 1,
+    "n": 4570,
+    "rate": 0.338
+   },
+   {
+    "q": 2,
+    "n": 4567,
+    "rate": 0.375
+   },
+   {
+    "q": 3,
+    "n": 4567,
+    "rate": 0.603
+   },
+   {
+    "q": 4,
+    "n": 4566,
+    "rate": 0.705
+   }
+  ],
+  "n_open_missing": 116,
+  "rate_open_missing": 0.0,
+  "auc_open_within_density_strata": [
+   {
+    "nbr": "0-5",
+    "n": 353,
+    "destroyed": 109,
+    "auc_open": 0.536
+   },
+   {
+    "nbr": "5-15",
+    "n": 4444,
+    "destroyed": 2042,
+    "auc_open": 0.377
+   },
+   {
+    "nbr": "15-30",
+    "n": 11107,
+    "destroyed": 6512,
+    "auc_open": 0.321
+   },
+   {
+    "nbr": "30-1000000000.0",
+    "n": 2366,
+    "destroyed": 565,
+    "auc_open": 0.268
+   }
+  ],
+  "corr_open_vs_neighbors": 0.142,
+  "median_open_m": 504.5
+ },
+ "palisades": {
+  "n": 12013,
+  "destroyed": 7016,
+  "rate": 0.5840339632065262,
+  "auc_nn_distance_m": 0.662,
+  "n_nn_distance_m": 12013,
+  "auc_neighbors_50m": 0.72,
+  "n_neighbors_50m": 12013,
+  "auc_slope_deg": 0.547,
+  "n_slope_deg": 10832,
+  "auc_open_land_distance_m": 0.409,
+  "n_open_land_distance_m": 10848,
+  "open_land_bins": [
+   {
+    "bin_m": "0-25",
+    "n": 0,
+    "destroyed_rate": null
+   },
+   {
+    "bin_m": "25-50",
+    "n": 0,
+    "destroyed_rate": null
+   },
+   {
+    "bin_m": "50-100",
+    "n": 8,
+    "destroyed_rate": 0.375
+   },
+   {
+    "bin_m": "100-150",
+    "n": 1835,
+    "destroyed_rate": 0.5
+   },
+   {
+    "bin_m": "150-250",
+    "n": 2506,
+    "destroyed_rate": 0.562
+   },
+   {
+    "bin_m": "250-inf",
+    "n": 6499,
+    "destroyed_rate": 0.637
+   }
+  ],
+  "open_quartile_cuts": [
+   182.0,
+   300.0,
+   494.42
+  ],
+  "open_quartile_rates": [
+   {
+    "q": 1,
+    "n": 2714,
+    "rate": 0.515
+   },
+   {
+    "q": 2,
+    "n": 2715,
+    "rate": 0.568
+   },
+   {
+    "q": 3,
+    "n": 2708,
+    "rate": 0.589
+   },
+   {
+    "q": 4,
+    "n": 2711,
+    "rate": 0.714
+   }
+  ],
+  "n_open_missing": 1165,
+  "rate_open_missing": 0.47,
+  "auc_open_within_density_strata": [
+   {
+    "nbr": "0-5",
+    "n": 692,
+    "destroyed": 236,
+    "auc_open": 0.509
+   },
+   {
+    "nbr": "5-15",
+    "n": 4478,
+    "destroyed": 1905,
+    "auc_open": 0.501
+   },
+   {
+    "nbr": "15-30",
+    "n": 5053,
+    "destroyed": 3728,
+    "auc_open": 0.474
+   },
+   {
+    "nbr": "30-1000000000.0",
+    "n": 625,
+    "destroyed": 600,
+    "auc_open": 0.444
+   }
+  ],
+  "corr_open_vs_neighbors": 0.377,
+  "median_open_m": 300.0
+ }
+}

@@ -1,0 +1,52 @@
+{
+  "answer": "Flag 10 of 159 USGS Ida marks as interior and exclude them from a street flood-depth test, based on reading hwm_locationdescription, hwm_notes and siteDescription. Basement: 40981, 41310 (basement wall, height estimated from photos), 41247 (inside basement wall of home), 41430 (inside basement door), 41146 and 41587 (basement hallway of 43rd Precinct, siteDescription says 'in basement'). Other indoor: 40980, 41629 (ramp inside delivery door), 41147 (stain line on interior of garage door, transposed to base pad), 41328 (hallway wall of house). Why: depth is measured from an interior floor or basement slab, not street grade, so it is not comparable with a bare-earth DEM sink depth, which also ignores buildings and sewers. Keyword matching is unreliable (see caveats). The listed IDs are my judgment calls, not a USGS flag; the CSV has no interior field.",
+  "numbers": {
+    "total_marks": 159,
+    "marks_with_height": 152,
+    "interior_flagged": 10,
+    "interior_ids": [
+      "40981",
+      "41310",
+      "41247",
+      "41430",
+      "41146",
+      "41587",
+      "40980",
+      "41629",
+      "41147",
+      "41328"
+    ],
+    "pro_flood_ida_regex_hits_on_text_I_reproduced": 31,
+    "false_positives_in_naive_regex_examples": [
+      "40959 playground wheel",
+      "40976 climbing wall",
+      "41228 garbage can enclosure",
+      "exterior garage doors/walls e.g. 40958, 41202, 41441",
+      "outside basement doors 40993, 41319"
+    ],
+    "interior_height_range_ft": "0.30 to 4.59",
+    "needs_manual_review_count": 6,
+    "needs_manual_review_ids": [
+      "41324",
+      "41299",
+      "41595",
+      "41597",
+      "41250",
+      "41148"
+    ]
+  },
+  "traps_or_caveats": [
+    "The CSV has no interior/exterior field; the flag must come from free text, so it is a judgment. Spot-check photos in the USGS Flood Event Viewer by hwm_id before final exclusion.",
+    "Plain keyword regex (basement|inside|garage|...) over-flags: 'garage' mostly means an exterior garage door or wall, 'outside of basement door' is exterior, and 'inside' appears in playground wheel, climbing wall and garbage-can enclosure. It also misses 'hallway' and 'ramp inside delivery door' unless the keyword list is extended. Check only the 'inside' terms against context.",
+    "Ambiguous, kept as street (flag if photos show interior): 41324 and 41299/41595/41597 (home/garage entrance, heights 4-4.9 ft, likely exterior walls of raised-grade homes), 41250 (cement wall at parking garage entrance), 41148 (second door, no height).",
+    "7 marks have no height_above_gnd (41625, 41100, 41102, 41148, 41101, 41623, 41152) and cannot be used in a depth test regardless.",
+    "Two basement marks (40981, 41310) are heights estimated from photos; some marks are paired duplicates at the same site (HWM-1/HWM-2), so they are not independent.",
+    "Excluding interior marks removes basement flooding, which is often sewer or groundwater driven; the terrain-only model cannot represent it anyway (bare_earth_only trap). Interior marks are excluded from the depth test, not evidence that the place did not flood.",
+    "Marks are presence-only, so a fair test still needs control points (presence_only trap). Header is on line 2 (citation_header) and heights are in feet (feet_vs_meters).",
+    "Not scored in ArcGIS Pro; this is a data-reading result, no model layer was involved."
+  ],
+  "refused": false,
+  "files": [
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T16/answer.json"
+  ]
+}

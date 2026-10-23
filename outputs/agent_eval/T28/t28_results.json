@@ -1,0 +1,98 @@
+{
+  "threshold_m": 0.15,
+  "marks_total": 159,
+  "marks_without_tile": 0,
+  "all_cell": {
+    "n_marks": 159,
+    "hits": "81",
+    "misses": "78",
+    "miss_rate": 0.491,
+    "n_controls": 3180,
+    "controls_flagged": "388",
+    "control_flag_rate": 0.122
+  },
+  "all_r3_(+-6m)": {
+    "n_marks": 159,
+    "hits": 100,
+    "misses": 59,
+    "miss_rate": 0.371,
+    "n_controls": 3180,
+    "controls_flagged": 803,
+    "control_flag_rate": 0.253
+  },
+  "all_r8_(+-16m)": {
+    "n_marks": 159,
+    "hits": 127,
+    "misses": 32,
+    "miss_rate": 0.201,
+    "n_controls": 3180,
+    "controls_flagged": 1583,
+    "control_flag_rate": 0.498
+  },
+  "noninterior_cell": {
+    "n_marks": 128,
+    "hits": "62",
+    "misses": "66",
+    "miss_rate": 0.516,
+    "n_controls": 3180,
+    "controls_flagged": "388",
+    "control_flag_rate": 0.122
+  },
+  "noninterior_r3": {
+    "n_marks": 128,
+    "hits": 78,
+    "misses": 50,
+    "miss_rate": 0.391,
+    "n_controls": 3180,
+    "controls_flagged": 803,
+    "control_flag_rate": 0.253
+  },
+  "noninterior_r8": {
+    "n_marks": 128,
+    "hits": 97,
+    "misses": 31,
+    "miss_rate": 0.242,
+    "n_controls": 3180,
+    "controls_flagged": 1583,
+    "control_flag_rate": 0.498
+  },
+  "interior_cell": {
+    "n_marks": 31,
+    "hits": "19",
+    "misses": "12",
+    "miss_rate": 0.387,
+    "n_controls": 3180,
+    "controls_flagged": "388",
+    "control_flag_rate": 0.122
+  },
+  "interior_marks": 31,
+  "marks_nodepth": 7,
+  "marks_near_tile_edge_lt50m": 0,
+  "sink_nan_marks": 0,
+  "distinct_sites": 83,
+  "control_sink_quantiles": {
+    "50": 0.0,
+    "90": 0.265,
+    "95": 0.743,
+    "99": 2.167
+  },
+  "mark_sink_quantiles": {
+    "50": 0.188,
+    "75": 0.893,
+    "90": 1.798,
+    "95": 3.066
+  },
+  "all_tiles_cell_fraction_sink_gt_thr": 0.0805,
+  "thr0.05": {
+    "miss_rate": 0.421,
+    "ctl_flag": 0.153
+  },
+  "thr0.1": {
+    "miss_rate": 0.465,
+    "ctl_flag": 0.136
+  },
+  "thr0.3": {
+    "miss_rate": 0.553,
+    "ctl_flag": 0.097
+  }
+}

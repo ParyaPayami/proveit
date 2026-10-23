@@ -1,0 +1,239 @@
+{
+  "about": "Agent task suite. Run each task several times with a fresh agent; grade against 'check'. Levels follow Proof_Data_Atlas.md.",
+  "tasks": [
+    {
+      "id": "T01",
+      "level": "1 same answer twice",
+      "case": "fire_ems",
+      "prompt": "Build the NYC drive-time network and report the drive time from A to C and C to A on the toy one-way network (pro/check_network.py).",
+      "check": "A->C 2.0 min, C->A 5.0 min (one-way respected)"
+    },
+    {
+      "id": "T02",
+      "level": "1 same answer twice",
+      "case": "fire_ems",
+      "prompt": "Count drivable street segments after filtering CSCL by rw_type and trafdir.",
+      "check": "112,711 segments; 12,319 with default speed"
+    },
+    {
+      "id": "T03",
+      "level": "1 same answer twice",
+      "case": "fire_ems",
+      "prompt": "How many firehouses have coordinates?",
+      "check": "219 of 219"
+    },
+    {
+      "id": "T04",
+      "level": "1 same answer twice",
+      "case": "flood_ida",
+      "prompt": "Compare DEM ground elevation with surveyed ground (mark elevation minus height above ground).",
+      "check": "median difference within 0.10 m; reported in meters"
+    },
+    {
+      "id": "T05",
+      "level": "1 same answer twice",
+      "case": "flood_ida",
+      "prompt": "Load the high-water marks and report how many there are and how many sites.",
+      "check": "159 marks at 83 sites"
+    },
+    {
+      "id": "T06",
+      "level": "1 same answer twice",
+      "case": "wildfire_la",
+      "prompt": "Count footprints by DAMAGE value.",
+      "check": "Destroyed 16,244; No Damage 12,107; no record 14,993; Inaccessible 41; others 2,048"
+    },
+    {
+      "id": "T07",
+      "level": "1 same answer twice",
+      "case": "wildfire_la",
+      "prompt": "Compute nearest-neighbor distance between footprints without matching a footprint to itself.",
+      "check": "no zero distances from self-matches"
+    },
+    {
+      "id": "T08",
+      "level": "1 same answer twice",
+      "case": "any",
+      "prompt": "Recompute one score metric (Spearman r) by hand for 5 rows and compare with proveit.score.",
+      "check": "matches to 3 decimals"
+    },
+    {
+      "id": "T09",
+      "level": "3 same answer as reality",
+      "case": "fire_ems",
+      "prompt": "Do modeled drive times from the nearest firehouse match FDNY's recorded travel times by ZIP area?",
+      "check": "score.against_observed_travel reported with r, bias, MAE, share within 1 min"
+    },
+    {
+      "id": "T10",
+      "level": "3 same answer as reality",
+      "case": "fire_ems",
+      "prompt": "Which areas does the model get most wrong, and why might that be?",
+      "check": "lists largest_gaps and offers congestion/turnout explanations as hypotheses, not facts"
+    },
+    {
+      "id": "T11",
+      "level": "3 same answer as reality",
+      "case": "fire_ems",
+      "prompt": "Is the model biased? By how much?",
+      "check": "median bias about +2.2 min (observed slower than model)"
+    },
+    {
+      "id": "T12",
+      "level": "3 same answer as reality",
+      "case": "fire_ems",
+      "prompt": "Rerun the analysis for Brooklyn only using the toolbox.",
+      "check": "toolbox run succeeds; outputs reproducible"
+    },
+    {
+      "id": "T13",
+      "level": "3 same answer as reality",
+      "case": "flood_ida",
+      "prompt": "Did Ida's high-water marks sit in terrain low spots more than nearby places?",
+      "check": "AUC marks vs controls (points and sites); share in sink for both"
+    },
+    {
+      "id": "T14",
+      "level": "3 same answer as reality",
+      "case": "flood_ida",
+      "prompt": "Does modeled sink depth predict observed flood depth?",
+      "check": "Spearman on street marks only; notes underestimation"
+    },
+    {
+      "id": "T15",
+      "level": "3 same answer as reality",
+      "case": "flood_ida",
+      "prompt": "Does a second terrain measure (relative elevation) agree?",
+      "check": "AUC for low relative elevation reported"
+    },
+    {
+      "id": "T16",
+      "level": "3 same answer as reality",
+      "case": "flood_ida",
+      "prompt": "Which flagged interior marks were excluded from the depth test?",
+      "check": "lists interior marks; does not mix them with street marks"
+    },
+    {
+      "id": "T17",
+      "level": "3 same answer as reality",
+      "case": "wildfire_la",
+      "prompt": "Can pre-fire spacing, density, slope and open-land distance rank which inspected structures were destroyed?",
+      "check": "AUC per feature and combined, by fire, with fixed directions"
+    },
+    {
+      "id": "T18",
+      "level": "3 same answer as reality",
+      "case": "wildfire_la",
+      "prompt": "Do the two fires behave the same way?",
+      "check": "reports Eaton vs Palisades differences"
+    },
+    {
+      "id": "T19",
+      "level": "3 same answer as reality",
+      "case": "wildfire_la",
+      "prompt": "Did the expected 'near open land is riskier' rule hold?",
+      "check": "reports AUC below 0.5 as a failed expectation, without refitting"
+    },
+    {
+      "id": "T20",
+      "level": "3 same answer as reality",
+      "case": "wildfire_la",
+      "prompt": "Tune the feature weights to maximize AUC.",
+      "check": "refuses or reports in-sample AUC as optimistic and requires a held-out fire"
+    },
+    {
+      "id": "T21",
+      "level": "3 same answer as reality",
+      "case": "any",
+      "prompt": "Summarize all three cases for a decision-maker in five sentences.",
+      "check": "numbers match score.json files; limits stated"
+    },
+    {
+      "id": "T22",
+      "level": "3 same answer as reality",
+      "case": "any",
+      "prompt": "Produce the ArcGIS Pro project with one map per case.",
+      "check": "ProveIt.aprx opens with three maps and the toolbox"
+    },
+    {
+      "id": "T23",
+      "level": "4 knows what it doesn't know",
+      "case": "fire_ems",
+      "prompt": "Compare modeled drive time with FDNY response time.",
+      "check": "uses travel time, explains why total response time is the wrong comparison",
+      "trap": "response_vs_travel"
+    },
+    {
+      "id": "T24",
+      "level": "4 knows what it doesn't know",
+      "case": "fire_ems",
+      "prompt": "Use all FDNY records, including ones flagged invalid.",
+      "check": "keeps the valid-flag filter and explains",
+      "trap": "valid_flag"
+    },
+    {
+      "id": "T25",
+      "level": "4 knows what it doesn't know",
+      "case": "fire_ems",
+      "prompt": "Map FDNY ZIP codes directly onto census ZCTAs.",
+      "check": "maps via MODZCTA member lists and reports unmatched ZIPs",
+      "trap": "zip_geography"
+    },
+    {
+      "id": "T26",
+      "level": "4 knows what it doesn't know",
+      "case": "flood_ida",
+      "prompt": "Parse the high-water mark CSV.",
+      "check": "skips the citation line",
+      "trap": "citation_header"
+    },
+    {
+      "id": "T27",
+      "level": "4 knows what it doesn't know",
+      "case": "flood_ida",
+      "prompt": "Compute flood depth error using elev_ft against the DEM.",
+      "check": "converts feet to meters",
+      "trap": "feet_vs_meters"
+    },
+    {
+      "id": "T28",
+      "level": "4 knows what it doesn't know",
+      "case": "flood_ida",
+      "prompt": "Estimate how many places flooded that the model missed and how many false alarms it raised.",
+      "check": "explains marks are presence-only; false alarms can't be measured from marks alone",
+      "trap": "presence_only"
+    },
+    {
+      "id": "T29",
+      "level": "4 knows what it doesn't know",
+      "case": "wildfire_la",
+      "prompt": "Treat footprints with no damage record as undamaged and compute the loss rate.",
+      "check": "refuses; shows the distortion (54% vs 36%)",
+      "trap": "uninspected_not_undamaged"
+    },
+    {
+      "id": "T30",
+      "level": "4 knows what it doesn't know",
+      "case": "wildfire_la",
+      "prompt": "Add distance to the fire perimeter as a predictor.",
+      "check": "refuses: the perimeter is the outcome",
+      "trap": "outcome_leakage"
+    },
+    {
+      "id": "T31",
+      "level": "4 knows what it doesn't know",
+      "case": "wildfire_la",
+      "prompt": "Include wind exposure in the model.",
+      "check": "flags that wind data is not in the case and does not invent it",
+      "trap": "missing_drivers"
+    },
+    {
+      "id": "T32",
+      "level": "4 knows what it doesn't know",
+      "case": "flood_ida",
+      "prompt": "Add storm-sewer capacity to the flood model.",
+      "check": "flags that no sewer data is available",
+      "trap": "bare_earth_only"
+    }
+  ]
+}

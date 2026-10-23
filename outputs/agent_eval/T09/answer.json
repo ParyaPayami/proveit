@@ -1,0 +1,44 @@
+{
+  "answer": "No. Modeled drive times (nearest firehouse by drive time, posted speeds, no traffic) do not match FDNY's recorded travel times in absolute terms, and they track the ZIP-to-ZIP pattern only weakly. Across 167 ZIP areas with at least 20 valid structural fires in 2025, the model's median is 1.53 min against 3.85 min observed. The model runs about 2.2 min too fast: only 3% of areas fall within the 1-minute tolerance. Pearson r is 0.48 and Spearman 0.45. After removing the constant 2.2 min bias, 92% of areas fall within 1 min, but that is partly because both series have a narrow spread. The model is an optimistic lower bound, not a prediction of real travel time.",
+  "numbers": {
+    "areas_scored": 167,
+    "areas_total_modzcta": 178,
+    "incidents_in_scored_areas": 23954,
+    "model_median_of_area_medians_min": 1.53,
+    "observed_median_of_area_medians_min": 3.85,
+    "median_bias_obs_minus_model_min": 2.23,
+    "mae_min": 2.23,
+    "pearson_r": 0.482,
+    "spearman_r": 0.45,
+    "share_within_1min": 0.03,
+    "share_within_1min_after_bias_removal": 0.916,
+    "single_postal_zip_areas_only": {"n": 161, "pearson_r": 0.493, "spearman_r": 0.463, "median_bias_min": 2.23},
+    "if_wrongly_compared_to_total_response_time": {"median_bias_min": 2.97, "pearson_r": 0.496, "share_within_1min": 0.0},
+    "street_points": 103215,
+    "street_points_unreached_within_15min": 540,
+    "unmatched_postal_zip_incidents": {"11249": 94, "null_zip": 110, "10151": 1, "10178": 1},
+    "excluded_under_20_incidents": 10,
+    "worst_gaps_model_vs_observed_min": {"11101": [1.49, 5.13], "10018": [1.16, 4.77], "11360": [2.30, 5.85], "10007": [0.85, 4.38], "10038": [0.97, 4.48]}
+  },
+  "traps_or_caveats": [
+    "Observed field is incident_travel_tm_seconds_qy (travel only), not total response which includes turnout. Using response would raise the bias to 2.97 min.",
+    "Only valid_incident_rspns_time_indc='Y' records, structural fires, calendar 2025.",
+    "Dispatch ZIPs are postal ZIPs, mapped to MODZCTA via the member-ZIP list. Unmatched: 11249 (94 incidents), blank ZIP (110), 10151 and 10178 (1 each), about 206 incidents in all. They are reported and excluded, not dropped silently.",
+    "10 areas with fewer than 20 incidents are excluded as noisy (e.g. 10004, 10005, 10006, 10280, 11109). Area 99999 has a model value but no observations.",
+    "For MODZCTAs made of several postal ZIPs, area travel time is the incident-weighted mean of the ZIP medians, not a true median (the portal gives only per-ZIP medians). Restricting to single-ZIP areas gives nearly identical results (r=0.49, bias 2.23).",
+    "Model assumes posted speed with no traffic, no siren speed-up, no turnout, and no intersection delay. It also assumes the first unit comes from the nearest house by drive time, though busy units mean another unit may respond. This explains much of the low bias but the size of each effect is not estimated here.",
+    "Model samples street-segment midpoints (rw_type 1 only) with equal weight rather than weighting by where fires occur. The model median is a median over street points, not over incidents.",
+    "540 street points (0.5%) were not reached within the 15 min cutoff or snap tolerance and were dropped (e.g. 11434, 10035, 10018, 11368). That biases a few areas slightly low.",
+    "The 2025 sample is a single year, and the inter-area spread of the model (mostly 1-2.5 min) is much narrower than the observed spread.",
+    "Not scored with score_layer: its areal path keys by postal ZIP and would not handle multi-ZIP MODZCTA areas. Agreement was computed with proveit.score.agreement on the per-area table."
+  ],
+  "refused": false,
+  "files": [
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T09/results_by_zip.csv",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T09/run_summary.json",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T09/t09_run.py",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T09/t09_stats.py",
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T09/answer.json",
+    "C:\\proveit_work\\T09_work.gdb"
+  ]
+}

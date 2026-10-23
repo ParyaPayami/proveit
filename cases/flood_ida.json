@@ -1,0 +1,78 @@
+{
+  "id": "flood_ida",
+  "title": "Flash-flood low spots vs USGS high-water marks (Hurricane Ida, NYC, Sept 1 2021)",
+  "question": "Can a terrain-only analysis (low spots where rain water collects) find the places that flooded during Ida, and how deep it got?",
+  "sources": {
+    "hwm": {
+      "url": "https://www.sciencebase.gov/catalog/file/get/618975c8d34ec04fc9c5a049?f=__disk__d6%2F2e%2Fce%2Fd62eceb8383f78ccf672291f1f41de8b0c82a4c1",
+      "file": "FilteredHWMs_NewYork.csv",
+      "header_line": 1,
+      "about": "USGS high-water marks, NYC five boroughs, Ida 2021 (doi:10.5066/P9OMBJPQ)"
+    },
+    "hwm_dictionary": {
+      "url": "https://www.sciencebase.gov/catalog/file/get/618975c8d34ec04fc9c5a049?f=__disk__33%2F22%2F4a%2F33224a39b0e8562de0b0baf00376b033fc5908fd",
+      "file": "STN_FilteredHWMs_data_dictionary.csv",
+      "about": "Data dictionary for the high-water marks"
+    }
+  },
+  "elevation": {
+    "service": "USGS 3DEP bare-earth DEM (meters, NAVD88)",
+    "cell_m": 2.0,
+    "window_deg": 0.01
+  },
+  "answer_key": {
+    "observed_depth_field": "height_above_gnd",
+    "observed_unit": "feet",
+    "control_points_per_mark": 20,
+    "control_radius_m": 500,
+    "sink_threshold_m": 0.15
+  },
+  "assumptions": [
+    "Water collects in terrain low spots (sinks) of the bare-earth surface; storm sewers, buildings and curbs are ignored.",
+    "A mark's flood depth is its height above ground, from the USGS survey.",
+    "Places that did not flood are unknown; random points near the marks stand in for them."
+  ],
+  "traps": [
+    {
+      "id": "citation_header",
+      "check": "The CSV's first line is a citation, not the header. Parsing from line 1 silently mislabels every column.",
+      "detect": "header_line_used == 1"
+    },
+    {
+      "id": "feet_vs_meters",
+      "check": "Mark elevations and depths are in feet; 3DEP elevation is in meters. Mixing them inflates or shrinks depths 3.28x.",
+      "detect": "units_converted == 'ft_to_m'"
+    },
+    {
+      "id": "presence_only",
+      "check": "Marks exist only where it flooded, so they cannot measure false alarms. A fair test compares marks with control points.",
+      "detect": "control_points > 0"
+    },
+    {
+      "id": "interior_marks",
+      "check": "Some marks were surveyed inside buildings or basements, where depth is measured from an interior floor. They must be flagged, not mixed with street marks.",
+      "detect": "interior_marks_flagged"
+    },
+    {
+      "id": "bare_earth_only",
+      "check": "The DEM is bare earth: sewers, buildings and curbs are missing, so the model can't capture flooding from sewer backups.",
+      "detect": "'sewer' in ' '.join(assumptions).lower()"
+    }
+  ],
+  "interior_reviewed": {
+    "hwm_ids": [
+      "40980",
+      "40981",
+      "41146",
+      "41147",
+      "41247",
+      "41310",
+      "41328",
+      "41430",
+      "41587",
+      "41629"
+    ],
+    "method": "Read each mark's USGS location description and notes; flagged when the water line was measured inside a building (basement wall or hallway, inside a door). 41147 was transposed from the inside of a garage door to an outdoor pad and is kept as interior. Exterior walls and garage entrances are not interior. Verify with photos in the USGS Flood Event Viewer.",
+    "replaces": "A keyword rule (basement|inside|garage|...) that flagged 31 marks, including exterior garage doors and a playground wheel (found by the agent evaluation, tasks T14 and T16)."
+  }
+}

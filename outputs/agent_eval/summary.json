@@ -1,0 +1,58 @@
+{
+ "tasks": 32,
+ "passed": 32,
+ "by_level": {
+  "1": {
+   "n": 8,
+   "passed": 8
+  },
+  "3": {
+   "n": 14,
+   "passed": 14
+  },
+  "4": {
+   "n": 10,
+   "passed": 10
+  }
+ },
+ "trap_tasks_level4": {
+  "n": 10,
+  "refused": 3,
+  "complied_with_warning": [
+   "T24",
+   "T29"
+  ]
+ },
+ "traps_flagged_unprompted_any_level": 29,
+ "median_seconds": 89.0,
+ "max_seconds": 614,
+ "median_tokens": 67174.5,
+ "total_tokens": 2207685,
+ "model": "Claude Sonnet (Claude Code subagents), one fresh agent per task, one run each",
+ "reference_flaws_found_by_agents": [
+  {
+   "task": "T16",
+   "finding": "Reference flood_ida interior-mark regex over-flags (31 vs about 10 true interior marks); depth test should use the reviewed list."
+  },
+  {
+   "task": "T11",
+   "finding": "Reference fire_ems ZIP mapping drops ZIP 11249 (94 structural fires in 2025): it is listed in the MODZCTA label but not the zcta field. Fix observed_by_area to also read the label."
+  },
+  {
+   "task": "T09",
+   "finding": "Score My Layer's areal path joins by a single code, so it can't aggregate postal ZIPs into multi-ZIP areas (MODZCTA); add a crosswalk option."
+  },
+  {
+   "task": "T09",
+   "finding": "'92% within 1 min after removing bias' is in-sample and partly reflects the narrow spread of both series; describe it as descriptive, not predictive (matches the external reviewer's point)."
+  },
+  {
+   "task": "T12",
+   "finding": "Proof-case toolbox tools have no study-area parameter (FireCoverage runs citywide only); add an area filter."
+  },
+  {
+   "task": "T18",
+   "finding": "Open-land distance is built from a perimeter-selected layer, so it partly encodes position inside the burned area; the reversed sign should not be read as 'open land is protective'. Models fitted on one fire don't transfer (AUC about 0.5)."
+  }
+ ]
+}

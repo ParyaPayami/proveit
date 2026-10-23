@@ -1,0 +1,55 @@
+{
+  "answer": "Fire response (NYC, 2025 structural fires): the drive-time model ranks ZIP areas only moderately (Pearson r 0.482, 167 areas scored) and runs a median 2.23 minutes faster than FDNY's observed travel times, so just 3% of areas land within the 1-minute tolerance; it is usable for relative comparison, not for absolute response-time claims. Flood (Ida): terrain low spots separate flooded from unflooded places fairly well (AUC 0.81 by site, 0.729 by point; 50.9% of the 159 high-water marks sit in a modeled sink versus 12.2% of 3,180 control points), but the modeled depth is a weak and low guide (Spearman 0.333 over 121 street marks; median modeled 0.17 m versus observed 0.43 m). Wildfire (LA, Jan 2025): pre-fire building features barely rank which reached, inspected structures were destroyed (combined AUC 0.529 across 29,091 structures, where 0.5 is chance), working in Palisades (0.683) but worse than chance in Eaton (0.44), so these features should not drive wildfire decisions. Across all three, the evidence supports the fire-response model for ranking and the flood model for flagging likely flood-prone spots, but not the wildfire feature set. Key limits: the fire model assumes posted speeds with no traffic and excludes 11 areas (10 with fewer than 20 incidents) plus 206 incidents in unmatched ZIPs; the flood model is bare-earth only (no sewers, buildings or curbs), uses random points as stand-ins for non-flooded places, and flags 31 interior marks; the wildfire result covers only structures the fires reached and were inspected (14,993 uninspected footprints excluded), and omits wind, embers, vegetation and building hardening.",
+  "numbers": {
+    "fire_ems": {
+      "areas_scored": 167,
+      "pearson_r": 0.482,
+      "spearman_r": 0.45,
+      "median_bias_min": 2.23,
+      "mae_min": 2.23,
+      "share_within_1_min_tolerance": 0.03,
+      "share_within_tolerance_after_bias_removal": 0.916,
+      "excluded_areas": 11,
+      "excluded_fewer_than_20_incidents": 10,
+      "excluded_no_observations": 1,
+      "unmatched_zip_incidents": 206
+    },
+    "flood_ida": {
+      "marks": 159,
+      "controls": 3180,
+      "sites": 83,
+      "auc_sites_sink_depth": 0.81,
+      "auc_points_sink_depth": 0.729,
+      "share_marks_in_sink": 0.509,
+      "share_controls_in_sink": 0.122,
+      "depth_spearman_r": 0.333,
+      "depth_n_street_marks": 121,
+      "median_observed_depth_m": 0.43,
+      "median_modeled_depth_m": 0.17,
+      "interior_marks": 31
+    },
+    "wildfire_la": {
+      "n_structures_scored": 29091,
+      "destroyed_share": 0.539,
+      "combined_auc_all": 0.529,
+      "combined_auc_eaton": 0.44,
+      "combined_auc_palisades": 0.683,
+      "excluded_no_record": 14993,
+      "excluded_inaccessible": 41
+    }
+  },
+  "traps_or_caveats": [
+    "Fire EMS: compare to travel time, not total response; the total-response comparison (bias 2.97 min) is the wrong yardstick and was not used. The 91.6% within-tolerance figure only applies after subtracting the model's own median bias, which is a calibration on the same data, not independent proof of accuracy.",
+    "Fire EMS: model assumes posted speed limits, no traffic, nearest firehouse by drive time; the biggest gaps are in dense areas such as ZIP 11101 (model 1.49 min vs observed 5.13 min). Areas with fewer than 20 incidents were excluded; 206 incidents in unmatched ZIPs (incl. 94 in 11249 and 110 with no ZIP) are not in the score.",
+    "Flood: marks exist only where it flooded, so non-flooded places are represented by random control points (assumption, not truth); false-alarm rates are therefore uncertain. AUC 0.5 is chance.",
+    "Flood: bare-earth DEM ignores sewers, buildings and curbs, so sewer-backup flooding is not captured; modeled depths are well below observed (0.17 vs 0.43 m), so do not use them as depth estimates. 31 interior marks are flagged and excluded from the depth comparison.",
+    "Wildfire: results describe only structures the fires already reached (layer selected by perimeters), not where fire will spread. Uninspected footprints (14,993) are excluded; counting them as survivors would have changed the result (destroyed share 0.359, AUC 0.467). Wind, embers, vegetation, roof material and defensible space are not in the data and not estimated.",
+    "Wildfire: Eaton's combined score (0.44) is below chance, meaning the fixed feature directions do not hold there; the pooled 0.529 hides this split between fires.",
+    "The three cases use different metrics (correlation/bias, AUC, AUC) and are not directly comparable; the five-sentence summary compresses each case and cannot carry full detail. Scores come from one run each; no uncertainty intervals are given in the files.",
+    "Not read per the task rules: outputs/agent_eval/ other agents, runs/, tasks/, README.md. All numbers come from the three score.json files and case/run_summary files."
+  ],
+  "refused": false,
+  "files": [
+    "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T21/answer.json"
+  ]
+}

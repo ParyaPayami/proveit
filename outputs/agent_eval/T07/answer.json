@@ -1,0 +1,41 @@
+{
+ "answer": "Nearest-neighbor distance for each of the 45,433 LA County 2023 footprints (wildfire_la layer) was computed in ArcGIS Pro with Near(buildings, buildings) in NAD83 UTM 11N (planar, metres, edge to edge). Near on one class against itself skips the feature's own OID: 0 self-matches, and every footprint got a neighbor. Median 2.20 m, mean 3.91 m, p25 0.95 m, p75 4.11 m, p95 12.30 m, max 1303.6 m. 6,811 footprints (15.0%) have distance 0 because they touch or overlap another footprint (none are duplicate geometries or share a BLD_ID), so 0 means attached, not a self-match.",
+ "numbers": {
+  "n_footprints": 45433,
+  "self_matches": 0,
+  "no_neighbor": 0,
+  "mean_m": 3.91,
+  "median_m": 2.2,
+  "p05_m": 0.0,
+  "p25_m": 0.95,
+  "p75_m": 4.11,
+  "p95_m": 12.3,
+  "min_m": 0.0,
+  "max_m": 1303.59,
+  "zero_distance_count": 6811,
+  "zero_distance_pct": 15.0,
+  "identical_geometry_pairs": 0,
+  "duplicate_BLD_ID": 0,
+  "over_50m": 188,
+  "over_100m": 50,
+  "code_counts": {
+   "Building": 45068,
+   "Courtyard": 289,
+   "Free Standing Solar Structure": 76
+  }
+ },
+ "traps_or_caveats": [
+  "Self-match avoided: Near of a layer to itself ignores the same OID. Verified 0 rows with NEAR_FID == own OID; no duplicate BLD_IDs or identical geometries.",
+  "15% of distances are exactly 0 (touching or overlapping footprints, e.g. attached units or house plus garage); edge-to-edge distance, not centroid distance. Centroid distance or merging touching footprints would give a different spacing measure.",
+  "Layer holds Courtyard (289) and Free Standing Solar Structure (76) codes alongside Building; these are counted as footprints/neighbors. Filtering them out would change some NN values.",
+  "Layer is clipped to 1/4 mile around the fire perimeters, so footprints near the clip edge may have a true neighbor outside the layer; large distances (max 1.3 km, 50 over 100 m) are partly edge or open-land artifacts and unreliable near the boundary.",
+  "Planar distance in UTM 11N metres, not geodesic; negligible error at this scale.",
+  "Distances are 2023 pre-fire footprints; the result says nothing about damage by itself (about one third of footprints have no DINS record, not 'undamaged')."
+ ],
+ "refused": false,
+ "files": [
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T07/nn.py",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T07/nn_stats.json",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T07/nn.csv"
+ ]
+}

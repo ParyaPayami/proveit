@@ -1,0 +1,56 @@
+{
+  "id": "nyc_fdny_dispatch_by_zip",
+  "name": "FDNY fire incident travel times, by ZIP",
+  "topics": [
+    "emergency response",
+    "fire",
+    "public safety"
+  ],
+  "publisher": "FDNY (NYC Open Data)",
+  "docs": "https://data.cityofnewyork.us/d/8m42-w767",
+  "coverage": {
+    "place": "New York City",
+    "bbox": [
+      -74.26,
+      40.49,
+      -73.7,
+      40.92
+    ],
+    "start": "2005-01-01"
+  },
+  "adapter": {
+    "type": "socrata_aggregate",
+    "domain": "data.cityofnewyork.us",
+    "dataset": "8m42-w767",
+    "date_field": "incident_datetime",
+    "key_field": "zipcode",
+    "value_field": "incident_travel_tm_seconds_qy",
+    "base_where": "valid_incident_rspns_time_indc='Y'",
+    "category_field": "incident_classification_group"
+  },
+  "outcome": {
+    "kind": "areal_measure",
+    "describes": "median travel time of the first unit",
+    "unit": "seconds",
+    "key": "postal ZIP code"
+  },
+  "filters_example": "incident_classification_group = 'Structural Fires'",
+  "traps": [
+    {
+      "id": "response_vs_travel",
+      "check": "Use travel time (incident_travel_tm_seconds_qy) to compare with a drive-time model; response time adds turnout.",
+      "handled": true
+    },
+    {
+      "id": "valid_flag",
+      "check": "Records with invalid response times are excluded.",
+      "handled": true
+    },
+    {
+      "id": "postal_zips",
+      "check": "Keys are postal ZIPs, not polygons; PO-box and single-building ZIPs won't match ZIP areas."
+    }
+  ],
+  "license": "NYC Open Data terms of use",
+  "status": "verified"
+}

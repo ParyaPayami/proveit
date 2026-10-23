@@ -1,0 +1,35 @@
+{
+  "id": "eagle_i_outages",
+  "name": "EAGLE-I power outages by county (ORNL)",
+  "topics": [
+    "outages",
+    "utilities",
+    "electric",
+    "resilience"
+  ],
+  "publisher": "Oak Ridge National Laboratory",
+  "docs": "https://figshare.com/articles/dataset/24237376",
+  "coverage": {
+    "place": "United States (counties)",
+    "start": "2014-11-01"
+  },
+  "adapter": {
+    "type": "manual",
+    "url": "https://figshare.com/articles/dataset/24237376",
+    "instructions": "Download the yearly CSV; join on county FIPS."
+  },
+  "outcome": {
+    "kind": "areal_measure",
+    "describes": "customers without power, every 15 minutes",
+    "unit": "customers",
+    "key": "county FIPS"
+  },
+  "traps": [
+    {
+      "id": "customers_not_people",
+      "check": "Customers are meters, not people."
+    }
+  ],
+  "license": "Open (figshare)",
+  "status": "verified"
+}

@@ -1,0 +1,61 @@
+{
+ "answer": "Parsed 159 high-water marks (Hurricane Ida, 1 Sep 2021, NYC; USGS event 312) into hwm_clean.csv: one row per mark, columns id (hwm_id), latitude, longitude, elev_ft_navd88, height_above_gnd_ft, site (siteDescription), plus site_no, county, type, quality, uncertainty_ft. Row 1 of the raw CSV is a citation, so the header is row 2. All 159 hwm_id values are unique and all coordinates are numeric and lie within NYC. Elevations are feet NAVD88 (4.2 to 240.7, median 30.6). Height above ground is blank for 7 marks and 0 for 11; the rest run 0.3 to 6.51 ft (median about 1.5). The marks sit at 83 sites, so site is not a unique key.",
+ "numbers": {
+  "marks": 159,
+  "unique_hwm_id": 159,
+  "sites": 83,
+  "queens": 64,
+  "kings_brooklyn": 42,
+  "bronx": 24,
+  "richmond_staten_island": 23,
+  "new_york_manhattan": 6,
+  "lat_range": [
+   40.589076,
+   40.894235
+  ],
+  "lon_range": [
+   -74.156962,
+   -73.765121
+  ],
+  "elev_ft_min": 4.2,
+  "elev_ft_max": 240.7,
+  "elev_ft_median": 30.6,
+  "hag_ft_min": 0.0,
+  "hag_ft_max": 6.51,
+  "hag_missing": 7,
+  "hag_zero": 11,
+  "hwm_type": {
+   "Seed line": 110,
+   "Debris": 32,
+   "Mud": 13,
+   "Stain line": 4
+  },
+  "quality": {
+   "Fair +/-0.20": 58,
+   "Good +/-0.10": 54,
+   "Excellent +/-0.05": 32,
+   "Poor +/-0.40": 15
+  },
+  "vertical_method_other_lidar": 5,
+  "coordinate_duplicate_pairs": 3
+ },
+ "traps_or_caveats": [
+  "Line 1 of the CSV is a citation string, not the header; a naive read gives wrong columns. Header is on line 2.",
+  "elev_ft is surveyed water-surface elevation in feet NAVD88, NOT depth. Depth is height_above_gnd (feet above ground); do not mix them or compare to metres.",
+  "height_above_gnd is blank for 7 marks (41625, 41100, 41102, 41148, 41101, 41623, 41152), 6 of them Poor/low-quality, and 0 for 11 marks. Left as null, not filled; blank is not zero.",
+  "Marks are not independent sites: 83 sites hold 159 marks (HWM-1, HWM-2, ...). Three pairs of marks share identical coordinates (40988/41592, 40981/41310, 41146/41587). Dedupe by hwm_id, not by site or location.",
+  "Horizontal accuracy is low: all coordinates are 'WGS84 (from Digital Map)' via phone/car GPS, so positions are approximate.",
+  "5 marks have elevation from LiDAR or levelling rather than GNSS (verticalMethodName 'Other'), e.g. 41679, 41680, 41430, 41433, 41678.",
+  "Max elev 240.7 ft (hwm 40995, Staten Island, Poor quality, 0 ft above ground, near Ohrbach Lake) is a high-ground stream debris line, not NYC street flooding; treat as an outlier for elevation-based work.",
+  "Uncertainty ranges from 0.05 to 0.40 ft by quality class; the uncertainty column is only 0.1 to 0.5, and total uncertainty also includes flagging error.",
+  "hwm_environment is 'Riverine' for all marks and waterbody is mostly 'Flash flooding' (157), Harlem River (2). Marks are a surveyed sample of the event, not a complete flood extent, and are absent where no evidence was found.",
+  "The CSV is 'Filtered' by USGS; selection criteria are not documented in the files I used, so completeness is unknown. Not verified against any independent source.",
+  "Data dictionary has a mis-encoded character (O?Connor) in the reference; harmless."
+ ],
+ "refused": false,
+ "files": [
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T26/hwm_clean.csv",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T26/parse.py",
+  "/Users/user/Desktop/Esri/proveit/outputs/agent_eval/T26/answer.json"
+ ]
+}

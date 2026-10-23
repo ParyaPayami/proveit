@@ -1,0 +1,64 @@
+{
+  "name": "chicago_new_construction_2024_25_oracle",
+  "headline": "Top 20% of predicted features held 65% of 2,697 events (3.314x random); Spearman 1.0",
+  "test": "count",
+  "scored": 77,
+  "metrics": {
+    "spearman_r": 1.0,
+    "pearson_r_log": 0.847,
+    "top20_capture": 0.646,
+    "top20_lift": 3.314,
+    "total_events": 2697.0,
+    "features_with_none": 2
+  },
+  "direction": "higher prediction = more outcome",
+  "source": {
+    "id": "chicago_building_permits",
+    "name": "Chicago building permits",
+    "describes": "a permit was issued here",
+    "unit": "USD",
+    "docs": "https://data.cityofchicago.org/d/ydr8-5enu",
+    "license": "City of Chicago data portal terms"
+  },
+  "truth": {
+    "records": 2697,
+    "rows": 2697,
+    "downloaded": "2026-10-22T18:28:14",
+    "sha256": "4478b8714c716ea37a6e3ff763ee597ac08b4ae1e181935881993b578cb1468f",
+    "request": {
+      "source": "chicago_building_permits",
+      "bbox": [
+        -87.94055,
+        41.641932,
+        -87.523606,
+        42.023819
+      ],
+      "start": "2024-01-01",
+      "end": "2025-12-31",
+      "where": "permit_type='PERMIT - NEW CONSTRUCTION'",
+      "max_rows": 500000
+    }
+  },
+  "prediction": {
+    "layer": "C:\\proveit_work\\proof_permits.gdb\\chicago_areas",
+    "field": "oracle",
+    "shape": "polygons"
+  },
+  "traps": [
+    {
+      "id": "minor_permits_dominate",
+      "status": "check",
+      "detail": "Express and easy permits (most records) are minor work; filter permit_type for development questions."
+    },
+    {
+      "id": "cost_self_reported",
+      "status": "check",
+      "detail": "reported_cost is declared by the applicant, not an appraisal."
+    },
+    {
+      "id": "time_leakage",
+      "status": "handled",
+      "detail": "Only outcomes from 2024-01-01 on, after the prediction date 2024-01-01."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "case": "flood_ida",
+  "task": "T14",
+  "marks_read": 159,
+  "rows": 3339,
+  "header_line_used": 1,
+  "units": "obs ft; DEM m; sink m",
+  "provenance": {
+    "case": "flood_ida",
+    "created": "2026-10-22T22:18:09",
+    "arcgis_pro": "ArcGISPro 3.7",
+    "python": "3.13.13",
+    "script": "\\\\Mac\\Home\\Desktop\\Esri\\proveit\\outputs\\agent_eval\\T14\\t14_extract.py",
+    "script_sha256": "b49e3faa76b55bae90c9d59ac9eff4ad5fef9946520212927b8cfbf6345d7d2e",
+    "inputs": {
+      "data\\raw\\flood_ida\\FilteredHWMs_NewYork.csv": "c2ed5ed975a6b4914e1152f00732ab35853daa695f8118b0c516290131bc9af7"
+    },
+    "params": {
+      "seed": 42,
+      "radii_m": [
+        0,
+        5,
+        10,
+        20
+      ]
+    }
+  }
+}

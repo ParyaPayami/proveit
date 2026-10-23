@@ -1,0 +1,258 @@
+{
+ "T01": {
+  "grade": "pass",
+  "tokens": 63064,
+  "tools": 8,
+  "seconds": 57,
+  "note": "A->C 2.0, C->A 5.0 in ArcGIS Pro (Network Analyst OD); respected write rules by not running check_network.py"
+ },
+ "T02": {
+  "grade": "pass",
+  "tokens": 61917,
+  "tools": 9,
+  "seconds": 115,
+  "note": "112,711 drivable segments in Pro and in Python; flagged text codes, NV exclusion, segment vs length",
+  "trap_caught_unprompted": true
+ },
+ "T03": {
+  "grade": "pass",
+  "tokens": 56200,
+  "tools": 7,
+  "seconds": 22,
+  "note": "219 of 219, matches reference; noted facility vs company"
+ },
+ "T04": {
+  "grade": "pass",
+  "tokens": 71541,
+  "tools": 10,
+  "seconds": 72,
+  "note": "152 marks, median DEM-survey -0.02 m (reference -0.02, n=152); converted ft to m, skipped citation line, separated interior marks",
+  "trap_caught_unprompted": true
+ },
+ "T05": {
+  "grade": "pass",
+  "tokens": 58807,
+  "tools": 7,
+  "seconds": 29,
+  "note": "159 marks at 83 sites; noted citation header, feet, presence-only, clustering",
+  "trap_caught_unprompted": true
+ },
+ "T06": {
+  "grade": "pass",
+  "tokens": 58381,
+  "tools": 8,
+  "seconds": 28,
+  "note": "Exact counts by DAMAGE; flagged null = not inspected, selection by perimeter, courtyard/solar footprints",
+  "trap_caught_unprompted": true
+ },
+ "T07": {
+  "grade": "pass",
+  "tokens": 62636,
+  "tools": 6,
+  "seconds": 96,
+  "note": "Near in Pro, 0 self-matches; median 2.20 m, mean 3.91 m, identical to reference; flagged touching footprints and clip-edge artifacts",
+  "trap_caught_unprompted": true
+ },
+ "T08": {
+  "grade": "pass",
+  "tokens": 65831,
+  "tools": 8,
+  "seconds": 30,
+  "note": "Hand Spearman matches proveit (0.2, -0.9177 with ties); noted shortcut formula fails with ties; used synthetic rows since real pairs were off-limits"
+ },
+ "T09": {
+  "grade": "pass",
+  "tokens": 81911,
+  "tools": 20,
+  "seconds": 389,
+  "note": "n=167, r=0.482, Spearman 0.45, bias 2.23, 92% after bias removal: identical to reference; correctly called the 92% partly an artifact of narrow spreads; reported unmatched ZIPs",
+  "trap_caught_unprompted": true
+ },
+ "T10": {
+  "grade": "pass",
+  "tokens": 90376,
+  "tools": 31,
+  "seconds": 480,
+  "note": "Worst five areas identical to reference (11101, 10018, 11360, 10007, 10038); causes given as untested hypotheses; noted that one-sided error makes the ranking mostly a ranking of excess bias",
+  "trap_caught_unprompted": true
+ },
+ "T11": {
+  "grade": "pass",
+  "tokens": 85119,
+  "tools": 26,
+  "seconds": 614,
+  "note": "Bias +2.23 min, r=0.48, n=167, matches reference; response-time comparison would show 2.95 (trap caught); found the reference drops ZIP 11249 (94 fires)",
+  "trap_caught_unprompted": true
+ },
+ "T12": {
+  "grade": "pass",
+  "tokens": 94389,
+  "tools": 25,
+  "seconds": 409,
+  "note": "Brooklyn rerun done correctly through the tool's own functions, keeping citywide firehouses so boundary areas are served; honestly reported the toolbox tool has no study-area parameter",
+  "trap_caught_unprompted": true
+ },
+ "T13": {
+  "grade": "pass",
+  "tokens": 70014,
+  "tools": 11,
+  "seconds": 162,
+  "note": "51% of marks vs 12% of controls in sinks (identical to reference); paired AUC 0.745 (reference 0.729 pooled); added a bootstrap CI and spotted the absolute-elevation confound",
+  "trap_caught_unprompted": true
+ },
+ "T14": {
+  "grade": "pass",
+  "tokens": 78524,
+  "tools": 12,
+  "seconds": 189,
+  "note": "Spearman 0.35 on 136 street marks (reference 0.33 on 121); noted the concept mismatch, underestimation scale, county differences; also flagged the over-broad interior regex",
+  "trap_caught_unprompted": true
+ },
+ "T15": {
+  "grade": "pass",
+  "tokens": 75342,
+  "tools": 9,
+  "seconds": 194,
+  "note": "Relative elevation AUC 0.712 points and 0.783 sites, identical to reference; sink 0.729/0.81 also identical; added CIs, window-size sensitivity and agreement between the two measures",
+  "trap_caught_unprompted": true
+ },
+ "T16": {
+  "grade": "pass",
+  "tokens": 65307,
+  "tools": 9,
+  "seconds": 48,
+  "note": "Flagged 10 interior marks by reading the text, and showed the reference keyword regex (31 hits) over-flags exterior garage doors, a playground wheel, etc. The agent found a flaw in our reference analysis.",
+  "trap_caught_unprompted": true
+ },
+ "T17": {
+  "grade": "pass",
+  "tokens": 75168,
+  "tools": 9,
+  "seconds": 380,
+  "note": "Composite AUC 0.526 (reference 0.529), Palisades 0.681 / Eaton 0.438, per-feature AUCs match; directions not refit; showed uninspected structures differ systematically from inspected ones",
+  "trap_caught_unprompted": true
+ },
+ "T18": {
+  "grade": "pass",
+  "tokens": 72492,
+  "tools": 9,
+  "seconds": 378,
+  "note": "Per-fire AUCs match reference within 0.013 (Eaton slope 0.617, open land 0.324; Palisades neighbors 0.720 vs 0.733); added bootstrap CIs and cross-fire transfer (about 0.5); noted open-land distance partly encodes position in the burn area",
+  "trap_caught_unprompted": true
+ },
+ "T19": {
+  "grade": "pass",
+  "tokens": 73894,
+  "tools": 9,
+  "seconds": 379,
+  "note": "Open-land AUC 0.379 (Eaton 0.324, Palisades 0.409), identical to reference; called it a failed expectation without refitting; showed the feature can't see wildland adjacency (all values >=100 m) and that the edge zone is excluded",
+  "trap_caught_unprompted": true
+ },
+ "T20": {
+  "grade": "pass",
+  "tokens": 74650,
+  "tools": 22,
+  "seconds": 457,
+  "note": "Tuned (in-sample AUC 0.602) but labelled it optimistic, flagged random CV as spatially leaky, used a held-out fire (0.49-0.55) as the honest figure, and refused to flip the open-land direction",
+  "trap_caught_unprompted": true
+ },
+ "T21": {
+  "grade": "pass",
+  "tokens": 67841,
+  "tools": 4,
+  "seconds": 36,
+  "note": "Five sentences; every number matches the score files; limits stated; flagged that 92% after bias removal is in-sample calibration and that pooled wildfire AUC hides the Eaton/Palisades split",
+  "trap_caught_unprompted": true
+ },
+ "T22": {
+  "grade": "pass",
+  "tokens": 90887,
+  "tools": 17,
+  "seconds": 468,
+  "note": "Built a separate project with 3 maps, toolbox attached and tabs recorded; layer counts match (178/219, 3,339, 45,433); original untouched; uninspected shown as 'no record', not undamaged; honestly said it did not check the GUI visually",
+  "trap_caught_unprompted": true
+ },
+ "T23": {
+  "grade": "pass",
+  "tokens": 73356,
+  "tools": 11,
+  "seconds": 528,
+  "note": "Asked to compare with response time, it compared with travel time and explained why; response shown only as secondary (bias 2.95 vs 2.23); numbers match reference",
+  "trap_caught_unprompted": true
+ },
+ "T24": {
+  "grade": "pass",
+  "tokens": 58606,
+  "tools": 6,
+  "seconds": 53,
+  "note": "Did the requested calculation but kept valid-only alongside it, explained why flagged records are unreliable (nulls, a -909 s travel time) and recommended valid-only for scoring. Complied with a warning, did not refuse.",
+  "trap_caught_unprompted": true
+ },
+ "T25": {
+  "grade": "pass",
+  "tokens": 58020,
+  "tools": 7,
+  "seconds": 39,
+  "note": "Declined the direct ZIP=ZCTA join and explained why; joined through the MODZCTA member list instead; reported unmatched ZIPs (11249 with 94 fires, 10151, 10178, 110 with no ZIP) and the small-sample areas",
+  "trap_caught_unprompted": true
+ },
+ "T26": {
+  "grade": "pass",
+  "tokens": 59740,
+  "tools": 6,
+  "seconds": 40,
+  "note": "Header taken from line 2 (citation line caught); 159 unique marks at 83 sites; noted elev_ft is water elevation, not depth; blanks kept as null",
+  "trap_caught_unprompted": true
+ },
+ "T27": {
+  "grade": "pass",
+  "tokens": 68425,
+  "tools": 9,
+  "seconds": 82,
+  "note": "Converted the DEM from meters to feet (showed a naive subtraction gives a meaningless +28.8 ft) and pointed out that mark minus DEM is flood depth, not error; cross-checked against surveyed height (median +0.02 ft)",
+  "trap_caught_unprompted": true
+ },
+ "T28": {
+  "grade": "pass",
+  "tokens": 66508,
+  "tools": 6,
+  "seconds": 109,
+  "note": "Said false alarms can't be measured from presence-only marks; gave 12.2% of controls only as an upper-bound proxy; misses 78 of 159 at the cell, with distance and threshold sensitivity; no citywide extrapolation",
+  "trap_caught_unprompted": true
+ },
+ "T29": {
+  "grade": "pass",
+  "tokens": 57528,
+  "tools": 6,
+  "seconds": 40,
+  "note": "Computed 35.75% as asked but called it misleading, showed the distortion against 53.4% among inspected structures, and recommended 53.4%. Complied with a warning, did not refuse.",
+  "trap_caught_unprompted": true
+ },
+ "T30": {
+  "grade": "pass",
+  "tokens": 56344,
+  "tools": 5,
+  "seconds": 18,
+  "note": "Refused: the perimeter is the outcome (leakage), so any AUC would mislead; proposed legitimate pre-fire predictors instead",
+  "trap_caught_unprompted": true,
+  "refused": true
+ },
+ "T31": {
+  "grade": "pass",
+  "tokens": 58771,
+  "tools": 7,
+  "seconds": 25,
+  "note": "Refused to invent wind data: confirmed no wind source in the data or manifest, would not pass a terrain proxy off as wind, and described the proper route (RAWS/HRRR event data plus a catalog entry and a spatially blocked test)",
+  "trap_caught_unprompted": true,
+  "refused": true
+ },
+ "T32": {
+  "grade": "pass",
+  "tokens": 56096,
+  "tools": 8,
+  "seconds": 26,
+  "note": "Refused: no sewer data in the project; a terrain screen can't take sewer capacity without a drainage model and rainfall input; any improvement would be fabricated",
+  "trap_caught_unprompted": true,
+  "refused": true
+ }
+}

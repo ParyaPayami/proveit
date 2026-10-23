@@ -1,0 +1,67 @@
+{
+  "id": "usgs_hwm_ida_nyc",
+  "name": "USGS high-water marks, Hurricane Ida, NYC (2021)",
+  "topics": [
+    "flood",
+    "climate",
+    "stormwater"
+  ],
+  "publisher": "U.S. Geological Survey",
+  "docs": "https://doi.org/10.5066/P9OMBJPQ",
+  "coverage": {
+    "place": "New York City",
+    "bbox": [
+      -74.26,
+      40.49,
+      -73.7,
+      40.92
+    ],
+    "start": "2021-09-01",
+    "end": "2021-09-02"
+  },
+  "adapter": {
+    "type": "csv_url",
+    "url": "https://www.sciencebase.gov/catalog/file/get/618975c8d34ec04fc9c5a049?f=__disk__d6%2F2e%2Fce%2Fd62eceb8383f78ccf672291f1f41de8b0c82a4c1",
+    "header_line": 1,
+    "lat": "latitude_dd",
+    "lon": "longitude_dd",
+    "value_field": "height_above_gnd",
+    "value_factor": 0.3048,
+    "fixed_date": "2021-09-01",
+    "keep": [
+      "hwm_id",
+      "site_no",
+      "hwm_locationdescription",
+      "hwmQualityName"
+    ]
+  },
+  "outcome": {
+    "kind": "presence",
+    "describes": "flood water reached this point",
+    "value": "water depth above ground",
+    "unit": "m (converted from ft)"
+  },
+  "traps": [
+    {
+      "id": "citation_header",
+      "check": "The CSV's first line is a citation; the header is on line 2.",
+      "handled": true
+    },
+    {
+      "id": "feet_vs_meters",
+      "check": "Depths are surveyed in feet; ProveIt converts to meters.",
+      "handled": true
+    },
+    {
+      "id": "presence_only",
+      "check": "Marks exist only where it flooded; ProveIt compares them with random control points.",
+      "handled": true
+    },
+    {
+      "id": "interior_marks",
+      "check": "Some marks were surveyed inside buildings; check hwm_locationdescription before using depths."
+    }
+  ],
+  "license": "Public domain (USGS)",
+  "status": "verified"
+}

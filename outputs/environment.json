@@ -1,0 +1,15 @@
+{
+  "product": "ArcGISPro 3.7",
+  "license_level": "Advanced",
+  "license_type": "Named User",
+  "python": "3.13.13",
+  "extensions": {
+    "Network": "Available",
+    "Spatial": "Available",
+    "3D": "Available",
+    "GeoStats": "Available",
+    "ImageAnalyst": "Available"
+  },
+  "portal": "https://www.arcgis.com/",
+  "work_dir": "C:\\proveit_work"
+}

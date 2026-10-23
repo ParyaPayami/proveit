@@ -1,0 +1,135 @@
+{
+  "name": "repro_wildfire_slope_deg",
+  "config": {
+    "higher_means": "more",
+    "distance_m": 30,
+    "min_records": 1,
+    "same_units": false,
+    "tolerance": null,
+    "controls": 5,
+    "where": null,
+    "start": "2025-01-07",
+    "end": null,
+    "prediction_date": "2025-01-07",
+    "key_field": null,
+    "prediction": "C:\\Users\\user\\Documents\\ArcGIS\\Projects\\ProveIt\\ProveIt.gdb\\wildfire_buildings",
+    "field": "slope_deg",
+    "source": "calfire_dins_la_2025",
+    "name": "repro_wildfire_slope_deg"
+  },
+  "shape": "polygons",
+  "test": "binary",
+  "source": {
+    "id": "calfire_dins_la_2025",
+    "name": "CAL FIRE damage inspections, Eaton and Palisades fires (2025)",
+    "topics": [
+      "wildfire",
+      "damage",
+      "public safety",
+      "insurance"
+    ],
+    "publisher": "LA County / CAL FIRE DINS",
+    "docs": "https://catalog.data.gov/dataset/cal-fire-damage-inspection-dins-data-6ab6d",
+    "coverage": {
+      "place": "Los Angeles County",
+      "bbox": [
+        -118.7,
+        34.0,
+        -118.0,
+        34.25
+      ],
+      "start": "2025-01-07",
+      "end": "2025-02-28"
+    },
+    "adapter": {
+      "type": "arcgis_layer",
+      "url": "https://services.arcgis.com/RmCCgQtiZLDCtblq/ArcGIS/rest/services/Buildings_2023_with_DINS/FeatureServer/4",
+      "label_field": "DAMAGE",
+      "fixed_date": "2025-01-07",
+      "keep": [
+        "BLD_ID",
+        "DAMAGE"
+      ]
+    },
+    "outcome": {
+      "kind": "label",
+      "describes": "structure destroyed (1) or inspected and not destroyed (0)",
+      "positive_values": [
+        "Destroyed (>50%)"
+      ],
+      "negative_values": [
+        "No Damage",
+        "Affected (1-9%)",
+        "Minor (10-25%)",
+        "Major (26-50%)"
+      ],
+      "exclude_values": [
+        "Inaccessible",
+        null
+      ]
+    },
+    "traps": [
+      {
+        "id": "uninspected_not_undamaged",
+        "check": "About a third of footprints have no inspection; they are excluded, not counted as survivors.",
+        "handled": true
+      },
+      {
+        "id": "selection_by_outcome",
+        "check": "Only structures near the final perimeters are in the layer; results describe structures the fire reached."
+      },
+      {
+        "id": "perimeter_is_outcome",
+        "check": "Never use distance to the final perimeter as a predictor."
+      }
+    ],
+    "license": "Public (LA County open data)",
+    "status": "verified"
+  },
+  "truth": {
+    "request": {
+      "source": "calfire_dins_la_2025",
+      "bbox": [
+        -118.690985,
+        34.027074,
+        -118.015862,
+        34.23272
+      ],
+      "start": "2025-01-07",
+      "end": null,
+      "where": null,
+      "max_rows": 500000
+    },
+    "source_name": "CAL FIRE damage inspections, Eaton and Palisades fires (2025)",
+    "outcome": {
+      "kind": "label",
+      "describes": "structure destroyed (1) or inspected and not destroyed (0)",
+      "positive_values": [
+        "Destroyed (>50%)"
+      ],
+      "negative_values": [
+        "No Damage",
+        "Affected (1-9%)",
+        "Minor (10-25%)",
+        "Major (26-50%)"
+      ],
+      "exclude_values": [
+        "Inaccessible",
+        null
+      ]
+    },
+    "format": "geojson",
+    "records": 45433,
+    "downloaded": "2026-10-22T18:29:31",
+    "sha256": "05fe50b4392ad720b5bc2d49c111d628f7993267ba4e49f969d593b5d9c9ed4e",
+    "rows": 45433,
+    "truncated": false,
+    "dropped": {}
+  },
+  "pairing": {
+    "truth_unmatched": 0,
+    "labels_excluded": 15035
+  },
+  "features": 45433,
+  "prediction_layer": "C:\\Users\\user\\Documents\\ArcGIS\\Projects\\ProveIt\\ProveIt.gdb\\wildfire_buildings"
+}

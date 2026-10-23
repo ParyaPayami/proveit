@@ -1,0 +1,68 @@
+{
+ "answer": "Tuning is possible but the honest result is weak and unstable. On 29,091 inspected structures (15,693 destroyed), the case's fixed-direction equal-weight score has AUC 0.529. Best grid-searched weights (nn 0.1, density 0.3, slope 0.6, open-land 0.0) give in-sample AUC 0.602, a modest gain from fitting on the same data. Weights do not transfer between fires: tuned on Eaton (slope only) -> Palisades 0.547; tuned on Palisades -> Eaton 0.494 (chance). The pre-specified open-land direction (nearer open land = riskier) is contradicted by the data (AUC 0.379, i.e. 0.621 if reversed); I did not flip it, because that would be fitting direction to outcome. Treat the score as weakly informative, not a validated predictor; 0.60 is not a headline.",
+ "numbers": {
+  "n_scored": 29091,
+  "n_destroyed": 15693,
+  "base_rate": 0.5394,
+  "equal_weight_auc_pooled": 0.5286,
+  "tuned_weights_in_sample": {
+   "nn_distance_m": 0.1,
+   "neighbors_50m": 0.3,
+   "slope_deg": 0.6,
+   "open_land_distance_m": 0.0
+  },
+  "tuned_auc_in_sample": 0.6023,
+  "single_feature_auc_fixed_direction": {
+   "nn_distance_m": 0.5404,
+   "neighbors_50m": 0.5564,
+   "slope_deg": 0.5809,
+   "open_land_distance_m": 0.3787
+  },
+  "cross_fire_train_eaton_test_palisades_auc": 0.5467,
+  "cross_fire_train_palisades_test_eaton_auc": 0.4942,
+  "equal_weight_auc_by_test_fire": {
+   "palisades": 0.683,
+   "eaton": 0.4396
+  },
+  "in_sample_best_eaton": {
+   "weights": [
+    0,
+    0,
+    1,
+    0
+   ],
+   "auc": 0.6166
+  },
+  "in_sample_best_palisades": {
+   "weights": [
+    0.2,
+    0.6,
+    0.2,
+    0
+   ],
+   "auc": 0.75
+  },
+  "random_5fold_cv_auc_tuned": 0.6023,
+  "labeled_rows_dropped_missing_features": 1308,
+  "weight_grid": "simplex step 0.1 on percentile-ranked features"
+ },
+ "traps_or_caveats": [
+  "Tuning and reporting AUC on the same data is optimistic; the 0.602 is in-sample. Random 5-fold CV (0.602) is leaky because neighbouring buildings are spatially autocorrelated, so cross-fire holdout (0.49-0.55) is the more honest figure.",
+  "Optimal weights differ between Eaton and Palisades (slope-only vs density-heavy), so a single weight set is not stable; pooled AUC also mixes fire-level differences (Palisades 60% destroyed vs Eaton 51%).",
+  "Case file fixes feature directions in advance; open_land_distance_m direction (lower is riskier) performs worse than chance (0.379). Weight tuned to 0 rather than reversing direction. Possible reason: edge/interior effects, buildings deep inside dense areas lie far from open land, and the 100 m open-land definition depends on the layer's coverage.",
+  "Uninspected (null) and Inaccessible footprints excluded, not counted as survivors (14,993 no record). 1,308 labeled footprints (mostly Palisades) dropped for missing slope/open-land values near DEM/core-mask edges; this could bias results.",
+  "Selection by outcome: layer was chosen using fire perimeters; results describe structures the fire reached, not where fire will go. Perimeter distance not used.",
+  "Wind, embers, vegetation, roof material, defensible space are not in the data and not estimated; the AUC ceiling is limited by that.",
+  "Features recomputed by my own copy of the wildfire_la.py feature logic (not the existing outputs); outputs elsewhere not read. Score My Layer not run (raster/feature-level pairing not needed; AUC computed directly).",
+  "Grid search only over non-negative weights summing to 1 at 0.1 steps; ties on percentile ranks averaged."
+ ],
+ "refused": false,
+ "files": [
+  "outputs/agent_eval/T20/T20_features.py",
+  "outputs/agent_eval/T20/features.csv",
+  "outputs/agent_eval/T20/tune.py",
+  "outputs/agent_eval/T20/tune_results.json",
+  "outputs/agent_eval/T20/run_summary.json",
+  "outputs/agent_eval/T20/answer.json"
+ ]
+}

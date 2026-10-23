@@ -1,0 +1,63 @@
+{
+  "observed_field_used": "med_travel_s",
+  "soql_where": "valid_incident_rspns_time_indc='Y' AND incident_classification_group='Structural Fires' AND incident_datetime between '2025-01-01T00:00:00' and '2025-12-31T23:59:59'",
+  "min_incidents_applied": 20,
+  "unmatched_zips_reported": true,
+  "unmatched_zips": [
+    {
+      "zipcode": "10151",
+      "incidents": 1
+    },
+    {
+      "zipcode": "10178",
+      "incidents": 1
+    },
+    {
+      "zipcode": null,
+      "incidents": 110
+    }
+  ],
+  "counts": {
+    "street_segments_default_speed": 12319,
+    "firehouses_without_coordinates": 0,
+    "street_points_loaded": 23669,
+    "street_points_reached": 23628,
+    "areas_with_model": 37,
+    "areas_with_observed": 37
+  },
+  "assumptions": [
+    "Units drive at the posted speed limit on the street centerline; no traffic, no siren speed-up.",
+    "The first unit comes from the nearest firehouse by drive time (FDNY may send another if that one is busy).",
+    "Where an incident happens inside a ZIP is unknown, so every street segment midpoint in the ZIP counts equally."
+  ],
+  "cutoff_minutes": 15.0,
+  "provenance": {
+    "case": "fire_ems",
+    "created": "2026-10-22T22:51:05",
+    "arcgis_pro": "ArcGISPro 3.7",
+    "python": "3.13.13",
+    "script": "\\\\Mac\\Home\\Desktop\\Esri\\proveit\\pro\\fire_ems.py",
+    "script_sha256": "ed7e616bf339bb124542ce615316f3d006765e453c64afee6d4654c75fbf8fc2",
+    "inputs": {
+      "data\\raw\\fire_ems\\streets_cscl.geojson": "9c22162f8db4952be2f081355fbec7a1b7ad427bd62ea91ecf575115caaf20c6",
+      "data\\raw\\fire_ems\\firehouses.json": "75c388b3b32dcd278a9d547a4f5d1c007babebfbc03d8cf589014815b0178769",
+      "data\\raw\\fire_ems\\modzcta.geojson": "281a1d375e86da650b5d4e2bd332b231267d73c996c60673ad968e162d758411",
+      "data\\raw\\fire_ems\\observed_by_zip_2025.json": "1f75d5ac1ae01022ddce4778fc82090875887a22c36c76469428c52eb519def5"
+    },
+    "params": {
+      "drivable_rw_types": {
+        "1": 25,
+        "2": 45,
+        "3": 30,
+        "4": 30,
+        "9": 30,
+        "10": 15,
+        "13": 15
+      },
+      "cutoff_min": 15.0,
+      "elevation_fields": true
+    }
+  },
+  "work_gdb": "C:\\proveit_work\\fire_ems_112.gdb",
+  "study_area_prefix": "112"
+}

@@ -1,0 +1,36 @@
+{
+ "answer": "The wildfire_la footprint layer (data/raw/wildfire_la/buildings_2023_with_dins.geojson, 45,433 footprints, complete, no duplicate IDs) breaks down by DAMAGE as: Destroyed (>50%) 16,244; No Damage 12,107; Affected (1-9%) 1,583; Minor (10-25%) 319; Major (26-50%) 146; Inaccessible 41; and null (no DAMAGE record) 14,993. Counts sum to 45,433. Null means not inspected, not undamaged. Excluding null and Inaccessible, 30,399 inspected footprints remain, of which 16,244 (53.4%) are destroyed. Counted directly from the local GeoJSON with plain Python; no ArcPy needed since this is attribute tallying.",
+ "numbers": {
+  "total_footprints": 45433,
+  "Destroyed (>50%)": 16244,
+  "No Damage": 12107,
+  "Affected (1-9%)": 1583,
+  "Minor (10-25%)": 319,
+  "Major (26-50%)": 146,
+  "Inaccessible": 41,
+  "null (not inspected / no record)": 14993,
+  "null_share_pct": 33.0,
+  "inspected_and_classified": 30399,
+  "destroyed_share_of_classified_pct": 53.4,
+  "inspected_not_destroyed": 14155,
+  "by_CODE": {
+   "Building": 45068,
+   "Courtyard": 289,
+   "Free Standing Solar Structure": 76
+  }
+ },
+ "traps_or_caveats": [
+  "Null DAMAGE (14,993, 33%) means no inspection record, not 'no damage'; reported separately and excluded from any survivor/percent calculation.",
+  "Inaccessible (41) is neither destroyed nor survived; excluded from the 30,399 denominator.",
+  "Layer was selected by the fires' final perimeters (within 1/4 mile), so counts describe structures the fire reached, not all LA buildings; the 53.4% destroyed share is not a general loss rate.",
+  "Unit is footprint polygons, not structures/addresses: includes 289 courtyard and 76 solar-structure polygons (365 non-building); with courtyards, one DINS structure may map to several footprints. Excluding non-Building codes: Destroyed 16,156, null 14,804 (+72 solar null, 117 courtyard null), No Damage 12,035, Affected 1,574, Minor 317, Major 141, Inaccessible 41.",
+  "Counts reflect the downloaded snapshot (manifest 2026-10-22, 45,433 features); live service may differ.",
+  "DAMAGE categories are CAL FIRE DINS visual inspection classes, not an independent measure."
+ ],
+ "refused": false,
+ "files": [
+  "outputs/agent_eval/T06/count.py",
+  "outputs/agent_eval/T06/counts.json",
+  "outputs/agent_eval/T06/answer.json"
+ ]
+}

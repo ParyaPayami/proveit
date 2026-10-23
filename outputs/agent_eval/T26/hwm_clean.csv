@@ -1,0 +1,160 @@
+id,latitude,longitude,elev_ft_navd88,height_above_gnd_ft,site,site_no,county,hwm_type,quality,uncertainty_ft
+40950,40.628024,-74.133442,19.0,1.89,"Haughwout Ave., between Cortlandt St. and Dryden Ct., Elm Park,  Staten Island",NYRIC31259,Richmond County,Seed line,Fair: +/- 0.20 ft,0.1
+40952,40.737636,-73.846662,12.4,4.87,"Grand Central Pkwy. service road, between 62nd Dr. and Horace Harding Expy. service road, Forest Hills, Queens",NYQUE31261,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+40949,40.737144,-73.846227,12.4,2.3,"Intersection of 62nd Dr. and Grand Central Pkwy. service road, Forest Hills, Queens",NYQUE31258,Queens County,Debris,Fair: +/- 0.20 ft,0.1
+40954,40.623183,-74.140253,27.9,2.14,"Forest Ave., between Crystal Ave. and Marianne St., in Target store parking lot, Westerleigh, Staten Island",NYRIC31262,Richmond County,Seed line,Good: +/- 0.10 ft,0.1
+40959,40.633801,-74.12885,15.5,2.21,"Jewett Ave. and Castleton Ave., at Levy Playground, Port Richmond, Staten Island",NYRIC31265,Richmond County,Seed line,Good: +/- 0.10 ft,0.1
+40968,40.761743,-73.87616,32.4,0.6,"Intersection of 93rd St. and 30th Ave., Jackson Heights, Queens",NYQUE31272,Queens County,Mud,Good: +/- 0.10 ft,0.1
+40963,40.739744,-73.897418,31.9,0.84,"East of intersection of 67th St. and Laurel Hill Blvd., Maspeth, Queens",NYQUE31268,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+40965,40.622075,-74.148731,30.2,2.26,"Vedder Ave., between Willow Rd. West and Holiday Dr., Graniteville, Staten Island",NYRIC31271,Richmond County,Seed line,Excellent: +/- 0.05 ft,0.1
+40958,40.723025,-73.878299,94.8,2.95,"62nd Ave., between 79th St. and 80th St., Middle Village, Queens",NYQUE31264,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+40962,40.89022,-73.895858,16.2,4.97,"East of Broadway, at Van Cortlandt Pool, Van Cortlandt Park, Bronx",NYBRO31267,Bronx County,Seed line,Excellent: +/- 0.05 ft,0.1
+40960,40.888684,-73.894321,16.4,5.46,"West side of Van Cortlandt Park Golf Course and north of the Major Deegan Expy., Van Cortlandt Park, Bronx",NYBRO31266,Bronx County,Seed line,Fair: +/- 0.20 ft,0.1
+40987,40.626374,-74.144662,29.3,1.32,"Villa Ave., between Dixon Ave. and Port Richmond Ave., Elm Park, Staten Island",NYRIC31283,Richmond County,Debris,Good: +/- 0.10 ft,0.1
+40984,40.632609,-74.123061,34.8,0.91,"Taylor St., between Cary Ave. and Castleon Ave., West Brighton, Staten Island",NYRIC31280,Richmond County,Debris,Excellent: +/- 0.05 ft,0.1
+40995,40.589076,-74.125044,240.7,0.0,"Near west shore of Ohrbach Lake at William H. Pouch Boy Scout Camp, Staten Island",NYRIC31292,Richmond County,Debris,Poor: +/- 0.40 ft,0.1
+40982,40.687879,-73.911141,36.7,0.91,"Evergreen Ave., between Eldert St. and Covert St., Bushwick, Brooklyn",NYKIN31278,Kings County,Seed line,Poor: +/- 0.40 ft,0.1
+40994,40.605535,-74.156962,32.3,0.0,"Near south end of Morani St. at Willowbrook Park, Mid Island, Staten Island",NYRIC31291,Richmond County,Debris,Fair: +/- 0.20 ft,0.1
+40990,40.726882,-73.848106,33.0,0.8,"Alley between 68th Ave. and 67th Dr., Forest Hills, Queens",NYQUE31288,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+40992,40.732376,-73.847996,32.4,0.94,"Alley between 64th Rd. and 65th Ave., Forest Hills, Queens",NYQUE31289,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+40985,40.695151,-73.915255,31.5,3.05,"Intersection of Wilson Ave. and Palmetto St., Bushwick, Brooklyn",NYKIN31281,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+40988,40.852372,-73.873351,28.4,0.0,"Parking field south of Jungle World Rd. and east of the Bronx River, Bronx Zoo, Bronx",NYBRO31285,Bronx County,Debris,Fair: +/- 0.20 ft,0.1
+40983,40.738118,-73.901358,32.2,6.21,"Alley north of 50th Ave., between 64th St. and 65th St., Woodside, Queens",NYQUE31279,Queens County,Stain line,Fair: +/- 0.20 ft,0.1
+41035,40.718133,-73.770739,131.0,0.37,"Palermo St., between Palo Alto Ave. and Salerno Ave., Holliswood, Queens",NYQUE31326,Queens County,Debris,Fair: +/- 0.20 ft,0.1
+41023,40.701143,-73.948417,12.2,1.3,"Harrison Ave., between Wallabout St. and Gerry St., Williamsburg, Brooklyn",NYKIN31314,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+41028,40.700937,-73.951153,12.1,1.92,"Marcy Ave. between Walton St. and Wallabout St., Williamsburg, Brooklyn",NYKIN31319,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41030,40.699782,-73.950827,13.9,0.65,"Flushing Ave., between Marcy Ave. and Lee Ave., Williamsburg, Brooklyn",NYKIN31321,Kings County,Mud,Poor: +/- 0.40 ft,0.1
+41017,40.702427,-73.946444,13.3,0.93,"Throop Ave, between Gerry St. and Wallabout St., Williamsburg, Brooklyn",NYKIN31308,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41029,40.73921,-73.765131,78.6,0.4,"Near intersection of 73rd Ave. and 210th St., in playground, Cunningham Park, Queens",NYQUE31320,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41021,40.711261,-73.779794,48.2,0.76,"Intersection of 182nd St. and 90th Ave., Jamaica, Queens",NYQUE31313,Queens County,Debris,Fair: +/- 0.20 ft,0.1
+41037,40.639567,-74.138244,9.8,1.19,"Richmond Ter., between Port Ln. and Treadwell Ave., Elm Park, Staten Island",NYRIC31328,Richmond County,Seed line,Excellent: +/- 0.05 ft,0.1
+41036,40.627907,-74.122774,60.9,1.58,"Forest Ave., between Clove Rd. and Raymond Pl., Port Richmond, Staten Island",NYRIC31327,Richmond County,Debris,Good: +/- 0.10 ft,0.1
+41031,40.730147,-73.805993,56.4,2.0,"Near intersection of 163rd St. and 71st Ave., Pomonok, Queens",NYQUE31322,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41032,40.730574,-73.804656,59.8,4.58,"71st Ave., between 164th St. and 165th St., Pomonok, Queens",NYQUE31323,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41106,40.866126,-73.928156,20.9,1.95,"Seaman Ave., between Dyckman St. and Riverside Dr., Inwood, Manhattan",NYNEW31395,New York County,Debris,Excellent: +/- 0.05 ft,0.1
+41105,40.795039,-73.95129,14.4,0.0,"West of intersection of 5th Ave. and East 107th St., near east bank of Harlem Meer, Central Park, Manhattan",NYNEW31394,New York County,Debris,Fair: +/- 0.20 ft,0.1
+41107,40.87368,-73.919569,6.9,0.0,"Northwest of intersection of Indian Rd. and West 218th St., at cut channel of the Harlem River, Inwood Hill Park, Manhattan",NYNEW31396,New York County,Debris,Excellent: +/- 0.05 ft,0.1
+41625,40.611225,-73.962747,29.1,,"Coney Island Ave., between Ave. P and Ave. O, Midwood, Brooklyn",NYKIN31392,Kings County,Mud,Poor: +/- 0.40 ft,0.1
+41598,40.612264,-73.964591,31.5,1.28,"Avenue O, between East 9th St. and East 8th St., Midwood, Brooklyn",NYKIN31714,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41100,40.637908,-73.998204,82.6,,"Intersection of 50th St. and Fort Hamilton Pkwy., Borough Park, Brooklyn",NYKIN31389,Kings County,Mud,Poor: +/- 0.40 ft,0.1
+41102,40.633772,-73.996193,63.0,,"53rd St., between 12th Ave. and New Utrecht Ave., Borough Park, Brooklyn",NYKIN31391,Kings County,Mud,Poor: +/- 0.40 ft,0.1
+41149,40.717606,-73.855877,39.5,0.99,"Ingram St., between Yellowstone Blvd. and 68th Ave., Forest Hills, Queens",NYQUE31442,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41145,40.715417,-73.853027,44.6,1.07,"Intersection of 69th Ave. and Juno St., Forest Hills, Queens",NYQUE31432,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41140,40.718012,-73.847914,62.0,1.56,"Tennis Pl., between Exeter St. and Dartmouth St., Forest Hills, Queens",NYQUE31428,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41136,40.719936,-73.844833,64.3,1.83,"Near intersection of Continental Ave. (71st Ave.) and Austin St., Forest Hills, Queens",NYQUE31424,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41134,40.718402,-73.840423,68.4,1.71,"Intersection of Ascan Ave. and Austin St., Forest Hills, Queens",NYQUE31422,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41139,40.717063,-73.846652,73.4,2.58,"Intersection of Continental Ave. (71st Ave.) and Slocum Crescent, Forest Hills, Queens",NYQUE31427,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41130,40.714701,-73.842791,84.4,1.45,"Near intersection of Ascan Ave. and Russell Pl., Forest Hills, Queens",NYQUE31419,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41151,40.847587,-73.844494,15.2,0.88,"Eastchester Rd., between Bassett Ave. and Waters Pl., at service entrance to Cavalry Hospital, Westchester Square, Bronx",NYBRO31477,Bronx County,Debris,Excellent: +/- 0.05 ft,0.1
+41147,40.846571,-73.855975,61.6,1.31,"Intersection of Radcliff Ave. and Van Nest Ave., on garage door of home, Morris Park, Bronx",NYBRO31438,Bronx County,Stain line,Excellent: +/- 0.05 ft,0.1
+41150,40.864467,-73.898722,115.7,1.5,"Jerome Ave., between West 192nd St. and West 190th St. at St. James Park, Fordham Manor, Bronx",NYBRO31453,Bronx County,Seed line,Good: +/- 0.10 ft,0.1
+41191,40.675959,-73.989996,9.2,1.63,"3rd St., between 3rd Ave. and Bond St., at east side of 3rd St. Bridge, Gowanus, Brooklyn",NYKIN31514,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+41203,40.888074,-73.843699,86.2,0.59,"South of intersection of Grenada Pl. and Grace Ave. at Edenwald housing project, Edenwald, Bronx",NYBRO31535,Bronx County,Debris,Fair: +/- 0.20 ft,0.1
+41251,40.764806,-73.88191,22.7,5.36,"Alley between 87th St. and 88th St., north of Astoria Blvd., Jackson Heights, Queens",NYQUE31584,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+41229,40.767108,-73.881569,21.6,0.0,"Near intersection of 88th St. and 23rd Ave., at Budget Car Rental parking lot, Jackson Heights, Queens",NYQUE31561,Queens County,Debris,Fair: +/- 0.20 ft,0.1
+41447,40.700654,-73.950433,12.8,0.41,"Near intersection of Wallabout St. and Union Ave., Williamsburg, Brooklyn",NYKIN31764,Kings County,Debris,Excellent: +/- 0.05 ft,0.1
+41192,40.82978,-73.830764,15.8,0.46,"Brinsmade Ave., between Barkley Ave. and Bruckner Blvd., Throgs Neck, Bronx",NYBRO31517,Bronx County,Seed line,Excellent: +/- 0.05 ft,0.1
+41189,40.677948,-73.988235,10.2,0.81,"Intersection of Carroll St. and Nevins St., Gowanus, Brooklyn",NYKIN31512,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41202,40.894235,-73.843384,88.1,2.01,"De Reimer Ave. between Edenwald Ave. and Bussing Ave., Wakefield, Bronx",NYBRO31534,Bronx County,Seed line,Excellent: +/- 0.05 ft,0.1
+41183,40.67635,-73.996919,25.3,2.32,"Smith St. between Luquer St. and Nelson St., Carroll Gardens, Brooklyn",NYKIN31506,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41196,40.835452,-73.823077,15.5,2.71,"Fairmount Ave., between Ellsworth Ave. and Fairfax Ave., Country Club, Bronx",NYBRO31530,Bronx County,Seed line,Excellent: +/- 0.05 ft,0.1
+41250,40.751352,-73.901136,29.8,6.51,"61st St., between Broadway and 34th Ave., Woodside, Queens",NYQUE31583,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+41228,40.762058,-73.8793,27.1,0.74,"30th Ave., between 90th St. and 89th St., Jackson Heights, Queens",NYQUE31560,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+41299,40.737983,-73.900683,32.5,4.44,"65th St, between 48th Ave. and 50th Ave., Maspeth, Queens",NYQUE31630,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41307,40.667095,-73.973043,150.0,3.48,"Between Prospect Park West and West Drive, east of 4th St., near 3rd St. playground, Prospect Park, Brooklyn",NYKIN31638,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+41304,40.673421,-73.986403,23.4,1.22,"4th Ave., between 3rd St. and 5th St., Gowanus, Brooklyn",NYKIN31635,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41303,40.674164,-73.984479,30.3,0.97,"2nd St., between 4th Ave. and 5th Ave., Park Slope, Brooklyn",NYKIN31634,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+41305,40.670755,-73.986252,44.1,1.12,"7th St., between 5th Ave. and 4th Ave., Park Slope, Brooklyn",NYKIN31636,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41679,40.669816,-73.971688,149.2,2.2,"Between Prospect Park West and West Dr., east of Garfield Pl., Prospect Park, Brooklyn",NYKIN31639,Kings County,Seed line,Fair: +/- 0.20 ft,0.5
+41306,40.668089,-73.976915,136.4,0.38,"Intersection of 5th St. and 8th Ave., Park Slope, Brooklyn",NYKIN31637,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41430,40.679252,-74.009158,4.2,0.3,"Visitation Pl., between Van Brunt St. and Richards St., Red Hook, Brooklyn",NYKIN31761,Kings County,Mud,Good: +/- 0.10 ft,0.5
+41433,40.721788,-73.953568,12.1,1.18,"South of Bedford Ave., between north 12th St. and Lorimer Ave., in McCarren Park, Brooklyn",NYKIN31762,Kings County,Debris,Fair: +/- 0.20 ft,0.5
+40947,40.816385,-73.82371,10.0,1.7,"Miles Ave., between Graff Ave. and Balcom Ave., Throgs Neck, Bronx",NYBRO31256,Bronx County,Seed line,Fair: +/- 0.20 ft,0.1
+40945,40.62562,-74.135611,25.3,2.05,"Barrett Ave., between Forest Ave. and Decker Ave., Elm Park, Staten Island",NYRIC31255,Richmond County,Seed line,Good: +/- 0.10 ft,0.1
+40957,40.833019,-73.833614,18.2,1.62,"Balcom Ave., between Whittemore Ave. and Gifford Ave., in Old St Raymonds Cemetery, Schuylerville, Bronx",NYBRO31263,Bronx County,Seed line,Good: +/- 0.10 ft,0.1
+40951,40.630429,-74.130572,18.4,2.55,"Intersection of Post Ave. and Jewett Ave., Port Richmond,  Staten Island",NYRIC31260,Richmond County,Seed line,Good: +/- 0.10 ft,0.1
+40964,40.729346,-73.907689,16.2,4.31,"54th Ave., west of Maurice Ave., Maspeth, Queens",NYQUE31269,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+40981,40.724804,-73.846648,31.9,4.0,"Intersection of 69th Ave. and Yellowstone Blvd., Forest Hills, Queens",NYQUE31277,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+40993,40.73573,-73.847329,12.8,1.8,"63rd Ave., between 110th St. and Grand Central Pkwy. service road, Forest Hills, Queens",NYQUE31290,Queens County,Mud,Good: +/- 0.10 ft,0.1
+40980,40.723835,-73.846067,33.6,0.91,"Intersection of 69th Rd. and Yellowstone Blvd., Forest Hills, Queens",NYQUE31276,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41146,40.822912,-73.869797,8.6,0.34,"Near intersection of Fteley Ave. and Story Ave., in basement of 43rd NYC Police Precinct, Soundview, Bronx",NYBRO31433,Bronx County,Stain line,Excellent: +/- 0.05 ft,0.1
+41190,40.82857,-73.830852,15.7,1.19,"Brinsmade Ave., between Barkely Ave. and Lafayette Ave., Throgs Neck, Bronx",NYBRO31513,Bronx County,Seed line,Excellent: +/- 0.05 ft,0.1
+41247,40.764953,-73.881204,22.8,4.59,"88th St., between 24th Ave. and Astoria Blvd., Jackson Heights, Queens",NYQUE31580,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+41148,40.716525,-73.856543,43.3,,"Juno St., between Selfridge St. and 68th Ave., Forest Hills, Queens",NYQUE31441,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+40969,40.73707,-73.845924,12.3,2.2,"Intersection of 62nd Dr. and Grand Central Pkwy. service road, Forest Hills, Queens",NYQUE31258,Queens County,Debris,Poor: +/- 0.40 ft,0.1
+40971,40.737707,-73.846818,12.6,2.44,"Grand Central Pkwy. service road, between 62nd Dr. and Horace Harding Expy. service road, Forest Hills, Queens",NYQUE31261,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41444,40.622111,-74.148727,30.1,2.32,"Vedder Ave., between Willow Rd. West and Holiday Dr., Graniteville, Staten Island",NYRIC31271,Richmond County,Seed line,Excellent: +/- 0.05 ft,0.1
+40975,40.623342,-74.140413,27.6,2.5,"Forest Ave., between Crystal Ave. and Marianne St., in Target store parking lot, Westerleigh, Staten Island",NYRIC31262,Richmond County,Debris,Fair: +/- 0.20 ft,0.1
+40976,40.633761,-74.128814,15.4,1.92,"Jewett Ave. and Castleton Ave., at Levy Playground, Port Richmond, Staten Island",NYRIC31265,Richmond County,Seed line,Good: +/- 0.10 ft,0.1
+41448,40.761716,-73.87616,32.6,0.72,"Intersection of 93rd St. and 30th Ave., Jackson Heights, Queens",NYQUE31272,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41309,40.739729,-73.897388,31.9,0.87,"East of intersection of 67th St. and Laurel Hill Blvd., Maspeth, Queens",NYQUE31268,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41040,40.72237,-73.877717,93.6,1.05,"62nd Ave., between 79th St. and 80th St., Middle Village, Queens",NYQUE31264,Queens County,Seed line,Poor: +/- 0.40 ft,0.1
+41343,40.890165,-73.895815,16.2,4.61,"East of Broadway, at Van Cortlandt Pool, Van Cortlandt Park, Bronx",NYBRO31267,Bronx County,Seed line,Excellent: +/- 0.05 ft,0.1
+41612,40.687954,-73.911282,36.3,0.9,"Evergreen Ave., between Eldert St. and Covert St., Bushwick, Brooklyn",NYKIN31278,Kings County,Mud,Poor: +/- 0.40 ft,0.1
+41012,40.626237,-74.144543,29.0,0.72,"Villa Ave., between Dixon Ave. and Port Richmond Ave., Elm Park, Staten Island",NYRIC31283,Richmond County,Debris,Fair: +/- 0.20 ft,0.1
+41013,40.605499,-74.156896,32.3,0.0,"Near south end of Morani St. at Willowbrook Park, Mid Island, Staten Island",NYRIC31291,Richmond County,Debris,Good: +/- 0.10 ft,0.1
+41614,40.695028,-73.91538,31.5,3.04,"Intersection of Wilson Ave. and Palmetto St., Bushwick, Brooklyn",NYKIN31281,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+41316,40.726837,-73.848079,33.1,0.72,"Alley between 68th Ave. and 67th Dr., Forest Hills, Queens",NYQUE31288,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41317,40.73233,-73.847971,32.4,0.76,"Alley between 64th Rd. and 65th Ave., Forest Hills, Queens",NYQUE31289,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41592,40.852372,-73.873351,28.3,0.0,"Parking field south of Jungle World Rd. and east of the Bronx River, Bronx Zoo, Bronx",NYBRO31285,Bronx County,Debris,Fair: +/- 0.20 ft,0.1
+41312,40.73809,-73.90141,32.2,5.87,"Alley north of 50th Ave., between 64th St. and 65th St., Woodside, Queens",NYQUE31279,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41589,40.718217,-73.770858,132.8,1.49,"Palermo St., between Palo Alto Ave. and Salerno Ave., Holliswood, Queens",NYQUE31326,Queens County,Debris,Poor: +/- 0.40 ft,0.1
+41619,40.700818,-73.951028,12.4,1.4,"Marcy Ave. between Walton St. and Wallabout St., Williamsburg, Brooklyn",NYKIN31319,Kings County,Debris,Good: +/- 0.10 ft,0.1
+41620,40.69979,-73.950766,14.8,1.5,"Flushing Ave., between Marcy Ave. and Lee Ave., Williamsburg, Brooklyn",NYKIN31321,Kings County,Mud,Fair: +/- 0.20 ft,0.1
+41617,40.701237,-73.948515,12.2,1.12,"Harrison Ave., between Wallabout St. and Gerry St., Williamsburg, Brooklyn",NYKIN31314,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+41615,40.702351,-73.946356,13.3,1.11,"Throop Ave, between Gerry St. and Wallabout St., Williamsburg, Brooklyn",NYKIN31308,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41588,40.711216,-73.779756,48.0,0.7,"Intersection of 182nd St. and 90th Ave., Jamaica, Queens",NYQUE31313,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41320,40.73933,-73.765212,78.3,0.84,"Near intersection of 73rd Ave. and 210th St., in playground, Cunningham Park, Queens",NYQUE31320,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41446,40.639585,-74.138265,9.8,1.25,"Richmond Ter., between Port Ln. and Treadwell Ave., Elm Park, Staten Island",NYRIC31328,Richmond County,Debris,Excellent: +/- 0.05 ft,0.1
+41322,40.730146,-73.806019,56.3,2.0,"Near intersection of 163rd St. and 71st Ave., Pomonok, Queens",NYQUE31322,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41445,40.627938,-74.122955,61.3,2.13,"Forest Ave., between Clove Rd. and Raymond Pl., Port Richmond, Staten Island",NYRIC31327,Richmond County,Debris,Good: +/- 0.10 ft,0.1
+41323,40.730562,-73.804343,59.8,4.2,"71st Ave., between 164th St. and 165th St., Pomonok, Queens",NYQUE31323,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41440,40.873684,-73.919438,7.1,0.0,"Northwest of intersection of Indian Rd. and West 218th St., at cut channel of the Harlem River, Inwood Hill Park, Manhattan",NYNEW31396,New York County,Debris,Good: +/- 0.10 ft,0.1
+41438,40.794968,-73.951375,14.7,0.0,"West of intersection of 5th Ave. and East 107th St., near east bank of Harlem Meer, Central Park, Manhattan",NYNEW31394,New York County,Seed line,Fair: +/- 0.20 ft,0.1
+41101,40.636113,-73.995239,64.4,,"Near intersection of 50th St. and New Utrecht Ave., Borough Park, Brooklyn",NYKIN31390,Kings County,Mud,Poor: +/- 0.40 ft,0.1
+41439,40.866027,-73.928234,21.0,0.97,"Seaman Ave., between Dyckman St. and Riverside Dr., Inwood, Manhattan",NYNEW31395,New York County,Debris,Excellent: +/- 0.05 ft,0.1
+41406,40.612261,-73.964684,31.5,1.48,"Avenue O, between East 9th St. and East 8th St., Midwood, Brooklyn",NYKIN31714,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41623,40.63779,-73.998108,81.3,,"Intersection of 50th St. and Fort Hamilton Pkwy., Borough Park, Brooklyn",NYKIN31389,Kings County,Mud,Poor: +/- 0.40 ft,0.1
+41152,40.633767,-73.996319,63.3,,"53rd St., between 12th Ave. and New Utrecht Ave., Borough Park, Brooklyn",NYKIN31391,Kings County,Mud,Poor: +/- 0.40 ft,0.1
+41584,40.717588,-73.855781,39.5,1.05,"Ingram St., between Yellowstone Blvd. and 68th Ave., Forest Hills, Queens",NYQUE31442,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41644,40.716623,-73.856626,43.4,2.37,"Juno St., between Selfridge St. and 68th Ave., Forest Hills, Queens",NYQUE31441,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+41643,40.718044,-73.847831,61.7,1.28,"Tennis Pl., between Exeter St. and Dartmouth St., Forest Hills, Queens",NYQUE31428,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41641,40.719878,-73.844808,64.2,1.59,"Near intersection of Continental Ave. (71st Ave.) and Austin St., Forest Hills, Queens",NYQUE31424,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41677,40.718115,-73.840873,70.1,2.17,"Intersection of Ascan Ave. and Austin St., Forest Hills, Queens",NYQUE31422,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41676,40.717232,-73.846729,72.5,2.2,"Intersection of Continental Ave. (71st Ave.) and Slocum Crescent, Forest Hills, Queens",NYQUE31427,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41630,40.714741,-73.842933,84.4,1.84,"Near intersection of Ascan Ave. and Russell Pl., Forest Hills, Queens",NYQUE31419,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41594,40.846576,-73.856007,61.6,1.29,"Intersection of Radcliff Ave. and Van Nest Ave., on garage door of home, Morris Park, Bronx",NYBRO31438,Bronx County,Debris,Good: +/- 0.10 ft,0.1
+41201,40.864431,-73.89875,116.1,1.68,"Jerome Ave., between West 192nd St. and West 190th St. at St. James Park, Fordham Manor, Bronx",NYBRO31453,Bronx County,Seed line,Good: +/- 0.10 ft,0.1
+41674,40.675946,-73.989975,8.7,1.42,"3rd St., between 3rd Ave. and Bond St., at east side of 3rd St. Bridge, Gowanus, Brooklyn",NYKIN31514,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41326,40.835449,-73.823089,15.5,0.12,"Fairmount Ave., between Ellsworth Ave. and Fairfax Ave., Country Club, Bronx",NYBRO31530,Bronx County,Seed line,Good: +/- 0.10 ft,0.1
+41591,40.677963,-73.988262,10.7,1.1,"Intersection of Carroll St. and Nevins St., Gowanus, Brooklyn",NYKIN31512,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41325,40.767315,-73.881704,22.2,1.54,"Near intersection of 88th St. and 23rd Ave., at Budget Car Rental parking lot, Jackson Heights, Queens",NYQUE31561,Queens County,Debris,Poor: +/- 0.40 ft,0.1
+41590,40.676424,-73.99684,25.2,1.7,"Smith St. between Luquer St. and Nelson St., Carroll Gardens, Brooklyn",NYKIN31506,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41324,40.764944,-73.881209,23.0,4.91,"88th St., between 24th Ave. and Astoria Blvd., Jackson Heights, Queens",NYQUE31580,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41442,40.764767,-73.881902,22.4,4.92,"Alley between 87th St. and 88th St., north of Astoria Blvd., Jackson Heights, Queens",NYQUE31584,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+41595,40.737948,-73.900688,32.6,4.32,"65th St, between 48th Ave. and 50th Ave., Maspeth, Queens",NYQUE31630,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41610,40.667135,-73.973127,149.9,3.23,"Between Prospect Park West and West Drive, east of 4th St., near 3rd St. playground, Prospect Park, Brooklyn",NYKIN31638,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+41603,40.673379,-73.985991,23.2,1.16,"4th Ave., between 3rd St. and 5th St., Gowanus, Brooklyn",NYKIN31635,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41605,40.670679,-73.986159,44.2,1.28,"7th St., between 5th Ave. and 4th Ave., Park Slope, Brooklyn",NYKIN31636,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41680,40.669907,-73.971663,148.5,2.0,"Between Prospect Park West and West Dr., east of Garfield Pl., Prospect Park, Brooklyn",NYKIN31639,Kings County,Seed line,Fair: +/- 0.20 ft,0.5
+41608,40.674235,-73.984631,30.6,1.27,"2nd St., between 4th Ave. and 5th Ave., Park Slope, Brooklyn",NYKIN31634,Kings County,Seed line,Good: +/- 0.10 ft,0.1
+41624,40.668,-73.976984,137.0,0.54,"Intersection of 5th St. and 8th Ave., Park Slope, Brooklyn",NYKIN31637,Kings County,Seed line,Fair: +/- 0.20 ft,0.1
+41678,40.721744,-73.953619,12.0,1.42,"South of Bedford Ave., between north 12th St. and Lorimer Ave., in McCarren Park, Brooklyn",NYKIN31762,Kings County,Debris,Fair: +/- 0.20 ft,0.5
+41675,40.71526,-73.853092,45.7,1.21,"Intersection of 69th Ave. and Juno St., Forest Hills, Queens",NYQUE31432,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+40961,40.627906,-74.133512,19.3,1.85,"Haughwout Ave., between Cortlandt St. and Dryden Ct., Elm Park,  Staten Island",NYRIC31259,Richmond County,Seed line,Good: +/- 0.10 ft,0.1
+40946,40.625695,-74.135583,25.3,3.92,"Barrett Ave., between Forest Ave. and Decker Ave., Elm Park, Staten Island",NYRIC31255,Richmond County,Seed line,Good: +/- 0.10 ft,0.1
+41585,40.816439,-73.823643,9.1,1.14,"Miles Ave., between Graff Ave. and Balcom Ave., Throgs Neck, Bronx",NYBRO31256,Bronx County,Seed line,Fair: +/- 0.20 ft,0.1
+41593,40.83299,-73.833706,17.9,2.0,"Balcom Ave., between Whittemore Ave. and Gifford Ave., in Old St Raymonds Cemetery, Schuylerville, Bronx",NYBRO31263,Bronx County,Seed line,Poor: +/- 0.40 ft,0.1
+40974,40.630695,-74.130259,18.5,2.11,"Intersection of Post Ave. and Jewett Ave., Port Richmond,  Staten Island",NYRIC31260,Richmond County,Seed line,Good: +/- 0.10 ft,0.1
+41441,40.72928,-73.907607,16.1,4.24,"54th Ave., west of Maurice Ave., Maspeth, Queens",NYQUE31269,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+41586,40.888736,-73.894339,16.4,5.9,"West side of Van Cortlandt Park Golf Course and north of the Major Deegan Expy., Van Cortlandt Park, Bronx",NYBRO31266,Bronx County,Seed line,Good: +/- 0.10 ft,0.1
+41310,40.724804,-73.846648,31.8,4.0,"Intersection of 69th Ave. and Yellowstone Blvd., Forest Hills, Queens",NYQUE31277,Queens County,Seed line,Excellent: +/- 0.05 ft,0.1
+41319,40.735743,-73.84729,12.8,2.01,"63rd Ave., between 110th St. and Grand Central Pkwy. service road, Forest Hills, Queens",NYQUE31290,Queens County,Mud,Good: +/- 0.10 ft,0.1
+41629,40.7238,-73.846047,34.1,0.86,"Intersection of 69th Rd. and Yellowstone Blvd., Forest Hills, Queens",NYQUE31276,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41587,40.822912,-73.869797,8.6,0.34,"Near intersection of Fteley Ave. and Story Ave., in basement of 43rd NYC Police Precinct, Soundview, Bronx",NYBRO31433,Bronx County,Stain line,Excellent: +/- 0.05 ft,0.1
+41328,40.828566,-73.830872,15.7,1.75,"Brinsmade Ave., between Barkely Ave. and Lafayette Ave., Throgs Neck, Bronx",NYBRO31513,Bronx County,Seed line,Excellent: +/- 0.05 ft,0.1
+40970,40.736606,-73.846059,12.1,3.5,"Intersection of 62nd Dr. and Grand Central Pkwy. service road, Forest Hills, Queens",NYQUE31258,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41015,40.606423,-74.156568,32.6,0.0,"Near south end of Morani St. at Willowbrook Park, Mid Island, Staten Island",NYRIC31291,Richmond County,Debris,Excellent: +/- 0.05 ft,0.1
+41314,40.738021,-73.901409,32.1,5.41,"Alley north of 50th Ave., between 64th St. and 65th St., Woodside, Queens",NYQUE31279,Queens County,Seed line,Fair: +/- 0.20 ft,0.1
+41321,40.739337,-73.765121,78.2,1.24,"Near intersection of 73rd Ave. and 210th St., in playground, Cunningham Park, Queens",NYQUE31320,Queens County,Seed line,Good: +/- 0.10 ft,0.1
+41597,40.737888,-73.900686,32.5,4.45,"65th St, between 48th Ave. and 50th Ave., Maspeth, Queens",NYQUE31630,Queens County,Seed line,Good: +/- 0.10 ft,0.1

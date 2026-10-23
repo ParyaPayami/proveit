@@ -1,0 +1,71 @@
+{
+ "answer": "Compared like with like: modeled drive time (nearest firehouse by posted-speed drive time, 103k street-segment midpoints, median per MODZCTA area) vs FDNY median TRAVEL time (not response time, which adds turnout) for 2025 valid structural-fire records. Of 177 areas, 167 have >=20 incidents. The model is far too fast: median 1.53 min vs 3.85 observed, bias -2.2 min, MAE 2.2 min, RMSE 2.3, r=0.48, only 5/167 areas within 1 minute. Against full response time the gap widens (bias -2.9 min, 0 areas within 1 min). The model ranks areas only weakly and is not usable as a prediction of actual FDNY times; it is a free-flow lower bound.",
+ "numbers": {
+  "areas_scored": 167,
+  "areas_total_observed": 177,
+  "areas_excluded_lt20_incidents": 10,
+  "median_model_min": 1.53,
+  "median_observed_travel_min": 3.85,
+  "median_observed_response_min": 4.575,
+  "bias_model_minus_obs_travel_min": -2.225,
+  "mae_travel_min": 2.225,
+  "rmse_travel_min": 2.293,
+  "pearson_r_travel": 0.482,
+  "areas_within_1min_travel": 5,
+  "bias_vs_response_min": -2.947,
+  "mae_vs_response_min": 2.947,
+  "r_vs_response": 0.496,
+  "within_1min_vs_response": 0,
+  "street_points": 103215,
+  "street_points_reached_within_15min": 102664,
+  "worst_areas_model_vs_obs_min": {
+   "11101": [
+    1.49,
+    5.13
+   ],
+   "10018": [
+    1.16,
+    4.77
+   ],
+   "11360": [
+    2.3,
+    5.85
+   ],
+   "10007": [
+    0.85,
+    4.38
+   ],
+   "10038": [
+    0.97,
+    4.48
+   ],
+   "10001": [
+    1.36,
+    4.62
+   ]
+  },
+  "unmatched_dispatch_zips": {
+   "11249": 94,
+   "null_zip": 110,
+   "10151": 1,
+   "10178": 1
+  }
+ },
+ "traps_or_caveats": [
+  "response_vs_travel: asked for 'response time'; modeled time is driving only, so the headline compares to incident_travel_tm_seconds_qy. Response time (includes turnout) shown only as secondary.",
+  "valid_flag: only valid_incident_rspns_time_indc='Y' records, structural fires, 2025.",
+  "zip_geography: dispatch postal ZIPs mapped to MODZCTA via member-ZIP list; 206 incidents unmatched and not scored: ZIP 11249 (94, likely a Williamsburg ZIP missing from the MODZCTA member list), null ZIP (110), 10151 and 10178 (1 each). Not silently dropped but not recovered.",
+  "small_samples: 10 areas with <20 incidents excluded (10004,10005,10006,10044,10069,10280,10282,10464,11109,11697).",
+  "Observed area values are incident-weighted means of postal-ZIP medians (approximation of a pooled median); the model value is a median over street midpoints, so it weights streets, not fires, equally.",
+  "Model assumes posted speed, no traffic/siren effects, no dispatch delays, nearest house always available and first-due; real units are often not the nearest, or busy, and real speeds are below posted. Large systematic underestimate is expected and is a limit of the model, not a finding about FDNY performance.",
+  "Marine units excluded from firehouse set in the main run (all-firehouses sensitivity gives same stats). Firehouse list includes battalion/division/borough command co-located facilities; counted as stations.",
+  "Network reused from cached C:\\proveit_work\\fire_ems.gdb (read-only); not rebuilt or independently verified. Scratch output in C:\\proveit_work\\T23_work.gdb. Score Layer not run (area-level comparison done directly)."
+ ],
+ "refused": false,
+ "files": [
+  "outputs/agent_eval/T23/t23.py",
+  "outputs/agent_eval/T23/results_by_zip.csv",
+  "outputs/agent_eval/T23/stats.json",
+  "outputs/agent_eval/T23/answer.json"
+ ]
+}
